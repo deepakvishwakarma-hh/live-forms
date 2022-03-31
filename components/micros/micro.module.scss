@@ -1,0 +1,14 @@
+@import "../../styles/parent";
+
+
+
+.hiredeveloperbutton {
+    @extend %resetCss;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background-color: $blue;
+    border-radius: .5rem;
+    padding: .8rem 1rem .8rem 1rem;
+
+}

@@ -1,0 +1,75 @@
+@import "../../../styles/parent";
+
+.wrapper {
+    display: flex;
+
+    @media (max-width: 800px) {
+        flex-direction: column-reverse;
+        height: 100vh;
+    }
+
+    // help to visualise illustation perfacly
+    @media (max-width:500px) and (max-height: 800px) {
+        height: 1000px;
+    }
+
+    @extend %responsivePadding;
+
+    .content {
+        flex: 1;
+        position: relative;
+
+        h1 {
+            font-size: 5rem;
+            font-weight: 1000;
+            text-transform: capitalize;
+
+            @media (max-width: 1200px) {
+                font-size: 4rem;
+                line-height: 4.5rem;
+            }
+
+            @media (max-width: 1000px) {
+                font-size: 3rem;
+                line-height: 3.5rem;
+            }
+        }
+
+        h5 {
+            padding: 1rem 0;
+            // font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 2rem;
+            opacity: .8;
+
+            @extend %resParagraphFontSize;
+
+        }
+
+        button {
+            padding: 1rem 3rem;
+        }
+
+        p {
+            padding: 1rem 0;
+            color: $blue;
+            font-weight: 500;
+
+            @extend %resParagraphFontSize;
+
+        }
+    }
+
+    .illustration {
+        flex: 1;
+
+        // help to visualise illustation perfacly
+        @media (max-width:500px) and (max-height: 800px) {
+            flex: 2;
+            border: 2px red solid;
+        }
+
+    }
+
+
+}

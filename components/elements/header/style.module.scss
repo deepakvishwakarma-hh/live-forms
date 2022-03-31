@@ -1,0 +1,48 @@
+@import "../../../styles/parent";
+
+
+// wrapper
+
+
+.wrapper {
+    @extend %responsivePadding;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background: $smoke;
+
+    .btn-grp {
+        display: flex;
+
+        @media (max-width : 600px) {
+            display: none;
+        }
+    }
+
+    .mobile {
+
+        .mobile_menu {
+            position: fixed;
+            padding: 1rem;
+            width: 100%;
+            height: calc(100% - 100px);
+            left: 0;
+            top: 100px;
+            background: rgb(255, 255, 255);
+            z-index: 9;
+
+
+            button {
+                width: 100%;
+            }
+        }
+
+        @extend %resetCss;
+
+        @media (min-width : 600px) {
+            display: none;
+        }
+    }
+}

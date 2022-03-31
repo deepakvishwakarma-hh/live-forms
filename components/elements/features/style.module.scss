@@ -1,0 +1,60 @@
+@import "../../../styles/parent";
+
+.wrapper {
+
+    @extend %responsivePadding;
+
+    background: $lightblue;
+    display: flex;
+
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+}
+
+.block {
+    flex: 1;
+    margin: 0 5rem;
+
+    @media (max-width: 1200px) {
+        margin: 0 3rem;
+    }
+
+    @media (max-width: 1000px) {
+        margin: 0 2rem;
+    }
+
+    @media (max-width: 800px) {
+        margin: 3rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10rem;
+        text-align: center;
+    }
+
+    @media (max-width: 600px) {
+        padding: 0 3rem;
+    }
+
+    @media (max-width: 400px) {
+        padding: 0 1rem;
+    }
+
+    h1 {
+        padding: 2rem 0;
+    }
+
+    p {
+        @extend %resParagraphFontSize;
+        font-weight: 500;
+        line-height: 2.2rem;
+    }
+
+    .image_wrapper {
+        position: relative;
+        height: 150px;
+        width: 200px;
+
+    }
+}

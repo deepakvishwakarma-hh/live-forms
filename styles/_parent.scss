@@ -1,0 +1,42 @@
+// Need to Extends in every SCSSS
+
+
+%resetCss {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: 'Raleway',
+        sans-serif !important;
+
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+
+%responsivePadding {
+    padding: 4rem;
+
+    @media (max-width: 1200px) {
+        padding: 2rem;
+    }
+}
+
+
+// responsive : paragraph type
+
+%resParagraphFontSize {
+    font-size: 1.1rem;
+
+    @media (max-width: 1200px) {
+        font-size: 1rem;
+    }
+
+    @media (max-width: 800px) {
+        font-size: 1rem;
+    }
+}
+
+$smoke: #F6F6FF;
+$blue : #6C63FF;
+$lightblue : #C7C4FF;
+$dark : #221C2E;

@@ -1,0 +1,49 @@
+@import "../../../styles/parent";
+
+
+.wrapper {
+
+    @extend %responsivePadding;
+
+    background: $dark;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+    }
+
+    div {
+
+        display: flex;
+
+        @media (max-width: 800px) {
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        button {
+            display: block;
+        }
+    }
+}
+
+.link {
+    color: white;
+    @extend %resParagraphFontSize;
+    font-weight: 300;
+    padding: 1rem 2rem;
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+        margin: 1rem 0;
+    }
+
+    @media (max-width: 600px) {
+        margin: 1rem 0;
+        border-bottom: 1px solid whitesmoke;
+    }
+
+
+}
