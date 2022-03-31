@@ -1,0 +1,108 @@
+@import "../../../styles/parent";
+
+
+.wrapper {
+    display: flex;
+
+    .illustration {
+        flex: 3;
+        background: whitesmoke;
+        background-image: url('/login.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+
+        @media (max-width : 1200px) {
+            flex: 2;
+        }
+
+        @media (max-width : 1000px) {
+            display: none;
+        }
+    }
+
+    .content {
+        flex: 1;
+        height: 100vh;
+        padding: 4rem 10rem;
+
+        @media (max-width : 1000px) {
+            padding: 4rem 10%;
+        }
+
+        div {
+
+            &:nth-child(1) {
+                margin-bottom: 5rem;
+
+                span {
+                    opacity: .5;
+                    @extend %resParagraphFontSize;
+                }
+
+                a {
+                    color: $blue;
+                    padding: 0 0 0 .5rem;
+                    text-transform: capitalize;
+                }
+            }
+
+            &:nth-child(2) {
+                // might imperfact
+                height: calc(100% - 10rem);
+
+                @extend %center-flex;
+                flex-direction: column;
+
+                h1 {
+                    font-size: 3rem;
+                    color: $blue;
+                    margin-bottom: 1rem;
+                    font-family: 'Raleway',
+                        sans-serif !important;
+                }
+
+                p {
+                    opacity: .5;
+                    margin-bottom: 2rem;
+                    @extend %resParagraphFontSize;
+
+                }
+
+                form {
+                    width: 100%;
+
+                    fieldset {
+                        padding: 0;
+                        margin: 0;
+                        margin: 1.5rem 0;
+                        padding: .8rem;
+                        border-radius: .3rem;
+
+                        legend {
+                            padding: 0 1rem
+                        }
+
+                        input {
+                            @extend %resetCss;
+                            font-size: 1rem;
+                            display: block;
+                            width: 100%;
+                        }
+                    }
+
+                    button {
+                        @extend %resetCss;
+                        width: 100%;
+                        padding: 1rem 0;
+                        background: $blue;
+                        border-radius: .3rem;
+                        color: white;
+                    }
+
+                }
+
+            }
+        }
+
+    }
+}

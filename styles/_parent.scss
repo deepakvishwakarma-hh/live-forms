@@ -1,5 +1,9 @@
 // Need to Extends in every SCSSS
 
+$smoke: #F6F6FF;
+$blue : #6C63FF;
+$lightblue : #C7C4FF;
+$dark : #221C2E;
 
 %resetCss {
     border: none;
@@ -36,7 +40,9 @@
     }
 }
 
-$smoke: #F6F6FF;
-$blue : #6C63FF;
-$lightblue : #C7C4FF;
-$dark : #221C2E;
+
+%center-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
