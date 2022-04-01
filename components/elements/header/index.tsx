@@ -5,14 +5,20 @@ import style from "./style.module.scss";
 import MobileResponsiveMenu from "./MobileResponsiveMenu"
 import HireDeveloperButton from "../../micros/HireDeveloperButton";
 
-const Header = () => (
+interface prop {
+    clean?: boolean
+}
+
+const Header = ({ clean }: prop) => (
     <nav className={style.wrapper}>
         <Logo />
+
         <div className={style['btn-grp']}>
-            <HireDeveloperButton />
+            {!clean && <HireDeveloperButton />}
         </div>
 
-        <MobileResponsiveMenu />
+        {!clean && <MobileResponsiveMenu />}
+
     </nav >)
 
 export default Header;

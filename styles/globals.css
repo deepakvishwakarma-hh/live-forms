@@ -6,9 +6,9 @@ body {
   padding: 0;
   margin: 0;
   /* font-family: 'Raleway',
-      sans-serif !important; */
-
-  font-family: 'Poppins', sans-serif !important;
+  sans-serif !important; */
+font-family: 'Poppins',
+sans-serif !important;
   background: rgb(255, 255, 255);
 }
 

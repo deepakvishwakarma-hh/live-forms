@@ -1,0 +1,126 @@
+@import "../../../styles/parent";
+
+.wrapper {
+    display: grid;
+    padding: 4rem;
+    grid: 100vh / 300px auto;
+    background: #000;
+
+    .aside {
+        padding: 1rem;
+        background: rgb(192, 192, 192);
+        position: relative;
+        flex: 1;
+
+        h1 {
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .aside__button__wrapper {
+
+            button {
+                @extend %resetCss;
+                display: block;
+                width: 100%;
+                padding: 1rem 0;
+                border-radius: .2rem;
+                margin: .5rem 0;
+                background: grey;
+            }
+
+        }
+    }
+
+    .main {
+        background: rgb(255, 255, 255);
+        padding: 1rem;
+
+        .main__header {
+            sup {
+                color: red
+            }
+
+            .main__header__wrapper {
+                display: flex;
+
+                .main__header__wrapper__input {
+                    margin: 1rem;
+
+                    span {
+                        display: block;
+                    }
+
+                    input {
+                        padding: .5rem 3rem .5rem .5rem;
+                    }
+                }
+            }
+        }
+
+        .main__meta {
+            min-height: 200px;
+            background: cyan;
+        }
+    }
+
+    .popup {
+        @extend %center-flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(0, 0, 0, 0.658);
+
+        .popup__wrapper {
+            padding: 1rem;
+            width: 500px;
+            background: rgb(255, 255, 255);
+
+            label {
+                display: block;
+
+                input {
+                    display: block;
+                }
+            }
+
+
+
+            .popup__wrapper__dropbox {
+                ul {
+                    padding: 1rem;
+                }
+
+                input {
+                    padding: .5rem 3rem .5rem .5rem;
+                }
+
+                button {
+                    padding: .5rem .5rem .5rem .5rem;
+
+                }
+            }
+        }
+
+
+
+
+    }
+}
+
+//testing purposes
+
+
+.main__header__wrapper__input {
+    // margin: 1rem;
+
+    span {
+        display: block;
+    }
+
+    input {
+        padding: .5rem 3rem .5rem .5rem;
+    }
+}

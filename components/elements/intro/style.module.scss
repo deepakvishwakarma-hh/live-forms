@@ -40,10 +40,8 @@
 
         h5 {
             padding: 1rem 0;
-            // font-size: 1.3rem;
             font-weight: 500;
             line-height: 2rem;
-            opacity: .8;
 
             @extend %resParagraphFontSize;
 
@@ -57,6 +55,8 @@
             padding: 1rem 0;
             color: $blue;
             font-weight: 500;
+
+
 
             @extend %resParagraphFontSize;
 
