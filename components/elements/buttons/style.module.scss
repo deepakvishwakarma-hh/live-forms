@@ -1,0 +1,6 @@
+@import '../../../styles/parent';
+
+
+.button__delete {
+    @extend %resetCss;
+}

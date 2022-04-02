@@ -6,7 +6,6 @@ const Main = () => {
         <div className={style.main}>
             <Header />
             <Meta />
-
         </div>
 
     )

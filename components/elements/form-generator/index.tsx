@@ -1,6 +1,5 @@
 
 import style from "./style.module.scss";
-import Popup from "./popup";
 import Aside from "./aside";
 import Main from "./main";
 
@@ -11,7 +10,6 @@ const FormGenerator = () => {
 
             <Aside />
             <Main />
-            {/* <Popup type={'dropbox'} /> */}
         </div>
     )
 }
