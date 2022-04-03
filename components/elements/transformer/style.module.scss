@@ -1,0 +1,60 @@
+$lightblues : #E9EFF6;
+$blues : #4460F1;
+
+
+
+.form {
+    padding: 1rem;
+    margin: auto;
+
+    div {
+        background: white;
+        margin: 1rem;
+        border-radius: .3rem;
+        padding: 1rem 2rem 1rem 2rem;
+        border: 2px transparent solid;
+        max-width: 300px;
+
+        &:hover {
+            border: rgba(0, 0, 255, 0.178) solid 2px;
+        }
+
+        h3 {
+            padding: .5rem 0;
+            letter-spacing: 1px;
+            font-size: 1rem;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        p {
+            opacity: .7;
+            padding: 0 0 .5rem 0;
+            font-size: .9rem;
+
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
+
+        input,
+        select,
+        textarea {
+            padding: .6rem 1rem;
+            min-width: 200px;
+            border-radius: .3rem;
+            border: none;
+            background: $lightblues;
+
+            &:focus {
+                outline: 2px $blues solid;
+                transition: none;
+            }
+        }
+    }
+
+
+
+}

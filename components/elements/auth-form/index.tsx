@@ -42,7 +42,6 @@ const Forms = ({ login, signup }: prop) => {
         e.preventDefault();
 
         if (validator()) {
-            // expression goes here
             console.log(form)
 
         }

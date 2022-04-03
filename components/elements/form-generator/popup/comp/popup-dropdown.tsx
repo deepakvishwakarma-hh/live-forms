@@ -56,5 +56,3 @@ const DropboxOpt = () => {
 
 export default DropboxOpt
 
-
-//start from error blocking form storing to store : dropbox options

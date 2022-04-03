@@ -1,55 +1,50 @@
 // I thing we should use CreateElement like functionality
-
-
 // convert meta code into  functional form; 
 
-
+import style from "./style.module.scss";
 interface prop {
     children: any
 }
 
 const Transformer = ({ children }: prop) => {
 
-    console.log(children);
-
     const Form_Constructor = children.map(
-        (value: any, index: number) => {
+        (value: any) => {
 
-            const { action, name, placeholder, options } = value;
+            const { action, name, placeholder, options, paragraph } = value;
 
-            // Construct Input tag;
             if (action == 'input') {
                 return (
-                    <div>
+                    <div className={style.input}>
                         <h3>{name}</h3>
+                        <p>{paragraph}</p>
                         <input type="text" name={name} placeholder={placeholder} />
                     </div>)
             }
             else if (action == 'textarea') {
                 return (
-                    <div>
+                    <div className={style.textarea}>
                         <h3>{name}</h3>
-                        <textarea name={name} ></textarea>
+                        <p>{paragraph}</p>
+                        <textarea name={name} placeholder={placeholder} ></textarea>
                     </div >)
             }
             else {
-                const optMaps = options.map((value: string, index2: number) => {
+                const optMaps = options?.map((value: string, index2: number) => {
                     return <option key={index2}>{value}</option>
                 })
                 return (
-                    <div>
+                    <div className={style.select}>
                         <h3>{name}</h3>
+                        <p>{paragraph}</p>
                         <select name={name} >{optMaps}</select>
                     </div >)
             }
-
         })
 
     return (
-        <div>
-
+        <div className={style.form}>
             {Form_Constructor}
-
         </div>
     )
 

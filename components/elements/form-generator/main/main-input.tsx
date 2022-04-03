@@ -3,7 +3,7 @@ import style from "../style.module.scss";
 interface prop {
     label: string;
     placeholder: string;
-    onChange: (e: any) => void;
+    onChange?: (e: any) => void;
 }
 
 const Input = ({ label, placeholder, onChange }: prop) => {

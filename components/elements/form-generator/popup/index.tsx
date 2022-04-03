@@ -4,21 +4,19 @@ import {
     setPopupName,
     useAppDispatch,
     useAppSelector,
+    setPopupParagraph,
     setPopupPlaceholder
 } from "../../../../state-store";
+import { motion } from 'framer-motion'
 import Input from "../main/main-input"
 import style from "../style.module.scss";
-import DropboxOpt from "./comp/popup-dropdown"
-
-
 import { Delete, Next } from "../../buttons";
-// testing
+import DropboxOpt from "./comp/popup-dropdown"
 
 
 const Popup = () => {
 
     const dispatch = useAppDispatch();
-
 
     const action = useAppSelector(store => store.__generator.__action)
 
@@ -28,6 +26,9 @@ const Popup = () => {
 
     const inputNameOnChngeHandler = (e: any) => {
         dispatch(setPopupName(e.target.value))
+    }
+    const inputParagraphOnChngeHandler = (e: any) => {
+        dispatch(setPopupParagraph(e.target.value))
     }
 
     const dropBoxOptConditionallyShow = (action == "dropdown") ? true : false;
@@ -42,8 +43,15 @@ const Popup = () => {
         dispatch(pushMeta())
     }
 
+    const animationProperties = {
+
+        initial: { opacity: 0 },
+        animate: { opacity: 1 },
+        transition: { duration: .1 }
+    }
+
     return (
-        <div className={style.popup}>
+        <motion.div {...animationProperties} className={style.popup}>
 
             <div className={style.popup__wrapper}>
                 <h4>  {action}</h4>
@@ -51,6 +59,10 @@ const Popup = () => {
                     onChange={inputNameOnChngeHandler}
                     label={`${action} name`}
                     placeholder="ex. Experiance " />
+                <Input
+                    onChange={inputParagraphOnChngeHandler}
+                    label={`paragraph`}
+                    placeholder="ex. Experiance in IT" />
                 <Input
                     onChange={placeHolderNameOnChngeHandler}
                     label={`placeholder`}
@@ -60,12 +72,11 @@ const Popup = () => {
 
                 <div className={style.popup__wrapper__button__wrapper}>
                     <Delete aspect={50} onClick={onClose} />
-                    <Next aspect={45} onClick={onClose} />
+                    <Next aspect={45} onClick={onNext} />
                 </div>
 
-
             </div>
-        </div>
+        </motion.div>
     )
 }
 export default Popup

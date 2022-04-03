@@ -1,4 +1,6 @@
 import Delete from "./Delete";
 import Add from "./Add";
 import Next from "./Next";
-export { Delete, Add, Next };
+import Remove from "./Remove";
+import Setting from "./Setting";
+export { Delete, Add, Next, Remove, Setting };

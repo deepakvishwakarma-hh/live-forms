@@ -3,4 +3,5 @@
 
 .button__delete {
     @extend %resetCss;
+    cursor: pointer;
 }
