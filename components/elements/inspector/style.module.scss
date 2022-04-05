@@ -1,9 +1,24 @@
 .wrapper {
+    background: white;
+    display: block;
+
     h3 {
         padding: 1rem 0;
     }
 
     .element__wrapper {
+        padding-right: .3rem;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.123);
+            border-radius: 1rem;
+            color: #ff000017;
+        }
 
         .element {
             font-size: .8rem;

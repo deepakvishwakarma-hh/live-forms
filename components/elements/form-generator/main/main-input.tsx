@@ -1,3 +1,5 @@
+// used in only popup
+
 import style from "../style.module.scss";
 
 interface prop {

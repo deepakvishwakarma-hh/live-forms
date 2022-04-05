@@ -1,8 +1,7 @@
 
 import Element from "./element";
-import { useAppSelector } from "../../../state-store";
 import style from "./style.module.scss"
-
+import { useAppSelector } from "../../../state-store";
 
 const Inspector = () => {
     const Meta = useAppSelector(store => store.__generator.__meta.__custom)

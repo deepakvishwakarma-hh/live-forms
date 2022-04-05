@@ -3,12 +3,13 @@
 
 import style from "./style.module.scss";
 interface prop {
-    children: any
+    children: any,
+    design?: boolean
 }
 
-const Transformer = ({ children }: prop) => {
+const Transformer = ({ children, design }: prop) => {
 
-    const Form_Constructor = children.map(
+    const map = children.map(
         (value: any) => {
 
             const { action, name, placeholder, options, paragraph } = value;
@@ -44,7 +45,7 @@ const Transformer = ({ children }: prop) => {
 
     return (
         <div className={style.form}>
-            {Form_Constructor}
+            {map}
         </div>
     )
 

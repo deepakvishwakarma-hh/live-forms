@@ -36,6 +36,7 @@ const DropboxOpt = () => {
     return (
         <div className={style.popup__wrapper__dropbox}>
             <h3>Options</h3>
+
             {optionUiList}
 
             <div className={style.popup__wrapper__dropbox__input__wrapper}>

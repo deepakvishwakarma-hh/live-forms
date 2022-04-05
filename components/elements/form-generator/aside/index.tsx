@@ -29,11 +29,9 @@ const Aside = () => {
                 <Button name="textarea" onClick={onClick} />
                 <Button name="dropdown" onClick={onClick} />
             </div>
-
-            <AnimatePresence>{popupConditionallyShow && < Popup />}  </AnimatePresence>
-
             <Inspector />
 
+            <AnimatePresence>{popupConditionallyShow && < Popup />}  </AnimatePresence>
         </div>
     )
 }

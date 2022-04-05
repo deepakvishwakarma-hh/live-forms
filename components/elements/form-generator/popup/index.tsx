@@ -74,7 +74,6 @@ const Popup = () => {
                     <Delete aspect={50} onClick={onClose} />
                     <Next aspect={45} onClick={onNext} />
                 </div>
-
             </div>
         </motion.div>
     )
