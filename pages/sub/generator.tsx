@@ -8,7 +8,7 @@ const _Generator = () => {
     const save = useSave();
 
     useEffect(() => {
-        // save.saveSteps();
+        save.saveSteps();
     })
 
     return (

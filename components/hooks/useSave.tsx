@@ -1,4 +1,4 @@
-import { useAppSelector, fetchMetaWithArr, useAppDispatch } from "../../state-store"
+import { useAppSelector, fetchWithAutoSave, useAppDispatch } from "../../state-store"
 
 const useSave = () => {
 
@@ -12,8 +12,6 @@ const useSave = () => {
 
         const len = meta.__custom.length;
 
-        const isHeaderFill = meta.__header.title !== ''
-
         const ls = JSON.parse(localStorage.getItem('editor') as string);
 
         if (len !== 0) {
@@ -23,7 +21,7 @@ const useSave = () => {
             if (T) {
                 localStorage.setItem('editor', JSON.stringify(meta))
             }
-            else { dispatch(fetchMetaWithArr(ls)) }
+            else { dispatch(fetchWithAutoSave(ls)) }
         }
     }
 

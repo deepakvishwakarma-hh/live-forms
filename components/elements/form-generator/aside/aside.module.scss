@@ -50,6 +50,16 @@
             width: 100%;
             padding: 1rem 0;
             flex-direction: column;
+
+            input {
+                padding: .5rem 1rem;
+                border: 2px rgba(128, 128, 128, 0.097) solid;
+
+            }
+
+            ;
+
+
         }
 
         label {

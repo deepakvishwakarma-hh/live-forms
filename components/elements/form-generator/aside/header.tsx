@@ -1,19 +1,23 @@
 import { useState } from "react";
-import Input from "../main/main-input"
 import style from "./aside.module.scss"
 import { Chevron } from "../../buttons";
 
 import {
     useAppDispatch,
+    useAppSelector,
     setMetaHeaderTitle,
     setMetaHeaderSubTitle,
 } from "../../../../state-store";
 
 const Header = () => {
 
+
     const dispatch = useAppDispatch()
 
     const [isExpended, setExpended] = useState<boolean>(false);
+
+    const header = useAppSelector(store => store.__generator.__meta.__header);
+
 
     const onExpendButtonClickHandler = (e: any) => {
         // e.stopPropagation()
@@ -40,16 +44,14 @@ const Header = () => {
 
             {isExpended &&
                 <div>
-                    <Input
-                        label=""
-                        onChange={onTitleChangeHandler}
-                        placeholder="Title" />
+
+                    <input className={style.titleInput} type="text" onChange={onTitleChangeHandler} placeholder="Title" value={header.title} />
 
                     <label>
 
                         <textarea
                             onChange={onTextareaChangeHandler}
-                            placeholder="paragraph...."></textarea>
+                            placeholder="paragraph...." value={header.subtitle}></textarea>
 
                     </label>
                 </div>}

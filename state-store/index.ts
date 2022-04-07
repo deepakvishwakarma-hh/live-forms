@@ -39,13 +39,7 @@ const initialState: initialState = {
                 subtitle: 'Sub Title goes here.......   ',
             },
             __custom: [
-                {
-                    action: 'input',
-                    name: " Name",
-                    paragraph: "your full name",
-                    placeholder: "ex. Deepak lohar",
-                    options: false
-                }
+
             ]
         }
     },
@@ -98,11 +92,15 @@ const slice = createSlice({
             const { index, object } = action.payload;
             state.__generator.__meta.__custom[index] = object;
         },
-        fetchMetaWithArr: (state, action) => {
+        fetchWithAutoSave: (state, action) => {
 
-            action.payload && action.payload.map((value: any) => {
+            action.payload && action.payload.__custom?.map((value: any) => {
                 state.__generator.__meta.__custom.push(value)
             })
+
+            state.__generator.__meta.__header.title = action.payload.__header?.title;
+            state.__generator.__meta.__header.title = action.payload.__header?.title;
+
         },
         setMetaHeaderTitle: (state, action) => {
             state.__generator.__meta.__header.title = action.payload
@@ -118,7 +116,7 @@ const store = configureStore({
     reducer: slice.reducer
 })
 
-export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchMetaWithArr, setMetaHeaderTitle, setMetaHeaderSubTitle } = slice.actions;
+export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchWithAutoSave, setMetaHeaderTitle, setMetaHeaderSubTitle } = slice.actions;
 
 export default store;
 export type AppDispatch = typeof store.dispatch
