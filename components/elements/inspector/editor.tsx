@@ -1,9 +1,9 @@
 interface prop {
-    data: any,
+    // data: any,
     index: number
 }
 
-import style from "./style.module.scss"
+import style from "./inspector.module.scss"
 import { useState, useEffect } from "react"
 import {
     editFromMeta,

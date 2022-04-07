@@ -7,12 +7,12 @@ import {
     setPopupParagraph,
     setPopupPlaceholder
 } from "../../../../state-store";
+
 import { motion } from 'framer-motion'
 import Input from "../main/main-input"
-import style from "../style.module.scss";
+import style from "./popup.module.scss";
 import { Delete, Next } from "../../buttons";
 import DropboxOpt from "./comp/popup-dropdown"
-
 
 const Popup = () => {
 
@@ -34,17 +34,14 @@ const Popup = () => {
     const dropBoxOptConditionallyShow = (action == "dropdown") ? true : false;
 
     const onClose = () => {
-        // nutralising generator action;
         dispatch(setAction(undefined))
     }
 
     const onNext = () => {
-        // nutralising generator action;
         dispatch(pushMeta())
     }
 
     const animationProperties = {
-
         initial: { opacity: 0 },
         animate: { opacity: 1 },
         transition: { duration: .1 }
@@ -57,7 +54,7 @@ const Popup = () => {
                 <h4>  {action}</h4>
                 <Input
                     onChange={inputNameOnChngeHandler}
-                    label={`${action} name`}
+                    label={` name`}
                     placeholder="ex. Experiance " />
                 <Input
                     onChange={inputParagraphOnChngeHandler}
@@ -71,8 +68,8 @@ const Popup = () => {
                 {dropBoxOptConditionallyShow && <DropboxOpt />}
 
                 <div className={style.popup__wrapper__button__wrapper}>
-                    <Delete aspect={50} onClick={onClose} />
-                    <Next aspect={45} onClick={onNext} />
+                    <Delete aspect={40} onClick={onClose} />
+                    <Next aspect={35} onClick={onNext} />
                 </div>
             </div>
         </motion.div>

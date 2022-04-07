@@ -1,20 +1,33 @@
 $lightblues : #E9EFF6;
 $blues : #4460F1;
 
+@import '../../../styles/parent';
 
+.special {
+    margin: auto;
+}
 
 .form {
     padding: 0rem;
-    margin: auto;
-    border: 1px grey solid;
+    display: flex;
+    flex-direction: column;
 
-    div {
+    .input,
+    .select,
+    .textarea,
+    .header {
+
         background: white;
         margin: 1rem;
         border-radius: .3rem;
         padding: 1rem 2rem 1rem 2rem;
         border: 2px transparent solid;
         max-width: 300px;
+        min-width: 300px;
+
+        // to make inuput width 100%
+        display: flex;
+        flex-direction: column;
 
         &:hover {
             border: rgba(0, 0, 255, 0.178) solid 2px;
@@ -23,7 +36,7 @@ $blues : #4460F1;
         h3 {
             padding: .5rem 0;
             letter-spacing: 1px;
-            font-size: 1rem;
+            font-size: 1.1rem;
 
             &::first-letter {
                 text-transform: uppercase;
@@ -32,7 +45,7 @@ $blues : #4460F1;
 
         p {
             opacity: .7;
-            padding: 0 0 .5rem 0;
+            padding: .2rem 0 .5rem 0;
             font-size: .9rem;
 
             &::first-letter {
@@ -43,6 +56,7 @@ $blues : #4460F1;
         input,
         select,
         textarea {
+
             padding: .6rem 1rem;
             min-width: 200px;
             border-radius: .3rem;
@@ -56,6 +70,22 @@ $blues : #4460F1;
         }
     }
 
+    .header {
+        p {
+            padding: .4rem 0;
+        }
+    }
 
+}
+
+.submit__button {
+    @extend %resetCss;
+    display: block;
+    padding: .8rem 3rem;
+    background: #000;
+    color: white;
+    text-transform: capitalize;
+    margin: 2rem 1rem;
+    border-radius: .2rem;
 
 }

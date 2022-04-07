@@ -10,7 +10,7 @@
         resize: vertical;
         max-height: 100vh;
         overflow-y: scroll;
-        padding: 2rem;
+        padding: 1rem;
         background: #ffffff;
         flex: 1;
 
@@ -47,6 +47,29 @@
                     flex: 3;
                 }
             }
+        }
+
+        .aside__header {
+            margin: 1rem 0;
+            padding-right: 2rem;
+
+            display: flex;
+            flex-direction: column;
+
+            label {
+                width: 100%;
+                margin: .2rem 0;
+
+                input,
+                textarea {
+                    border: 2px rgba(128, 128, 128, 0.097) solid;
+                    border-radius: .4rem;
+                    margin: .2rem 0;
+                    width: 100%;
+                    padding: .4rem .8rem;
+                }
+            }
+
         }
     }
 
@@ -99,95 +122,6 @@
             }
         }
     }
-
-    .popup {
-        @extend %center-flex;
-        margin-top: 1rem;
-
-        .popup__wrapper {
-            padding: 1rem;
-            width: 500px;
-            background: $blue;
-            background-image: linear-gradient(-45deg, $blue, red);
-            border-radius: .2rem;
-            color: white !important;
-
-            h4 {
-                text-transform: uppercase;
-                letter-spacing: .1rem;
-            }
-
-            label {
-                display: block;
-                margin: .5rem 0;
-                display: flex;
-                flex-direction: column;
-
-                span {
-                    padding: .3rem 0;
-                    text-transform: capitalize;
-                    font-size: .9rem;
-
-                }
-
-                input {
-                    border-color: transparent !important;
-                    // display: block;
-                    border-radius: .2rem;
-                    outline: none;
-                    background: rgba(255, 255, 255, 0.15);
-                    color: white;
-
-                    &::placeholder {
-                        color: rgba(255, 255, 255, 0.678);
-                    }
-                }
-
-                button {
-                    padding: 1rem;
-                }
-
-            }
-
-            .popup__wrapper__dropbox {
-                ul {
-                    li {
-                        @extend %center-flex;
-                        justify-content: space-between;
-                        background: rgba(255, 255, 255, 0.068);
-                        padding: .2rem .3rem;
-                        margin: .3rem 0;
-                        border-radius: .2rem;
-                        text-transform: capitalize;
-                    }
-                }
-
-            }
-
-            // why is pastly gliched
-            .popup__wrapper__dropbox__input__wrapper {
-                overflow: hidden;
-                border-radius: .2rem;
-                display: flex;
-
-                input {
-                    flex: 1;
-                    padding-left: .5rem;
-                    border: none;
-                }
-
-                button {
-                    flex: 1;
-                    padding: .5rem .5rem .5rem .5rem;
-                    background: rgb(255, 255, 255);
-
-                }
-            }
-
-
-        }
-
-    }
 }
 
 //testing purposes
@@ -202,19 +136,5 @@
 
     input {
         padding: .5rem 3rem .5rem .5rem;
-    }
-}
-
-// button
-
-.popup__wrapper__button__wrapper {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-
-    button {
-        padding: .3rem 1rem;
-        background: rgba(255, 255, 255, 0.102);
-        border-radius: .2rem;
     }
 }

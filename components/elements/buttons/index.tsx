@@ -3,4 +3,5 @@ import Add from "./Add";
 import Next from "./Next";
 import Remove from "./Remove";
 import Setting from "./Setting";
-export { Delete, Add, Next, Remove, Setting };
+import Chevron from "./Chevron";
+export { Delete, Add, Next, Remove, Setting, Chevron };

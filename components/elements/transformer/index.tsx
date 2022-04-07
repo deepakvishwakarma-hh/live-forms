@@ -1,51 +1,56 @@
-// I thing we should use CreateElement like functionality
-// convert meta code into  functional form; 
 
+
+import Header from "./header"
 import style from "./style.module.scss";
+import Constructor from "./constructor"
+import { useState } from "react";
+import { useAppSelector } from "../../../state-store"
+import useGenerate from "../../hooks/useGenerate"
+import { useRouter } from "next/router"
+
 interface prop {
     children: any,
-    design?: boolean
+    live?: boolean,
 }
 
-const Transformer = ({ children, design }: prop) => {
+const Transformer = ({ children, live }: prop) => {
 
-    const map = children.map(
-        (value: any) => {
+    const gen = useGenerate()
 
-            const { action, name, placeholder, options, paragraph } = value;
+    const router = useRouter()
 
-            if (action == 'input') {
-                return (
-                    <div className={style.input}>
-                        <h3>{name}</h3>
-                        <p>{paragraph}</p>
-                        <input type="text" name={name} placeholder={placeholder} />
-                    </div>)
-            }
-            else if (action == 'textarea') {
-                return (
-                    <div className={style.textarea}>
-                        <h3>{name}</h3>
-                        <p>{paragraph}</p>
-                        <textarea name={name} placeholder={placeholder} ></textarea>
-                    </div >)
-            }
-            else {
-                const optMaps = options?.map((value: string, index2: number) => {
-                    return <option key={index2}>{value}</option>
-                })
-                return (
-                    <div className={style.select}>
-                        <h3>{name}</h3>
-                        <p>{paragraph}</p>
-                        <select name={name} >{optMaps}</select>
-                    </div >)
-            }
-        })
+    const [gatherdInformation, setGatherdInformation] = useState<any>({})
+
+    const map = children.__custom.map((value: any, key: number) => <Constructor value={value} key={key} index={key} />)
+
+    const header = useAppSelector(store => store.__generator.__meta.__header)
+
+    const parentProperties = {
+        className: `${style.form} ${!live ? style.special : ''}`,
+        onChange: (E: any) => {
+            const { name, value } = E.target;
+            setGatherdInformation({ ...gatherdInformation, [name]: value })
+        }
+    }
+
+    const headerCompProperties = {
+        data: live ? children.__header : header,
+        isLive: live
+    }
+
+    const onSubmit = (E: any) => {
+        E.preventDefault();
+
+        gen.saveToDatabase(router.query.id as string, gatherdInformation)
+    }
 
     return (
-        <div className={style.form}>
-            {map}
+        <div {...parentProperties}>
+            <Header  {...headerCompProperties} />
+            <form onSubmit={onSubmit}>
+                {map}
+                {live ? <button className={style.submit__button} type="submit">post</button> : null}
+            </form>
         </div>
     )
 

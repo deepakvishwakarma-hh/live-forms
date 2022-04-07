@@ -13,14 +13,14 @@ interface initialState {
             placeholder: string
         };
         __meta: {
-            __heder: {
+            __header: {
                 title: string | undefined;
                 subtitle: string | undefined;
             }
             __custom: any[];
         }
     }
-    T: boolean
+    T: boolean,
 }
 
 const initialState: initialState = {
@@ -34,14 +34,22 @@ const initialState: initialState = {
             placeholder: ''
         },
         __meta: {
-            __heder: {
-                title: '',
-                subtitle: '',
+            __header: {
+                title: 'Title',
+                subtitle: 'Sub Title goes here.......   ',
             },
-            __custom: []
+            __custom: [
+                {
+                    action: 'input',
+                    name: " Name",
+                    paragraph: "your full name",
+                    placeholder: "ex. Deepak lohar",
+                    options: false
+                }
+            ]
         }
     },
-    T: false // True if Meta option delet by editor -FF
+    T: false,// True if Meta option delet by editor -FF
 }
 
 const slice = createSlice({
@@ -95,8 +103,14 @@ const slice = createSlice({
             action.payload && action.payload.map((value: any) => {
                 state.__generator.__meta.__custom.push(value)
             })
+        },
+        setMetaHeaderTitle: (state, action) => {
+            state.__generator.__meta.__header.title = action.payload
+        },
+        setMetaHeaderSubTitle: (state, action) => {
+            state.__generator.__meta.__header.subtitle = action.payload
+        },
 
-        }
     }
 });
 
@@ -104,7 +118,7 @@ const store = configureStore({
     reducer: slice.reducer
 })
 
-export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchMetaWithArr } = slice.actions;
+export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchMetaWithArr, setMetaHeaderTitle, setMetaHeaderSubTitle } = slice.actions;
 
 export default store;
 export type AppDispatch = typeof store.dispatch
@@ -115,10 +129,3 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 
 
-// {
-//     action: 'input',
-//     name: " Name",
-//     paragraph: "your full name",
-//     placeholder: "ex. Deepak lohar",
-//     options: false
-// }

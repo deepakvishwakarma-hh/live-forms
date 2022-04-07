@@ -2,8 +2,18 @@
 
 $smoke: #F6F6FF;
 $blue : #6C63FF;
-$lightblue : #C7C4FF;
 $dark : #221C2E;
+// $lightblue : #C7C4FF;
+$pure-white : white;
+
+$lightblue : #ffffff;
+
+
+$border-grey : rgba(0, 0, 0, 0.044);
+
+// borders 
+
+$light-wrapper-border : 2px rgba(128, 128, 128, 0.124) solid;
 
 %resetCss {
     border: none;

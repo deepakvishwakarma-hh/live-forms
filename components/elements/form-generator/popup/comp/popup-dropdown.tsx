@@ -1,7 +1,7 @@
 // OPT
 import Option from "./popup-dropdown-options"
 import { useState } from 'react'
-import style from "../../style.module.scss";
+import style from "../popup.module.scss";
 import {
     useAppSelector,
     useAppDispatch,
@@ -35,7 +35,7 @@ const DropboxOpt = () => {
 
     return (
         <div className={style.popup__wrapper__dropbox}>
-            <h3>Options</h3>
+            {/* <h3>Options</h3> */}
 
             {optionUiList}
 
@@ -46,7 +46,7 @@ const DropboxOpt = () => {
                     placeholder="type options"
                     type="text" />
 
-                <Add aspect={30} color="black" onClick={onPushHandler} />
+                <Add aspect={30} onClick={onPushHandler} />
             </div>
 
         </div>

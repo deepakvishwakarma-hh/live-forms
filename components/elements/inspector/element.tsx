@@ -2,15 +2,12 @@ interface prop {
     data: any,
     index: number
 }
-import { useState } from "react"
-import Image from "next/image"
-import style from "./style.module.scss"
-import { useAppDispatch, deleteFromMeta } from "../../../state-store"
-
-import { motion } from 'framer-motion'
 import Editor from "./editor"
+import Image from "next/image"
+import { useState } from "react"
 import { Delete } from "../buttons"
-
+import style from "./inspector.module.scss"
+import { useAppDispatch, deleteFromMeta } from "../../../state-store"
 
 const Element = ({ data, index }: prop) => {
 
@@ -44,9 +41,9 @@ const Element = ({ data, index }: prop) => {
                 onClick={onClick}
                 className={style.header}>
 
-                <span >
-                    {index + 1}. {data.name}
-                    <p>{data.action}</p></span>
+                <span>{data.name}
+                    <p>{data.action}</p>
+                </span>
                 <div>
                     <Delete
                         aspect={30}
@@ -54,15 +51,15 @@ const Element = ({ data, index }: prop) => {
                         onClick={onDelete} />
                     <Image
                         src={imageSrcConditonally}
-                        width={15}
-                        height={15}
+                        width={10}
+                        height={10}
                         alt="noen" />
                 </div>
             </div>
 
             {isExpanded && <div className={style.details}>
 
-                <Editor data={data} index={index} />
+                <Editor index={index} />
 
             </ div>}
         </div>

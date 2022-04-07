@@ -1,9 +1,16 @@
 
 import Element from "./element";
-import style from "./style.module.scss"
+import { useState } from "react";
+import { Chevron } from "../buttons";
+import style from "./inspector.module.scss"
 import { useAppSelector } from "../../../state-store";
 
 const Inspector = () => {
+
+    const [isExpended, setExpended] = useState<boolean>(false);
+
+    const onExpendButtonClickHandler = () => { setExpended(!isExpended) }
+
     const Meta = useAppSelector(store => store.__generator.__meta.__custom)
 
     const elementMapper = Meta.map((ele: any, index: number) => {
@@ -12,10 +19,17 @@ const Inspector = () => {
 
     return (
         <div className={style.wrapper}>
-            <h3>Inspector</h3>
-            <div className={style.element__wrapper}>
-                {elementMapper}
-            </div>
+            <Chevron
+                className={style.button__chevron}
+                text="Inspector"
+                isExpended={isExpended}
+                onClick={onExpendButtonClickHandler} />
+
+            {isExpended &&
+                <div className={style.element__wrapper}>
+                    {elementMapper}
+                </div>
+            }
         </div>
     )
 }

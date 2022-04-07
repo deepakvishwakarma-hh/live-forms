@@ -1,0 +1,68 @@
+@import "../../../../styles/parent";
+
+.aside {
+    flex: 1;
+    padding: 2rem;
+    max-height: 100vh;
+    overflow-y: scroll;
+    background: $pure-white;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: rgba(0, 0, 0, 0.123);
+    }
+
+    .aside__button__wrapper {
+        display: flex;
+        padding: 1rem;
+
+        button {
+            @extend %resetCss;
+            @extend %center-flex;
+            width: 100%;
+            margin: .5rem;
+            padding: .5rem 0;
+            border-radius: .2rem;
+            border-radius: .5rem;
+            border: 1px transparent solid;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.055);
+
+            span {
+                flex: 3;
+            }
+        }
+    }
+
+    .aside__header {
+        border-radius: .3rem;
+        padding: .4rem 1rem;
+        margin: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        border: $light-wrapper-border;
+
+        div {
+            display: flex;
+            width: 100%;
+            padding: 1rem 0;
+            flex-direction: column;
+        }
+
+        label {
+            margin: .2rem 0;
+
+            input,
+            textarea {
+                margin: .2rem 0;
+                border-radius: .4rem;
+                padding: .4rem .8rem;
+                border: 2px rgba(128, 128, 128, 0.097) solid;
+
+            }
+        }
+    }
+}

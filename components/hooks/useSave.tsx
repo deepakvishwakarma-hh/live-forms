@@ -4,13 +4,15 @@ const useSave = () => {
 
     const dispatch = useAppDispatch()
 
-    const meta = useAppSelector(store => store.__generator.__meta.__custom);
+    const meta = useAppSelector(store => store.__generator.__meta);
 
     const T = useAppSelector(store => store.T);
 
     const saveSteps = () => {
 
-        const len = meta.length;
+        const len = meta.__custom.length;
+
+        const isHeaderFill = meta.__header.title !== ''
 
         const ls = JSON.parse(localStorage.getItem('editor') as string);
 

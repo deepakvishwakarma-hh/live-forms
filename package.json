@@ -11,6 +11,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
     "@types/react-redux": "^7.1.23",
+    "axios": "^0.26.1",
+    "firebase": "^9.6.10",
     "framer-motion": "^6.2.8",
     "jsonwebtoken": "^8.5.1",
     "next": "12.1.2",

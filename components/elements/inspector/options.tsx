@@ -5,7 +5,7 @@ interface prop {
 
 import { Delete, Add } from "../buttons"
 import { useState } from "react"
-import style from "./style.module.scss"
+import style from "./inspector.module.scss"
 
 const Options = ({ data, update }: prop) => {
 

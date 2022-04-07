@@ -5,3 +5,26 @@
     @extend %resetCss;
     cursor: pointer;
 }
+
+.button__chevron {
+
+
+
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @extend %resetCss;
+    text-transform: capitalize;
+    font-size: .8rem;
+    letter-spacing: 1px;
+
+
+    span {
+        padding: .3rem 0;
+        font-weight: bold;
+
+    }
+}

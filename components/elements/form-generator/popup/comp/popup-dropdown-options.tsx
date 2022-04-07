@@ -18,13 +18,13 @@ const Options = ({ value, index }: prop) => {
     const dispatch = useAppDispatch();
 
     const onRemove = () => {
-        const optToBeRemoved = opt[index]
+        const optToBeRemoved = opt[index];
         dispatch(removePopupOption(optToBeRemoved))
     }
     return (
         <li>
             {value}
-            <Delete aspect={50} onClick={onRemove} />
+            <Delete aspect={40} onClick={onRemove} />
         </li>
     )
 }
