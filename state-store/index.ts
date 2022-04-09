@@ -98,8 +98,9 @@ const slice = createSlice({
                 state.__generator.__meta.__custom.push(value)
             })
 
-            state.__generator.__meta.__header.title = action.payload.__header?.title;
-            state.__generator.__meta.__header.title = action.payload.__header?.title;
+            // header isnt fetching..
+
+
 
         },
         setMetaHeaderTitle: (state, action) => {
