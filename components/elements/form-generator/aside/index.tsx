@@ -23,7 +23,6 @@ const Aside = () => {
 
     return (
         <div className={style.aside}>
-
             <Header />
 
             <Inspector />

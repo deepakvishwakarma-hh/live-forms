@@ -5,8 +5,8 @@ const Footer = () => {
     return <div className={style.wrapper}>
         <Logo />
         <div>
-            <CusLink href="hii" label="Signup"></CusLink>
-            <CusLink href="hii" label="Login"></CusLink>
+            <CusLink href="/signup" label="Signup"></CusLink>
+            <CusLink href="/login" label="Login"></CusLink>
             <CusLink href="hii" label="Services"></CusLink>
             <CusLink href="hii" label="Report Issue"></CusLink>
         </div>

@@ -6,11 +6,10 @@ const Intro = () => {
     return (
         <div className={style.wrapper}>
             <div className={style.content}>
-                <p>great place to hire remote developers</p>
-                <h1>Hire vetted remote developers</h1>
-                <h5>Work with elite, pre-vetted developers assigned to you in 24 hours. With fixed transparent pricing, no long-term contracts, and a 7-day risk-free guarantee — you can start building what you imagined in no time.</h5>
+                <p>great place to create forms and store data</p>
+                <h1>Create Simple, Free, Fast Forms for Surveys</h1>
+                <h5>Advanced Embended Dashboard for form anaysis.</h5>
                 <HireDeveloperButton />
-
             </div>
             <div className={style.content}>
 
