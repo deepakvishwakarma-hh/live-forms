@@ -27,7 +27,6 @@ const Transformer = ({ children, live }: prop) => {
         return T;
     }
 
-
     const gen = useGenerate()
 
     const router = useRouter()
