@@ -64,7 +64,7 @@ const Transformer = ({ children, live }: prop) => {
 
     return (
         <div {...parentProperties}>
-            <Header  {...headerCompProperties} />
+            {!live && <Header  {...headerCompProperties} />}
             <form onSubmit={onSubmit}>
                 {map}
                 {live ? <button className={style.submit__button} type="submit">post</button> : null}
