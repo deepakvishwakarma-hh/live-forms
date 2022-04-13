@@ -22,11 +22,10 @@ const Page = ({ Result, id }: prop) => {
 
     return (
         <div className={style.wrapper}>
-
             <header>
                 <div>
-                    <h1>{Meta.__header.title}</h1>
-                    <p>{Meta.__header.subtitle}</p>
+                    <h1>{Meta?.__header?.title}</h1>
+                    <p>{Meta?.__header?.subtitle}</p>
                 </div>
             </header>
             <main>

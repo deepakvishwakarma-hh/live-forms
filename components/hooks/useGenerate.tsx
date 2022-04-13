@@ -1,25 +1,25 @@
 
+import jwt from 'jsonwebtoken'
 import database from "../../firebase.config";
-import { useAppSelector } from "../../state-store";
-import { ref, set, onValue, update } from "firebase/database";
+import { useAppSelector, useAppDispatch, alerts } from "../../state-store";
+import { ref, set, onValue, update, get, child } from "firebase/database";
 
 const useGenerate = () => {
 
+    const dispatch = useAppDispatch()
     const meta = useAppSelector(state => state.__generator.__meta);
 
-
     const Schema = () => {
-
         const id = + new Date();
+        const Client = { ...meta }
+        const Database: any[] = [];
 
-        const Client = {
-            ...meta
+        const user = jwt.decode(localStorage.getItem('token') as string);
+
+        const Creator = {
+            ...user as object
         }
-
-        const Database: any[] = []
-
-        return { id, Client, Database }
-
+        return { id, Client, Database, Creator }
     }
 
     const store = () => {
@@ -29,39 +29,50 @@ const useGenerate = () => {
         set(
             ref(database, 'forms/' + schema.id)
             , schema)
-            .then(() => { console.log('stored') })
+            .then(() => {
+
+                // aleat box behaviour
+
+                dispatch(alerts({ type: 'formCreated', payload: true }))
+
+                setTimeout(() => {
+                    dispatch(alerts({ type: 'formCreated', payload: false }))
+                }, 4000)
+
+            })
             .catch((err: string) => { console.log(err) })
     }
 
-    const get = (id: string) => {
 
-        let Result: any = {
-        }
-
-        const T = onValue(ref(database, 'forms/' + id), (snapshot) => {
-            Result = snapshot.val()
-        });
-
-        console.log(Result)
-
-        return Result;
-    }
 
     const saveToDatabase = (id: string, data: any) => {
 
+        const dbRef = ref(database);
+        get(child(dbRef, 'forms/' + id))
+            .then((snapshot) => {
+                let storedData = snapshot.val();
 
-        const Result = get(id);
+                update(
+                    ref(database, 'forms/' + id), { Database: [...storedData['Database'] ?? [], data] })
+                    .then(() => { alert('pushed') })
+                    .catch((err: string) => { console.log(err) })
 
-        const payload = { ...Result, Database: [...Result['Database'] ?? [], data] };
 
-        update(
-            ref(database, 'forms/' + id)
-            , payload)
-            .then(() => { console.log('stored') })
-            .catch((err: string) => { console.log(err) })
+            }).catch((error) => {
+                console.error(error);
+            });
+
+    }
+
+    const getData = (id: string, callback = (data: any) => { console.table(data) }) => {
+        // Referance to firebase
+        const starCountRef = ref(database, 'forms/' + id);
+        onValue(starCountRef, (snapshot) => {
+            callback(snapshot.val())
+        });
     }
 
 
-    return { store, saveToDatabase }
+    return { store, saveToDatabase, getData }
 }
 export default useGenerate

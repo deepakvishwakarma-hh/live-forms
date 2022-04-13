@@ -1,0 +1,46 @@
+.wrapper {
+    padding: 0 15rem;
+    box-sizing: padding-box;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .ele {
+            margin: .5rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px rgba(100, 100, 100, 0.182) solid;
+
+            .child {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                font-size: 1rem;
+                margin: .3rem 0;
+
+                h5 {
+                    font-weight: 500;
+                    font-size: .8rem;
+                    padding-right: 1rem;
+                }
+
+                p {
+                    font-size: .8rem;
+                    color: blue;
+
+                }
+            }
+
+        }
+    }
+
+
+}

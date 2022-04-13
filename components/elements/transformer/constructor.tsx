@@ -1,25 +1,21 @@
-
 import style from "./style.module.scss";
 
 interface prop {
     value: any,
-    index: number
 }
 
-const Constructor = ({ value, index }: prop) => {
-
+const Constructor = ({ value }: prop) => {
 
     const { action, name, placeholder, options, paragraph } = value;
 
-
+    const properties = { name, placeholder, required: true }
 
     if (action == 'input') {
         return (
             <div className={style.input} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
-                <input type="text" name={name} placeholder={placeholder} required />
-
+                <input type="text" {...properties} />
             </div>)
     }
     else if (action == 'textarea') {
@@ -27,8 +23,7 @@ const Constructor = ({ value, index }: prop) => {
             <div className={style.textarea} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
-                <textarea name={name} placeholder={placeholder} required ></textarea>
-
+                <textarea  {...properties}  ></textarea>
             </div >)
     }
     else {
@@ -39,9 +34,8 @@ const Constructor = ({ value, index }: prop) => {
             <div className={style.select} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
-                <select name={name} required >{optMaps}</select>
+                <select  {...properties} >{optMaps}</select>
             </div >)
     }
-
 }
 export default Constructor

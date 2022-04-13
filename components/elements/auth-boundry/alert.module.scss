@@ -1,0 +1,27 @@
+@import '../../../styles/parent';
+
+
+.wrapper {
+    @extend %center-flex;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+
+    .alert {
+        font-family: monospace;
+
+        button {
+            @extend %resetCss;
+            color: white;
+            margin: 1rem 0;
+            padding: .4rem 2rem;
+            background: #000;
+            text-transform: capitalize;
+
+        }
+    }
+}

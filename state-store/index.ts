@@ -2,6 +2,8 @@ import { configureStore } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
+import jwt from 'jsonwebtoken';
+
 interface initialState {
     __generator: {
         __action: "input" | 'dropdown' | "textarea" | undefined;
@@ -21,6 +23,17 @@ interface initialState {
         }
     }
     T: boolean,
+    user: {
+        displayName: string | undefined;
+        email: string | undefined;
+    },
+    dashboard: {
+        formsArray: string[],
+    },
+    alearts: {
+        [key: string]: boolean,
+        formCreated: boolean,
+    }
 }
 
 const initialState: initialState = {
@@ -44,6 +57,17 @@ const initialState: initialState = {
         }
     },
     T: false,// True if Meta option delet by editor -FF
+    user: {
+        displayName: undefined,
+        email: undefined
+    },
+    dashboard: {
+        formsArray: [],
+    },
+    alearts: { // by default they are false;
+        formCreated: false,
+    }
+
 }
 
 const slice = createSlice({
@@ -93,15 +117,10 @@ const slice = createSlice({
             state.__generator.__meta.__custom[index] = object;
         },
         fetchWithAutoSave: (state, action) => {
-
             action.payload && action.payload.__custom?.map((value: any) => {
                 state.__generator.__meta.__custom.push(value)
             })
-
             // header isnt fetching..
-
-
-
         },
         setMetaHeaderTitle: (state, action) => {
             state.__generator.__meta.__header.title = action.payload
@@ -109,6 +128,15 @@ const slice = createSlice({
         setMetaHeaderSubTitle: (state, action) => {
             state.__generator.__meta.__header.subtitle = action.payload
         },
+        setUser: (state) => {
+            state.user = jwt.decode(localStorage.getItem('token') as string) as any
+        },
+        alerts: (state, action) => {
+
+            const value = action.payload.payload;
+            const key = action.payload.type;
+            state.alearts[key] = value;
+        }
 
     }
 });
@@ -117,7 +145,7 @@ const store = configureStore({
     reducer: slice.reducer
 })
 
-export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchWithAutoSave, setMetaHeaderTitle, setMetaHeaderSubTitle } = slice.actions;
+export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchWithAutoSave, setMetaHeaderTitle, setMetaHeaderSubTitle, setUser, alerts } = slice.actions;
 
 export default store;
 export type AppDispatch = typeof store.dispatch

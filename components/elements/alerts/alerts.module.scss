@@ -1,0 +1,31 @@
+.wrapper {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 255, 255);
+
+    .content {
+
+        background: rgb(255, 255, 255);
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+
+    h1 {
+        &::first-letter {
+            font-size: 5rem;
+
+        }
+    }
+
+
+    p {
+        text-align: center;
+    }
+
+}

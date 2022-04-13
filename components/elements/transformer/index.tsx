@@ -1,12 +1,12 @@
-
+// Conversion Into Into human Readable Formet
 
 import Header from "./header"
-import style from "./style.module.scss";
-import Constructor from "./constructor"
 import { useState } from "react";
-import { useAppSelector } from "../../../state-store"
-import useGenerate from "../../hooks/useGenerate"
 import { useRouter } from "next/router"
+import Constructor from "./constructor"
+import style from "./style.module.scss";
+import useGenerate from "../../hooks/useGenerate"
+import { useAppSelector } from "../../../state-store"
 
 interface prop {
     children: any,
@@ -15,26 +15,44 @@ interface prop {
 
 const Transformer = ({ children, live }: prop) => {
 
+    // Read Client /  Create Blank Object for initialState
+    const CreateBlankObject = () => {
+        const T: any = {};
+        children.__custom.map((V: any) => {
+            (V.action !== 'dropdown')
+                ? T[V.name] = ''
+                : T[V.name] = V.options[0] // B'cause state cannot store defult (first value)
+        })
+
+        return T;
+    }
+
+
     const gen = useGenerate()
 
     const router = useRouter()
 
-    const [gatherdInformation, setGatherdInformation] = useState<any>({})
+    const [gatherdInformation, setGatherdInformation] = useState<any>(CreateBlankObject())
 
-    const map = children.__custom.map((value: any, key: number) => <Constructor value={value} key={key} index={key} />)
+    // maps of constructed form element
+    const map = children.__custom.map((V: any, K: number) => <Constructor value={V} key={K} />)
 
     const header = useAppSelector(store => store.__generator.__meta.__header)
 
     const parentProperties = {
-        className: `${style.form} ${!live ? style.special : ''}`,
-        onChange: (E: any) => {
-            const { name, value } = E.target;
+
+        // change according to the editor | live
+        className: `${style.form} ${!live && style.special}`,
+
+        // change handler
+        onChange: (e: any) => {
+            const { name, value } = e.target;
             setGatherdInformation({ ...gatherdInformation, [name]: value })
         }
     }
 
     const headerCompProperties = {
-        data: live ? children.__header : header,
+        data: live ? children.__header : header, // change according to the editor | live
         isLive: live
     }
 

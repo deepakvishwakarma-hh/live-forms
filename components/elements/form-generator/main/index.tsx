@@ -11,11 +11,9 @@ const Main = () => {
     return (
         <div className={style.main}>
 
-
             <div className={style.main__meta}>
                 <Transformer >{META}</Transformer>
             </div>
-
 
             <Footer />
         </div>
