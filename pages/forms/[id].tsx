@@ -1,8 +1,11 @@
 import Image from "next/image"
+import useRouter from 'next/router';
 import database from "../../firebase.config"
 import { ref, onValue } from "firebase/database"
 import style from "../../styles/form.module.scss";
 import { Transformer } from "../../components/elements";
+
+import { useState, useEffect } from 'react'
 
 interface prop {
     Result: any, // need to make it 
@@ -11,14 +14,21 @@ interface prop {
 
 const Page = ({ Result, id }: prop) => {
 
+    const [response, setResponse] = useState<any>(false);
 
-    console.log(Result)
+    useEffect(() => {
+
+        onValue(ref(database, 'forms/'), (snapshot) => {
+            let res = snapshot.val();
+            if (res) { setResponse(res) }
+        });
+
+    }, [])
+
+    console.log(response)
 
     const Meta = Result?.Client;
-
-    if (!Result) {
-        return <p>{id} not found!</p>
-    }
+    if (!Result) { return <p>{id} not found!</p> }
 
     return (
         <div className={style.wrapper}>
@@ -34,7 +44,6 @@ const Page = ({ Result, id }: prop) => {
             <main>
                 {JSON.stringify(Meta)}
             </main>
-
         </div>
     )
 }
@@ -44,10 +53,9 @@ export default Page
 export const getServerSideProps = async (context: any) => {
 
     const id = context.query.id;
-    let Result = 'im not fetched'
-    const target = ref(database, 'forms/' + id);
-    onValue(target, (snapshot) => {
-        Result = snapshot.val()
+    let Result = 'im not fetched';
+    const T = onValue(ref(database, 'forms/' + id), (snapshot) => {
+        Result = snapshot.val();
     });
 
     return {

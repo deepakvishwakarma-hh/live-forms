@@ -21,7 +21,6 @@ const Dashboard = ({ Result }: any) => {
     useEffect(() => {
         dispatch(setUser())
 
-
         onValue(ref(database, 'forms/'), (snapshot) => {
             let res = snapshot.val()
             if (res) {
