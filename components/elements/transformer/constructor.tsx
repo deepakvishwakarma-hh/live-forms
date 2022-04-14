@@ -1,10 +1,18 @@
 import style from "./style.module.scss";
 
+import { useRouter } from "next/router"
 interface prop {
     value: any,
 }
 
 const Constructor = ({ value }: prop) => {
+
+    const router = useRouter()
+
+    const path = router.pathname
+
+    const isLive = (path == '/forms/[id]');
+
 
     const { action, name, placeholder, options, paragraph } = value;
 
@@ -12,7 +20,7 @@ const Constructor = ({ value }: prop) => {
 
     if (action == 'input') {
         return (
-            <div className={style.input} >
+            <div className={isLive ? style.preview__input : style.input} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
                 <input type="text" {...properties} />
@@ -20,7 +28,7 @@ const Constructor = ({ value }: prop) => {
     }
     else if (action == 'textarea') {
         return (
-            <div className={style.textarea} >
+            <div className={isLive ? style.preview__textarea : style.textarea} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
                 <textarea  {...properties}  ></textarea>
@@ -31,7 +39,7 @@ const Constructor = ({ value }: prop) => {
             return <option key={index2}>{value}</option>
         })
         return (
-            <div className={style.select} >
+            <div className={isLive ? style.preview__select : style.select} >
                 <h3>{name}</h3>
                 <p>{paragraph}</p>
                 <select  {...properties} >{optMaps}</select>

@@ -8,4 +8,5 @@ import Dashboard from "./dashboard";
 import Transformer from "./transformer";
 import FormGenerator from "./form-generator";
 import Boundry from "./auth-boundry";
-export { Header, Footer, Intro, Features, Auth, FormGenerator, Transformer, Dashboard, Boundry, Loader };
+import Survey from "./survey";
+export { Header, Footer, Intro, Features, Auth, FormGenerator, Transformer, Dashboard, Boundry, Loader, Survey };

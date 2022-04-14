@@ -1,61 +1,45 @@
-import Image from "next/image"
 import { useRouter } from 'next/router';
-import database from "../../firebase.config"
 import { useState, useEffect } from 'react'
-import style from "../../styles/form.module.scss";
-import { ref, get, child } from "firebase/database";
-import { Transformer } from "../../components/elements";
-
-import { AnimatePresence } from "framer-motion";
+import database from "../../firebase.config"
+import { Survey } from "../../components/elements";
 import { Loader } from "../../components/elements";
+import { ref, get, child } from "firebase/database";
+
+// imported under relatview
+import Fallback from "../../components/elements/survey/fallback";
 
 const Page = () => {
 
     const router = useRouter();
     const id = router.query.id;
     const [res, setRes] = useState<any>(false);
+    const [isLoading, setLoading] = useState<boolean>(true)
 
     useEffect(() => {
-        const dbRef = ref(database);
-
-        get(child(dbRef, 'forms/' + id))
+        // Database Reference
+        const Reference = ref(database);
+        // Find Survey on DB
+        get(child(Reference, 'forms/' + id))
             .then((snapshot) => {
                 let storedData = snapshot.val();
+                //store if Finded
                 if (storedData) {
                     setRes(storedData);
+                    setLoading(false)
+                } else {
+                    setLoading(false)
                 }
             }).catch((error) => {
                 console.log(error);
             })
-
     }, [id])
-
-    const ConstructionDetails = res?.Client;
-
-
 
     return (
         <>
-            {!res &&
-
-                <Loader />
-            }
-            <div className={style.wrapper}>
-                <header>
-                    <div>
-                        <h5>Powerd by
-                            <Image width={50} height={50} src="/logo.svg" alt="none" />
-                        </h5>
-
-                        <h1>{ConstructionDetails?.__header.title}</h1>
-                        <p>{ConstructionDetails?.__header.subtitle}</p>
-
-                    </div>
-                </header>
-                <main>
-                    {res && <Transformer live>{ConstructionDetails}</Transformer>}
-                </main>
-            </div></>
+            {isLoading && <Loader />}
+            {res && <Survey Client={res.Client} />}
+            {!res && <Fallback />}
+        </>
     )
 }
 
