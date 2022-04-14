@@ -13,7 +13,6 @@ const Header = () => (
             <HireDeveloperButton />
         </div>
 
-        {/* {!clean && <MobileResponsiveMenu />} */}
 
     </nav >)
 

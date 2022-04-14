@@ -6,6 +6,7 @@
 
 .wrapper {
     @extend %responsivePadding;
+    padding-bottom: 0rem;
 
     display: flex;
     justify-content: space-between;

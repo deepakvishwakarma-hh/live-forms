@@ -13,12 +13,14 @@ const Block = ({ topic, paragraph, url }: propType) => {
         <div className={style.block}>
 
             <div className={style.image_wrapper}>
-                <Image layout="fill" alt="img" src={url} />
+                <Image width={150} height={150} alt="img" src={url} />
             </div>
 
-            <h1>{topic}</h1>
+            <div className={style.texts}>
+                <h1>{topic}</h1>
 
-            <p>{paragraph}</p>
+                <p>{paragraph}</p>
+            </div>
 
         </div>
     )

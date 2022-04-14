@@ -5,7 +5,7 @@
     @extend %responsivePadding;
 
     background: $lightblue;
-    display: flex;
+    // display: flex;
 
     @media (max-width: 800px) {
         flex-direction: column;
@@ -14,7 +14,9 @@
 
 .block {
     flex: 1;
-    margin: 0 5rem;
+    margin: 5rem auto;
+    display: flex;
+    align-items: center;
 
     @media (max-width: 1200px) {
         margin: 0 3rem;
@@ -41,20 +43,26 @@
         padding: 0 1rem;
     }
 
-    h1 {
-        padding: 2rem 0;
-    }
 
-    p {
-        @extend %resParagraphFontSize;
-        font-weight: 500;
-        line-height: 2.2rem;
+    .texts {
+        flex: 1;
+
+        h1 {
+            padding: 1rem 0;
+            font-weight: 400
+        }
+
+        p {
+            @extend %resParagraphFontSize;
+            font-weight: 500;
+            line-height: 2.2rem;
+        }
     }
 
     .image_wrapper {
-        position: relative;
-        height: 150px;
-        width: 200px;
-
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }

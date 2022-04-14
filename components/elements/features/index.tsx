@@ -6,9 +6,11 @@ const Features = () => {
     return (
         <div className={style.wrapper}>
 
-            <Block topic="Realtime Surveys" paragraph="You’ll be ready to start working with Dedicated Google Realtime Database " url="/fast-hiring.svg" />
-            <Block topic="Perfact Analysis" paragraph="With 10000+ developers in our pre-vetted pool, it's easy to find the right developer." url="/perfact-match.svg" />
-            <Block topic="Dashboard Support " paragraph="We match the timezone so there is enough time overlap for easy communication." url="/remote-ready.svg" />
+            <Block topic="Realtime Surveys" paragraph=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab eum consequuntur porro quia omnis, ad maxime dolore laboriosam rem earum asperiores aliquam id, fugit officia at, dignissimos unde laudantium. " url="/fast-hiring.svg" />
+            <Block topic="Perfact Analysis" paragraph=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab eum consequuntur porro quia omnis, ad maxime dolore laboriosam rem earum asperiores aliquam id, fugit officia at, dignissimos unde laudantium.." url="/perfact-match.svg" />
+            <Block topic="Dashboard Support " paragraph=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ab eum consequuntur porro quia omnis, ad maxime dolore laboriosam rem earum asperiores aliquam id, fugit officia at, dignissimos unde laudantium." url="/remote-ready.svg" />
+
+
 
         </div>
     )
