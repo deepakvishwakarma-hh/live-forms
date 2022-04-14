@@ -29,7 +29,7 @@ const Page = ({ Result, id }: prop) => {
                 </div>
             </header>
             <main>
-                <Transformer live>{Meta}</Transformer>
+                {JSON.stringify(Meta)}
             </main>
 
         </div>
