@@ -8,6 +8,7 @@ interface prop { data: any }
 
 export default function Foroms({ data }: prop) {
 
+    console.log(data)
 
     const map = data?.Database?.map((value: any, index: number) => {
 
