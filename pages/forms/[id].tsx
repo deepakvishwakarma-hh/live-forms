@@ -1,8 +1,9 @@
+import Image from "next/image"
 import database from "../../firebase.config"
 import { ref, onValue } from "firebase/database"
 import style from "../../styles/form.module.scss";
 import { Transformer } from "../../components/elements";
-import Image from "next/image"
+
 interface prop {
     Result: any, // need to make it 
     id: string;
@@ -23,14 +24,12 @@ const Page = ({ Result, id }: prop) => {
                     <h5>Powerd by
                         <Image width={50} height={50} src="/logo.svg" alt="none" />
                     </h5>
-
                     <h1>{Meta?.__header?.title}</h1>
                     <p>{Meta?.__header?.subtitle}</p>
-
                 </div>
             </header>
             <main>
-                {/* <Transformer live>{Meta}</Transformer> */}
+                <Transformer live>{Meta}</Transformer>
             </main>
 
         </div>

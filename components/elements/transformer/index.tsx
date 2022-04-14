@@ -18,7 +18,7 @@ const Transformer = ({ children, live }: prop) => {
     // Read Client /  Create Blank Object for initialState
     const CreateBlankObject = () => {
         const T: any = {};
-        children.__custom.map((V: any) => {
+        children?.__custom?.map((V: any) => {
             (V.action !== 'dropdown')
                 ? T[V.name] = ''
                 : T[V.name] = V.options[0] // B'cause state cannot store defult (first value)
