@@ -1,34 +1,33 @@
 import Image from "next/image"
-import useRouter from 'next/router';
+import { useRouter } from 'next/router';
 import database from "../../firebase.config"
-import { ref, onValue } from "firebase/database"
+import { useState, useEffect } from 'react'
 import style from "../../styles/form.module.scss";
+import { ref, get, child } from "firebase/database";
 import { Transformer } from "../../components/elements";
 
-import { useState, useEffect } from 'react'
+const Page = () => {
 
-interface prop {
-    Result: any, // need to make it 
-    id: string;
-}
-
-const Page = ({ Result, id }: prop) => {
-
-    const [response, setResponse] = useState<any>(false);
+    const router = useRouter();
+    const id = router.query.id;
+    const [res, setRes] = useState<any>(false);
 
     useEffect(() => {
+        const dbRef = ref(database);
 
-        onValue(ref(database, 'forms/'), (snapshot) => {
-            let res = snapshot.val();
-            if (res) { setResponse(res) }
-        });
+        get(child(dbRef, 'forms/' + id))
+            .then((snapshot) => {
+                let storedData = snapshot.val();
+                if (storedData) {
+                    setRes(storedData);
+                }
+            }).catch((error) => {
+                console.log(error);
+            })
 
-    }, [])
+    }, [id])
 
-    console.log(response)
-
-    const Meta = Result?.Client;
-    if (!Result) { return <p>{id} not found!</p> }
+    const ConstructionDetails = res?.Client;
 
     return (
         <div className={style.wrapper}>
@@ -37,12 +36,10 @@ const Page = ({ Result, id }: prop) => {
                     <h5>Powerd by
                         <Image width={50} height={50} src="/logo.svg" alt="none" />
                     </h5>
-                    <h1>{Meta?.__header?.title}</h1>
-                    <p>{Meta?.__header?.subtitle}</p>
                 </div>
             </header>
             <main>
-                {JSON.stringify(Meta)}
+                {res && <Transformer live>{ConstructionDetails}</Transformer>}
             </main>
         </div>
     )
@@ -50,18 +47,4 @@ const Page = ({ Result, id }: prop) => {
 
 export default Page
 
-export const getServerSideProps = async (context: any) => {
 
-    const id = context.query.id;
-    let Result = 'im not fetched';
-    const T = onValue(ref(database, 'forms/' + id), (snapshot) => {
-        Result = snapshot.val();
-    });
-
-    return {
-        props: {
-            id,
-            Result
-        }
-    }
-}
