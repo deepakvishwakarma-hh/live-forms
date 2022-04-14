@@ -30,7 +30,7 @@ const Page = ({ Result, id }: prop) => {
                 </div>
             </header>
             <main>
-                <Transformer live>{Meta}</Transformer>
+                {/* <Transformer live>{Meta}</Transformer> */}
             </main>
 
         </div>
