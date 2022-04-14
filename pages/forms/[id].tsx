@@ -11,6 +11,9 @@ interface prop {
 
 const Page = ({ Result, id }: prop) => {
 
+
+    console.log(Result)
+
     const Meta = Result?.Client;
 
     if (!Result) {
