@@ -1,16 +1,35 @@
-import React from 'react'
+import { useRouter } from "next/router"
+import { useEffect, useState } from 'react'
 import database from "../../firebase.config";
-import { ref, onValue } from "firebase/database";
 import { Boundry } from "../../components/elements";
+import { ref, onValue, } from "firebase/database";
 import style from "../../styles/dashboard.module.scss"
+import { Loader } from "../../components/elements";
 
-interface prop { data: any }
 
-export default function Foroms({ data }: prop) {
+export default function Index() {
 
-    console.log(data)
+    const router = useRouter();
+    const id = router.query.id;
+    const [res, setRes] = useState<any>(false);
+    const [isLoading, setLoading] = useState<boolean>(true)
 
-    const map = data?.Database?.map((value: any, index: number) => {
+    useEffect(() => {
+        onValue(ref(database, 'forms/' + id), (snapshot) => {
+            let res = snapshot.val()
+            if (res) {
+                setRes(res)
+                setLoading(false)
+            } else {
+                setLoading(false)
+            }
+        });
+
+    }, [id])
+
+
+
+    const map = res?.Database?.map((value: any, index: number) => {
 
         const Keys = Object.keys(value);
 
@@ -31,28 +50,11 @@ export default function Foroms({ data }: prop) {
 
     return (
         <Boundry>
+            {isLoading && <Loader />}
             <div className={style.wrapper}>
                 <div className={style.content}>{map}</div>
-
             </div>
         </Boundry>
     )
 }
 
-
-export const getServerSideProps = async (context: any) => {
-
-    const id = context.query.id;
-
-    let Result = 'im not fetched'
-
-    const T = onValue(ref(database, 'forms/' + id), (snapshot) => {
-        Result = snapshot.val()
-    });
-
-    return {
-        props: {
-            data: Result
-        }
-    }
-}
