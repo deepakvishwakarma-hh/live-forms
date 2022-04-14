@@ -71,8 +71,6 @@ const useGenerate = () => {
             callback(snapshot.val())
         });
     }
-
-
     return { store, saveToDatabase, getData }
 }
 export default useGenerate

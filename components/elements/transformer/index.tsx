@@ -1,5 +1,7 @@
 // Conversion Into Into human Readable Formet
 
+// Usage Alert : I need __custom and heder
+
 import Header from "./header"
 import { useState } from "react";
 import { useRouter } from "next/router"
@@ -15,26 +17,25 @@ interface prop {
 
 const Transformer = ({ children, live }: prop) => {
 
-    // Read Client /  Create Blank Object for initialState
+    const gen = useGenerate()
+    const router = useRouter()
+
+    // Read Client / Create Blank Object for initialState
     const CreateBlankObject = () => {
         const T: any = {};
-        children?.__custom?.map((V: any) => {
+        children.__custom.map((V: any) => {
             (V.action !== 'dropdown')
                 ? T[V.name] = ''
                 : T[V.name] = V.options[0] // B'cause state cannot store defult (first value)
         })
-
         return T;
     }
-
-    const gen = useGenerate()
-
-    const router = useRouter()
 
     const [gatherdInformation, setGatherdInformation] = useState<any>(CreateBlankObject())
 
     // maps of constructed form element
-    const map = children.__custom.map((V: any, K: number) => <Constructor value={V} key={K} />)
+
+    const map = children?.__custom?.map((V: any, K: number) => <Constructor value={V} key={K} />)
 
     const header = useAppSelector(store => store.__generator.__meta.__header)
 
@@ -57,7 +58,6 @@ const Transformer = ({ children, live }: prop) => {
 
     const onSubmit = (E: any) => {
         E.preventDefault();
-
         gen.saveToDatabase(router.query.id as string, gatherdInformation)
     }
 
@@ -70,7 +70,6 @@ const Transformer = ({ children, live }: prop) => {
             </form>
         </div>
     )
-
 }
 export default Transformer
 
