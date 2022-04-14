@@ -3,19 +3,12 @@ import { ref, onValue } from "firebase/database"
 import style from "../../styles/form.module.scss";
 import { Transformer } from "../../components/elements";
 import Image from "next/image"
-interface prop {
-    Result: any, // need to make it 
-    id: string;
-}
+import { useRouter } from "next/router";
 
-const Page = ({ Result, id }: prop) => {
+const Page = () => {
 
-    const Meta = Result?.Client;
-    const { title, subtitle } = Meta?.__header
+    const router = useRouter()
 
-    if (Result == null) {
-        return <p>{id} not found!</p>
-    }
 
     return (
         <div className={style.wrapper}>
@@ -24,14 +17,10 @@ const Page = ({ Result, id }: prop) => {
                     <h5>Powerd by
                         <Image width={50} height={50} src="/logo.svg" alt="none" />
                     </h5>
-
-                    <h1>{title}</h1>
-                    <p>{subtitle}</p>
-
                 </div>
             </header>
             <main>
-                <Transformer live>{Meta}</Transformer>
+                {router.query.id}
             </main>
 
         </div>
@@ -39,20 +28,3 @@ const Page = ({ Result, id }: prop) => {
 }
 
 export default Page
-
-export const getServerSideProps = async (context: any) => {
-
-    const id = context.query.id;
-    let Result = 'im not fetched'
-    const target = ref(database, 'forms/' + id);
-    onValue(target, (snapshot) => {
-        Result = snapshot.val()
-    });
-
-    return {
-        props: {
-            id,
-            Result
-        }
-    }
-}
