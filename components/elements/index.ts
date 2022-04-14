@@ -1,4 +1,5 @@
 import Intro from "./intro";
+import Loader from "./loader";
 import Auth from "./auth-form";
 import Header from "./header";
 import Features from "./features";
@@ -7,4 +8,4 @@ import Dashboard from "./dashboard";
 import Transformer from "./transformer";
 import FormGenerator from "./form-generator";
 import Boundry from "./auth-boundry";
-export { Header, Footer, Intro, Features, Auth, FormGenerator, Transformer, Dashboard, Boundry };
+export { Header, Footer, Intro, Features, Auth, FormGenerator, Transformer, Dashboard, Boundry, Loader };

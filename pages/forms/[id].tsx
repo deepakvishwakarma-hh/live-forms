@@ -6,6 +6,9 @@ import style from "../../styles/form.module.scss";
 import { ref, get, child } from "firebase/database";
 import { Transformer } from "../../components/elements";
 
+import { AnimatePresence } from "framer-motion";
+import { Loader } from "../../components/elements";
+
 const Page = () => {
 
     const router = useRouter();
@@ -29,19 +32,30 @@ const Page = () => {
 
     const ConstructionDetails = res?.Client;
 
+
+
     return (
-        <div className={style.wrapper}>
-            <header>
-                <div>
-                    <h5>Powerd by
-                        <Image width={50} height={50} src="/logo.svg" alt="none" />
-                    </h5>
-                </div>
-            </header>
-            <main>
-                {res && <Transformer live>{ConstructionDetails}</Transformer>}
-            </main>
-        </div>
+        <>
+            {!res &&
+
+                <Loader />
+            }
+            <div className={style.wrapper}>
+                <header>
+                    <div>
+                        <h5>Powerd by
+                            <Image width={50} height={50} src="/logo.svg" alt="none" />
+                        </h5>
+
+                        <h1>{ConstructionDetails?.__header.title}</h1>
+                        <p>{ConstructionDetails?.__header.subtitle}</p>
+
+                    </div>
+                </header>
+                <main>
+                    {res && <Transformer live>{ConstructionDetails}</Transformer>}
+                </main>
+            </div></>
     )
 }
 
