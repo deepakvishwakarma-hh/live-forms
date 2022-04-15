@@ -1,17 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import User from "./user";
-import style from "./dashboard.module.scss"
 import Logo from "../../micros/Logo";
-import { useAppSelector } from "../../../state-store";
 import Router from "next/router";
+import style from "./dashboard.module.scss"
+import { useAppSelector } from "../../../state-store";
 
 const Aside = () => {
 
-
     const user = useAppSelector(state => state.user);
-
-
-
 
     return (
         <div className={style.aside}>
@@ -22,7 +18,7 @@ const Aside = () => {
 
             </div>
             <div className={style.button__wrapper}>
-                <button onClick={() => { Router.push('/sub/generator') }} className={style.create__button}>+</button>
+                <button onClick={() => { Router.push('/editor') }} className={style.create__button}>+</button>
             </div>
 
             <User user={user as any} />

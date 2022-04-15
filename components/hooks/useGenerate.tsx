@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import database from "../../firebase.config";
 import { useAppSelector, useAppDispatch, alerts } from "../../state-store";
 import { ref, set, onValue, update, get, child } from "firebase/database";
+import Router from 'next/router';
 
 const useGenerate = () => {
 
@@ -37,6 +38,7 @@ const useGenerate = () => {
 
                 setTimeout(() => {
                     dispatch(alerts({ type: 'formCreated', payload: false }))
+                    Router.push('/forms/' + schema.id)
                 }, 4000)
 
             })

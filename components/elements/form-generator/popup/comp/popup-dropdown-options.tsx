@@ -23,8 +23,8 @@ const Options = ({ value, index }: prop) => {
     }
     return (
         <li>
-            {value}
-            <Delete aspect={40} onClick={onRemove} />
+            <span> {value}</span>
+            <Delete aspect={40} color='red' onClick={onRemove} />
         </li>
     )
 }

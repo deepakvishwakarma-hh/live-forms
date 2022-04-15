@@ -2,39 +2,31 @@
 
 .aside {
     flex: 1;
-    padding: 2rem;
-    max-height: 100vh;
-    overflow-y: scroll;
     background: $pure-white;
+    display: grid;
+    grid: 80px 200px auto auto / 100%;
 
-    &::-webkit-scrollbar {
-        width: 5px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        border-radius: 1rem;
-        background-color: rgba(0, 0, 0, 0.123);
-    }
-
-    .note {
-        font-size: .7rem;
-        color: rgba(6, 1, 0, 0.786);
+    .aside__top {
+        height: 80px;
+        display: flex;
+        align-items: center;
     }
 
     .aside__button__wrapper {
         display: flex;
-        padding: 1rem;
+        flex-direction: column;
+        // padding: 1rem;
 
         button {
             @extend %resetCss;
             @extend %center-flex;
-            width: 100%;
+            // width: 100%;     
             margin: .5rem;
             padding: .5rem 0;
             border-radius: .2rem;
             border-radius: .5rem;
             border: 1px transparent solid;
-            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.055);
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.185);
 
             span {
                 flex: 3;
@@ -45,7 +37,7 @@
     .aside__header {
         border-radius: .3rem;
         padding: .4rem 1rem;
-        margin: 1rem 0;
+        margin: 1rem 1rem;
         display: flex;
         flex-direction: column;
         border: $light-wrapper-border;
@@ -59,11 +51,7 @@
             input {
                 padding: .5rem 1rem;
                 border: 2px rgba(128, 128, 128, 0.097) solid;
-
             }
-
-            ;
-
 
         }
 
@@ -76,7 +64,8 @@
                 border-radius: .4rem;
                 padding: .4rem .8rem;
                 border: 2px rgba(128, 128, 128, 0.097) solid;
-
+                background: white;
+                resize: none;
             }
         }
     }

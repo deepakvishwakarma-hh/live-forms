@@ -48,7 +48,7 @@ const initialState: initialState = {
         },
         __meta: {
             __header: {
-                title: 'Title',
+                title: 'Title goes  here...',
                 subtitle: 'Sub Title goes here.......   ',
             },
             __custom: [

@@ -1,11 +1,10 @@
 import { useRouter } from "next/router"
 import { useEffect, useState } from 'react'
 import database from "../../firebase.config";
-import { Boundry } from "../../components/elements";
 import { ref, onValue, } from "firebase/database";
-import style from "../../styles/dashboard.module.scss"
 import { Loader } from "../../components/elements";
-
+import { Boundry } from "../../components/elements";
+import style from "../../styles/dashboard.module.scss"
 
 export default function Index() {
 
@@ -26,7 +25,6 @@ export default function Index() {
         });
 
     }, [id])
-
 
 
     const map = res?.Database?.map((value: any, index: number) => {

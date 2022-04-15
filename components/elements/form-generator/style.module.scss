@@ -2,7 +2,7 @@
 
 .wrapper {
     display: grid;
-    grid: 100vh / 400px auto;
+    grid: 100vh / 300px auto 300px;
     background: #000;
     font-family: 'Varela Round', sans-serif;
 
@@ -77,8 +77,10 @@
     // Component Main
     .main {
         background: rgba(243, 243, 243, 0.712);
+        background: url('/dashboard-bg.jpg');
+        background-size: cover;
         display: grid;
-        grid: auto 50px /100%; // padding: 1rem;
+        grid: 80px auto /100%; // padding: 1rem;
 
         .main__meta {
             height: 100%;
@@ -86,16 +88,26 @@
             display: flex;
             justify-content: center;
             border-radius: .2rem;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: rgba(0, 0, 0, 0.123);
+                border-radius: 1rem;
+                color: #ff000017;
+            }
         }
 
-        .footer {
+        .top {
             padding: 0 1rem;
-            background: rgb(255, 255, 255);
+            background: rgba(255, 255, 255, 0.767);
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            .footer__noti {
+            .top__noti {
                 font-style: italic;
 
                 span {
@@ -109,13 +121,13 @@
                 }
             }
 
-            .footer__button__wrapper {
-                .footer__button__produce {
+            .top__button__wrapper {
+                .top__button__produce {
                     @extend %resetCss;
                     color: white;
                     border-radius: .3rem;
                     font-weight: 500;
-                    padding: .5rem 1rem;
+                    padding: .5rem 3rem;
                     font-size: 1rem;
                     background: blue;
                 }

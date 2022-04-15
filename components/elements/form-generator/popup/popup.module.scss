@@ -3,45 +3,48 @@
 
 .popup {
     @extend %center-flex;
-    margin-top: 1rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.752);
 
     .popup__wrapper {
-        overflow: hidden;
-        width: 500px;
-        border-radius: .2rem;
-        color: white !important;
-        background-image: linear-gradient(45deg, $blue, rgb(0, 0, 0));
+        min-width: 500px;
+        background: rgb(255, 255, 255);
 
         h4 {
+            font-size: 1.3rem;
+            padding: 1rem 1rem 1rem 1rem;
             letter-spacing: .1rem;
-            text-transform: uppercase;
-            padding: 1rem 1rem;
+            text-transform: capitalize;
+            background: rgba(0, 0, 0, 0.407);
+            color: white;
         }
 
         label {
-            padding: .3rem 1rem;
             display: flex;
             margin: .5rem 0;
+            padding: .3rem 1rem;
             flex-direction: column;
+
+
 
             span {
                 padding: .3rem 0;
+                font-size: 1rem;
                 text-transform: capitalize;
-                font-size: .9rem;
+
+
 
             }
 
             input {
-                border-color: transparent !important;
-                // display: block;
-                border-radius: .2rem;
                 outline: none;
-                background: rgba(255, 255, 255, 0.15);
-                color: white;
-
-                &::placeholder {
-                    color: rgba(255, 255, 255, 0.678);
-                }
+                border-radius: .2rem;
+                border: 2px rgba(0, 0, 0, 0.435) solid;
             }
 
             button {
@@ -59,56 +62,61 @@
             }
 
             ul {
-                display: flex;
+                padding: 1rem;
 
                 li {
-                    @extend %center-flex;
-                    justify-content: space-between;
-                    background: rgba(255, 255, 255, 0.068);
-                    font-size: .8rem;
-                    padding: .2rem .3rem;
                     margin: .3rem;
+                    display: flex;
+                    font-size: .8rem;
+                    padding: .5rem .3rem;
                     border-radius: .2rem;
                     text-transform: capitalize;
+                    background: rgba(0, 0, 0, 0.045);
+
+                    span {
+                        flex: 5;
+                        @extend %center-flex;
+                    }
+
+                    button {
+                        flex: 1;
+                    }
                 }
             }
-
         }
 
-        // why is pastly gliched
         .popup__wrapper__dropbox__input__wrapper {
-            overflow: hidden;
-            border-radius: .2rem;
             display: flex;
             margin-top: 1em;
+            overflow: hidden;
+            border-radius: .2rem;
 
             input {
                 flex: 5;
                 padding-left: .5rem;
-                border: none;
+                border: 2px black solid;
             }
 
             button {
                 flex: 1;
-                padding: .5rem .5rem .5rem .5rem;
+                border: 2px black solid;
                 background: rgb(0, 0, 0);
-
+                padding: .5rem .5rem .5rem .5rem;
             }
         }
-
-
     }
-
 }
 
 .popup__wrapper__button__wrapper {
     margin: 1rem;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
 
     button {
-        padding: .3rem 1rem;
-        background: rgba(255, 255, 255, 0.102);
+        flex: 1;
+        margin: 0 .2rem;
+        padding: .5rem 2rem;
         border-radius: .2rem;
+        background: rgba(0, 0, 0, 0.102);
     }
 }

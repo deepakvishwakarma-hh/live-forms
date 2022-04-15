@@ -1,9 +1,11 @@
 import Header from "./header"
 import Popup from "../popup";
 import Button from "./button";
-import Inspector from "../../inspector";
 import style from "./aside.module.scss";
 import { AnimatePresence } from "framer-motion";
+
+import Logo from "../../../micros/Logo";
+
 
 import {
     setAction,
@@ -23,9 +25,11 @@ const Aside = () => {
 
     return (
         <div className={style.aside}>
-            <Header />
+            <div className={style.aside__top}>
+                <Logo />
+            </div>
 
-            <Inspector />
+            <Header />
 
             <div className={style.aside__button__wrapper}>
                 <Button name="input" onClick={onClick} />

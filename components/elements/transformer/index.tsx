@@ -1,6 +1,4 @@
-// Conversion Into Into human Readable Formet
-
-// Usage Alert : I need __custom and heder
+// Conversion Into human Readable Formet
 
 import Header from "./header"
 import { useState } from "react";
@@ -26,7 +24,9 @@ const Transformer = ({ children, live }: prop) => {
         children.__custom.map((V: any) => {
             (V.action !== 'dropdown')
                 ? T[V.name] = ''
-                : T[V.name] = V.options[0] // B'cause state cannot store defult (first value)
+                : T[V.name] = (V.options) // B'cause state cannot store defult (first value)    
+                    ? V.options[0]
+                    : undefined
         })
         return T;
     }

@@ -7,6 +7,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { Delete } from "../buttons"
 import style from "./inspector.module.scss"
+import Marker from "./marker"
 import { useAppDispatch, deleteFromMeta } from "../../../state-store"
 
 const Element = ({ data, index }: prop) => {
@@ -29,8 +30,10 @@ const Element = ({ data, index }: prop) => {
 
     const imageSrcConditonally = isExpanded ? '/chevron-up.svg' : "/chevron-down.svg";
 
-    const isNameError = (data.name == '') ? true : false;
+    const isNameError = (data.name == '');
 
+    //  splicing big name and joining ...
+    const splicedName = data.name[5] ? data?.name?.slice(0, 5) + '...' : data.name;
 
     return (
         <div
@@ -41,9 +44,9 @@ const Element = ({ data, index }: prop) => {
                 onClick={onClick}
                 className={style.header}>
 
-                <span>{data.name}
-                    <p>{data.action}</p>
-                </span>
+                <Marker action={data.action}></Marker>
+
+                <span>{splicedName}</span>
                 <div>
                     <Delete
                         aspect={30}

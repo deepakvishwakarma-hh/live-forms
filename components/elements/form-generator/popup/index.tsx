@@ -14,6 +14,7 @@ import style from "./popup.module.scss";
 import { Delete, Next } from "../../buttons";
 import DropboxOpt from "./comp/popup-dropdown"
 
+
 const Popup = () => {
 
     const dispatch = useAppDispatch();
@@ -28,6 +29,7 @@ const Popup = () => {
         dispatch(setPopupName(e.target.value))
     }
     const inputParagraphOnChngeHandler = (e: any) => {
+
         dispatch(setPopupParagraph(e.target.value))
     }
 
@@ -37,7 +39,7 @@ const Popup = () => {
         dispatch(setAction(undefined))
     }
 
-    const onNext = () => {
+    const onPush = () => {
         dispatch(pushMeta())
     }
 
@@ -47,14 +49,30 @@ const Popup = () => {
         transition: { duration: .1 }
     }
 
+    const onKeyUp = (event: any) => {
+
+        // push and hide
+        if (event.keyCode === 13) {
+            onPush()
+            onClose()
+        }
+
+        // hide the popup
+        if (event.keyCode === 27) {
+            onClose()
+        }
+
+    }
+
     return (
-        <motion.div {...animationProperties} className={style.popup}>
+        <motion.div {...animationProperties} onKeyUp={onKeyUp
+        } className={style.popup}>
 
             <div className={style.popup__wrapper}>
-                <h4>  {action}</h4>
+                <h4> {action}   </h4>
                 <Input
                     onChange={inputNameOnChngeHandler}
-                    label={` name`}
+                    label={`name`}
                     placeholder="ex. Experiance " />
                 <Input
                     onChange={inputParagraphOnChngeHandler}
@@ -68,8 +86,8 @@ const Popup = () => {
                 {dropBoxOptConditionallyShow && <DropboxOpt />}
 
                 <div className={style.popup__wrapper__button__wrapper}>
-                    <Delete aspect={40} onClick={onClose} />
-                    <Next aspect={35} onClick={onNext} />
+                    <Delete color="red" aspect={40} onClick={onClose} />
+                    <Next color="black" aspect={40} onClick={onPush} />
                 </div>
             </div>
         </motion.div>
