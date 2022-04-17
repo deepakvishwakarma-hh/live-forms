@@ -1,35 +1,32 @@
 import Image from "next/image";
-import { motion } from 'framer-motion'
-
+import { Button, Flex } from '@chakra-ui/react'
 interface prop {
     name: string;
     onClick: any;
 }
 
-const Button = ({ name, onClick }: prop) => {
+const _Button = ({ name, onClick }: prop) => {
 
-    const animatingProperties = {
-        initial: {}, // ff
-        animate: {}, // fs
-        whileHover: { border: '1px solid #000', },
-    }
+
 
     return (
-        <motion.button
+        <Button
+            _hover={{ border: 'none' }}
+            my={3}
+            bg={'none'}
             name={name}
-            onClick={() => { onClick(name) }}
-            {...animatingProperties}>
-            <div>
+            onClick={() => { onClick(name) }}>
+            <Flex>
                 <Image
                     width={20}
                     height={20}
                     alt={"svg"}
                     src={`/generator/${name}.svg`} />
-            </div>
+            </Flex>
 
-        </motion.button>
+        </Button >
     )
 }
 
 
-export default Button;
+export default _Button;

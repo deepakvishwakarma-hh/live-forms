@@ -1,12 +1,15 @@
 // OPT
 import Option from "./popup-dropdown-options"
 import { useState } from 'react'
-import style from "../popup.module.scss";
 import {
     useAppSelector,
     useAppDispatch,
     pushPopupOptions
 } from "../../../../../state-store";
+
+import { UnorderedList, ListItem } from "@chakra-ui/react";
+
+import { Flex, Box, Input, Button } from "@chakra-ui/react";
 
 import { Add } from "../../../buttons"
 
@@ -31,25 +34,26 @@ const DropboxOpt = () => {
 
     const optMapper = opt?.map((option: string, index: number) => <Option value={option} index={index} key={index} />) // Options mapper
 
-    const optionUiList = (opt?.length !== 0) ? <ul> {optMapper} </ul> : <p>No options...</p> // if opt is empty, show this text
+    const optionUiList = (opt?.length !== 0) ? <Flex mt={5} flexWrap="wrap" > {optMapper} </Flex> : <p>No options...</p> // if opt is empty, show this text
 
     return (
-        <div className={style.popup__wrapper__dropbox}>
-            {/* <h3>Options</h3> */}
+        <Box >
 
             {optionUiList}
 
-            <div className={style.popup__wrapper__dropbox__input__wrapper}>
-                <input
+            <Flex mt={3} >
+                <Input mx={2} flex={2}
                     value={input}
                     onChange={onChangeHandler}
                     placeholder="type options"
                     type="text" />
 
-                <Add aspect={30} onClick={onPushHandler} />
-            </div>
+                <Button onClick={onPushHandler} mx={2} flex={1}>
+                    <Add aspect={30} color="blue" />
+                </Button>
+            </Flex>
 
-        </div>
+        </Box>
     )
 }
 

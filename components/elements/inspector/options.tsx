@@ -5,7 +5,8 @@ interface prop {
 
 import { Delete, Add } from "../buttons"
 import { useState } from "react"
-import style from "./inspector.module.scss"
+
+import { Box, Text, Button, Flex, Input } from "@chakra-ui/react"
 
 const Options = ({ data, update }: prop) => {
 
@@ -31,22 +32,24 @@ const Options = ({ data, update }: prop) => {
     }
 
     const optMapper = data.map((item: any, index: number) => {
-        return <li key={index}>
-            <span>{item}</span>
-            <Delete aspect={30} color="red" onClick={() => { onRemove(index) }} />
-        </li>
+        return <Flex alignItems={'center'} justifyContent={'space-between'} key={index}>
+            <Text>{item}</Text>
+            <Box>
+                <Delete aspect={30} color="red" onClick={() => { onRemove(index) }} />
+            </Box>
+        </Flex>
     })
 
     return (
-        <div className={style.options}>
-            <h4>Dropdown Options</h4>
+        <Box >
+            <Text mb={2} color="blue">Dropdown Options</Text>
             <ul>{optMapper}</ul>
-            <div>
-                <h4>Add Dropdown Options</h4>
-                <input onChange={onInputChange} type="text" placeholder="add more options" />
+
+            <Flex alignItems={'centers'} my={3}>
+                <Input size="xs" onChange={onInputChange} type="text" placeholder="add more options" mr={2} />
                 <Add aspect={30} color="black" onClick={onAdd} />
-            </div>
-        </div>
+            </Flex>
+        </Box>
     )
 
 }

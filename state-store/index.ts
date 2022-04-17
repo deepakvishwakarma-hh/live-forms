@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 interface initialState {
     __generator: {
         __action: "input" | 'dropdown' | "textarea" | undefined;
+        __headerBox: boolean;
         __popup: {
             name: string,
             paragraph: string,
@@ -39,6 +40,7 @@ interface initialState {
 const initialState: initialState = {
     __generator: {
         __action: undefined,
+        __headerBox: false,
         __popup: {
             name: '',
             paragraph: '',
@@ -136,6 +138,9 @@ const slice = createSlice({
             const value = action.payload.payload;
             const key = action.payload.type;
             state.alearts[key] = value;
+        },
+        toggleHeaderBox: (state, action) => {
+            state.__generator.__headerBox = action.payload;
         }
 
     }
@@ -145,7 +150,7 @@ const store = configureStore({
     reducer: slice.reducer
 })
 
-export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchWithAutoSave, setMetaHeaderTitle, setMetaHeaderSubTitle, setUser, alerts } = slice.actions;
+export const { setAction, setPopupName, pushPopupOptions, removePopupOption, setPopupPlaceholder, pushMeta, setPopupParagraph, deleteFromMeta, editFromMeta, fetchWithAutoSave, setMetaHeaderTitle, setMetaHeaderSubTitle, setUser, alerts, toggleHeaderBox } = slice.actions;
 
 export default store;
 export type AppDispatch = typeof store.dispatch

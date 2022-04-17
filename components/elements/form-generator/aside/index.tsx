@@ -1,11 +1,8 @@
-import Header from "./header"
 import Popup from "../popup";
 import Button from "./button";
-import style from "./aside.module.scss";
 import { AnimatePresence } from "framer-motion";
-
-import Logo from "../../../micros/Logo";
-
+import { Grid, Flex } from "@chakra-ui/react";
+import Header from "./header";
 
 import {
     setAction,
@@ -21,25 +18,36 @@ const Aside = () => {
 
     const Action = useAppSelector(store => store.__generator.__action)
 
+    const headerBox = useAppSelector(store => store.__generator.__headerBox)
+
+    console.log(headerBox)
+
     const popupConditionallyShow = (Action !== undefined) ? true : false;
 
     return (
-        <div className={style.aside}>
-            <div className={style.aside__top}>
-                <Logo />
-            </div>
 
-            <Header />
+        <Grid gridTemplate={" 80px auto  auto/ 100%"} bg="white" >
 
-            <div className={style.aside__button__wrapper}>
+            <Flex bg="black" alignItems={'center'} justifyContent="center">
+                <svg width="80" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="50" fill="transparent" />
+                    <rect x="22" y="14" width="56" height="7" rx="3.5" fill="white" />
+                    <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="white" />
+                </svg>
+            </Flex>
+
+            {headerBox && <Header />}
+
+
+            <Flex p={2} flexWrap="wrap" flexDir={'column'} >
                 <Button name="input" onClick={onClick} />
                 <Button name="textarea" onClick={onClick} />
                 <Button name="dropdown" onClick={onClick} />
-            </div>
-
+            </Flex>
             <AnimatePresence>{popupConditionallyShow && < Popup />}  </AnimatePresence>
 
-        </div>
+        </Grid>
+
     )
 }
 export default Aside

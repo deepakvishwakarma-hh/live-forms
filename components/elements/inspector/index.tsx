@@ -1,24 +1,18 @@
-// OPT ing
 import Element from "./element";
-import style from "./inspector.module.scss"
+import { Grid, Box } from "@chakra-ui/react";
 import { useAppSelector } from "../../../state-store";
-import User from "../dashboard/user";
+
 const Inspector = () => {
     const inputBlocks = useAppSelector(store => store.__generator.__meta.__custom)
-
-
     const inputRefList = inputBlocks.map((Ele: any, Index: number) => <Element
         key={Index} index={Index} data={Ele} />)
-
     return (
-        <div className={style.wrapper}>
-            <div className={style.top}>
-            </div>
-            <div className={style.element__wrapper}>
+        <Grid gridTemplate={'80px auto / 100%'} bg='white'>
+            <Box></Box>
+            <Box padding={'1rem'} overflow="scroll" >
                 {inputRefList}
-            </div>
-
-        </div>
+            </Box>
+        </Grid >
     )
 }
 

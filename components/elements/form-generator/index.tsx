@@ -1,21 +1,18 @@
 
-import style from "./style.module.scss";
 import Aside from "./aside";
 import Main from "./main";
-import Inspector from "../inspector";
-
 import * as Alerts from "../alerts";
-
+import Inspector from "../inspector";
+import { Grid } from "@chakra-ui/react";
 
 const FormGenerator = () => {
     return (
-        <div className={style.wrapper}>
+        <Grid gridTemplate={' 100vh / 100px auto 300px'}>
             <Aside />
             <Main />
             <Inspector />
-
             <Alerts.formCreated />
-        </div>
+        </Grid>
     )
 }
 

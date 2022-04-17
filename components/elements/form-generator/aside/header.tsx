@@ -1,47 +1,84 @@
-import style from "./aside.module.scss"
+
+import { Flex, Input, Textarea, Center, Text, Button } from "@chakra-ui/react";
 
 import {
     useAppDispatch,
     useAppSelector,
     setMetaHeaderTitle,
     setMetaHeaderSubTitle,
+    toggleHeaderBox
 } from "../../../../state-store";
 
 const Header = () => {
 
-
     const dispatch = useAppDispatch()
-
 
     const header = useAppSelector(store => store.__generator.__meta.__header);
 
-    const onTitleChangeHandler = (e: any) => {
-        dispatch(setMetaHeaderTitle(e.target.value))
+    const { title, subtitle } = header;
+
+    const inputProperties = {
+        type: "text",
+        placeholder: "Title",
+        value: title,
+        onChange: (e: any) => {
+            dispatch(setMetaHeaderTitle(e.target.value))
+        },
+    }
+    const textareaProperties = {
+        placeholder: "paragraph..",
+        value: subtitle,
+        onChange: (e: any) => {
+            dispatch(setMetaHeaderSubTitle(e.target.value))
+        },
     }
 
-    const onTextareaChangeHandler = (e: any) => {
-        dispatch(setMetaHeaderSubTitle(e.target.value))
+    const onClose = () => {
+        dispatch(toggleHeaderBox(false))
     }
-
 
     return (
-        <div className={style.aside__header}>
 
-            <div>
+        <Center p={3}
+            position="fixed"
+            top={0}
+            left={0}
+            bg={'blackAlpha.800'}
+            width={'100%'}
+            height={'100%'}
+            zIndex={9999}
+        >
 
-                <input className={style.titleInput} type="text" onChange={onTitleChangeHandler} placeholder="Title" value={header.title} />
+            < Flex minW={500} maxW={500} p={10} flexDir={'column'} bg="white" >
 
-                <label>
+                <Text color='black' fontWeight={700} py={2}>Title</Text>
+                <Text color={'grey'} fontSize={13}> Title of The Survey page.</Text>
+                <Input
+                    mt={5}
+                    bg="none"
+                    size={'xs'}
+                    mb={2}
+                    overflow="hidden"
+                    borderRadius={2}
+                    {...inputProperties}>
+                </Input>
 
-                    <textarea
-                        onChange={onTextareaChangeHandler}
-                        placeholder="paragraph...." value={header.subtitle}></textarea>
+                <Text color='black' fontWeight={700} py={2}>Paragraph</Text>
+                <Text color={'grey'} fontSize={13}> Short paragraph about your survey and company.</Text>
 
-                </label>
-            </div>
+                <Textarea
+                    mt={5}
+                    bg="none"
+                    overflow="hidden"
+                    borderRadius={2}
+                    size={'xs'}
+                    {...textareaProperties}>
+                </Textarea>
 
-        </div>
-    )
+                <Button onClick={onClose} _hover={{ opacity: .8 }} bg="black" color="white" fontSize={14} mt={5}> Close</Button>
+            </Flex >
+
+        </Center>)
 }
+export default Header
 
-export default Header;

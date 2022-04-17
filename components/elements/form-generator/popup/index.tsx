@@ -8,12 +8,8 @@ import {
     setPopupPlaceholder
 } from "../../../../state-store";
 
-import { motion } from 'framer-motion'
-import Input from "../main/main-input"
-import style from "./popup.module.scss";
-import { Delete, Next } from "../../buttons";
 import DropboxOpt from "./comp/popup-dropdown"
-
+import { Box, Center, Input, Text, Flex, Button } from "@chakra-ui/react";
 
 const Popup = () => {
 
@@ -35,19 +31,9 @@ const Popup = () => {
 
     const dropBoxOptConditionallyShow = (action == "dropdown") ? true : false;
 
-    const onClose = () => {
-        dispatch(setAction(undefined))
-    }
+    const onClose = () => { dispatch(setAction(undefined)) }
 
-    const onPush = () => {
-        dispatch(pushMeta())
-    }
-
-    const animationProperties = {
-        initial: { opacity: 0 },
-        animate: { opacity: 1 },
-        transition: { duration: .1 }
-    }
+    const onPush = () => { dispatch(pushMeta()) }
 
     const onKeyUp = (event: any) => {
 
@@ -56,41 +42,64 @@ const Popup = () => {
             onPush()
             onClose()
         }
-
         // hide the popup
         if (event.keyCode === 27) {
             onClose()
         }
-
     }
 
     return (
-        <motion.div {...animationProperties} onKeyUp={onKeyUp
-        } className={style.popup}>
+        <Center onKeyUp={onKeyUp}
+            top={0}
+            left={0}
+            w="100%"
+            h="100%"
+            zIndex={9999}
+            position="fixed"
+            bg='blackAlpha.800'>
 
-            <div className={style.popup__wrapper}>
-                <h4> {action}   </h4>
-                <Input
-                    onChange={inputNameOnChngeHandler}
-                    label={`name`}
-                    placeholder="ex. Experiance " />
-                <Input
-                    onChange={inputParagraphOnChngeHandler}
-                    label={`paragraph`}
-                    placeholder="ex. Experiance in IT" />
-                <Input
-                    onChange={placeHolderNameOnChngeHandler}
-                    label={`placeholder`}
-                    placeholder="ex. Experiance goes here" />
+            <Box minW={500} maxW={500} bg="white" p={10}>
+
+                <label >
+                    <Text color='black' fontWeight={700} py={2}>Name</Text>
+                    <Text color={'grey'} fontSize={13}>
+                        This name attribute helps with surveys. This attribute tells the user what value to enter.
+                        The value entered by the user is shown on the key in the database.</Text>
+                    <Input onChange={inputNameOnChngeHandler} mt={2} placeholder='your element name' size="sm"></Input>
+                </label>
+
+                <label >
+                    <Text color='black' fontWeight={700} py={2}>Paragraph</Text>
+                    <Text color={'grey'} fontSize={13}>
+                        Paragraphs provide more information about the element to the user..</Text>
+                    <Input onChange={inputParagraphOnChngeHandler} mt={2} placeholder='your element paragraph' size="sm"></Input>
+                </label>
+
+                <label >
+                    <Text color='black' fontWeight={700} py={2}>Placeholder</Text>
+                    <Text color={'grey'} fontSize={13}>The place holder tells the user what to do in the input..</Text>
+                    <Input onChange={placeHolderNameOnChngeHandler} mt={2} placeholder='your element placeholder' size="sm"></Input>
+                </label>
 
                 {dropBoxOptConditionallyShow && <DropboxOpt />}
 
-                <div className={style.popup__wrapper__button__wrapper}>
-                    <Delete color="red" aspect={40} onClick={onClose} />
-                    <Next color="black" aspect={40} onClick={onPush} />
-                </div>
-            </div>
-        </motion.div>
+                <Flex justifyContent={'space-between'} p={0}>
+
+                    <Button onClick={onClose} flex={1} mr={3} mt={5}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                        </svg>
+                    </Button>
+
+                    <Button onClick={onPush} flex={1} ml={3} mt={5}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg>
+                    </Button>
+
+                </Flex>
+            </Box>
+        </Center >
     )
 }
 export default Popup

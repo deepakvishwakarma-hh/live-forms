@@ -3,7 +3,7 @@ import {
     useAppDispatch,
     removePopupOption
 } from "../../../../../state-store";
-
+import { Flex, Text, Button } from "@chakra-ui/react";
 import { Delete } from "../../../buttons"
 
 interface prop {
@@ -22,10 +22,12 @@ const Options = ({ value, index }: prop) => {
         dispatch(removePopupOption(optToBeRemoved))
     }
     return (
-        <li>
-            <span> {value}</span>
-            <Delete aspect={40} color='red' onClick={onRemove} />
-        </li>
+        <Flex m={2} borderRadius={5} my={1} alignItems={'center'} justifyContent='space-between' border="1px black solid" overflow={'hidden'}>
+            <Text px={2} fontSize={13}> {value}</Text>
+            <Button borderRadius={0} onClick={onRemove}>
+                <Delete aspect={40} color='red' />
+            </Button>
+        </Flex>
     )
 }
 

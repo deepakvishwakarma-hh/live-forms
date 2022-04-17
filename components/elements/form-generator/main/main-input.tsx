@@ -1,6 +1,5 @@
-// used in only popup
 
-import style from "../style.module.scss";
+import { Text, Input } from '@chakra-ui/react'
 
 interface prop {
     label: string;
@@ -9,12 +8,12 @@ interface prop {
     value?: string,
 }
 
-const Input = ({ label, placeholder, onChange, value }: prop) => {
+const Inputs = ({ label, placeholder, onChange, value }: prop) => {
     return (
-        <label className={style.main__header__wrapper__input}>
-            <span>{label}</span>
-            <input onChange={onChange} type="text" placeholder={placeholder} value={value ? value : undefined} />
+        <label>
+            <Text>{label}</Text>
+            <Input onChange={onChange} type="text" placeholder={placeholder} value={value ? value : undefined} />
         </label>
     )
 }
-export default Input;
+export default Inputs;
