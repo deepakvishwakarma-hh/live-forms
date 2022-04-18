@@ -39,7 +39,7 @@ const Block = ({ topic, paragraph, url }: propType) => {
                     textAlign={['center', 'center', 'left', 'left']}
                     my={[4, 2, 2, 2]}
                     as={'h5'}
-                    fontWeight={['500', 'initial', 'initial', 'initial']}
+                    fontWeight={['500', '700', '700', '700']}
                     fontSize={[20, 23, 23, 23]}
 
                 >{topic}</Heading>
