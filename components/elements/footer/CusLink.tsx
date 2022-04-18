@@ -8,7 +8,7 @@ interface propType {
 const CusLink = ({ href, label }: propType) => {
     return (
         <Link href={href} passHref>
-            <Text mx={5} >{label}</Text >
+            <Text cursor={'pointer'} mx={5} >{label}</Text >
         </Link>
     )
 }
