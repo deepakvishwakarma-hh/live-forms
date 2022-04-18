@@ -8,8 +8,10 @@ const Home = () => {
     <>
       <Head>
         <title>Liveforms</title>
+        <meta name="description" content="Web tools help in surveys" />
         <link rel="shortcut icon" href="/icons.svg" />
-
+        <meta httpEquiv="Content-Type" content="text/html;charset=UTF-8" />
+        <meta name="keywords" content="survey, forms, google forms, free survey, survey website, form website, free analysis" />
       </Head>
 
       <Container maxW='container.lg' >
