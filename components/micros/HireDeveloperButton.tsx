@@ -9,7 +9,7 @@ const HireDeveloperButton = () => {
         Auth.loginOnHomePage()
     }
 
-    return <Button bg="black" color={'white'} _hover={{ opacity: .9 }} onClick={onClick}>Get started</Button>
+    return <Button bg="black" color={'white'} px={10} _hover={{ opacity: .9 }} onClick={onClick}>Get started</Button>
 }
 
 export default HireDeveloperButton
