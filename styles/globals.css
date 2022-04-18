@@ -11,6 +11,7 @@ body {
   font-family: 'Poppins',
     sans-serif !important;
   background: rgb(255, 255, 255);
+  scroll-behavior: smooth;
 }
 
 a {

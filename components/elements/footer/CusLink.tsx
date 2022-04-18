@@ -1,6 +1,5 @@
 import Link from "next/link"
-import style from "./style.module.scss";
-
+import { Text } from "@chakra-ui/react"
 interface propType {
     href: string,
     label: string
@@ -9,7 +8,7 @@ interface propType {
 const CusLink = ({ href, label }: propType) => {
     return (
         <Link href={href} passHref>
-            <h5 className={style.link}>{label}</h5>
+            <Text mx={5} >{label}</Text >
         </Link>
     )
 }

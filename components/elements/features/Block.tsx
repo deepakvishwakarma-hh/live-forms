@@ -1,5 +1,4 @@
 
-import style from "./style.module.scss";
 import Image from 'next/image'
 
 interface propType {
@@ -8,21 +7,53 @@ interface propType {
     url: string
 }
 
+import { Flex, Text, Heading, Center, Box } from "@chakra-ui/react";
+
 const Block = ({ topic, paragraph, url }: propType) => {
     return (
-        <div className={style.block}>
+        <Flex
+            flexDir={['column', 'column', 'row', 'row']}
+            alignItems={'center'} my={10} h={'20rem'}>
 
-            <div className={style.image_wrapper}>
-                <Image width={150} height={150} alt="img" src={url} />
-            </div>
+            <Center flex={1}
+                display={['none', 'none', 'block', 'block']}>
+                <Image width={300} height={300} alt="img" src={url} />
+            </Center>
 
-            <div className={style.texts}>
-                <h1>{topic}</h1>
 
-                <p>{paragraph}</p>
-            </div>
+            <Center flex={1}
+                display={['block', 'block', 'none', 'none',]}
+                position="relative"
+                width={'100%'}
+                height={'300px'}
+            >
+                <Image layout='fill' alt="img" src={url} />
+            </Center>
 
-        </div>
+            <Box
+                flex={2}
+                pl={[0, 0, 5, 5]}
+                pt={['2rem', '2rem', 0, 0]}
+            >
+                <Heading
+                    textAlign={['center', 'center', 'left', 'left']}
+                    my={[4, 2, 2, 2]}
+                    as={'h5'}
+                    fontWeight={['500', 'initial', 'initial', 'initial']}
+                    fontSize={[20, 23, 23, 23]}
+
+                >{topic}</Heading>
+                <Text
+                    fontSize={[13, 15, 'initial', 'initial']}
+                    px={['0em', '5em', '0em', '0em']}
+                    textAlign={['center', 'center', 'left', 'left']}
+
+                    color={'grey'}>{paragraph}</Text>
+            </Box>
+
+        </Flex>
+
+
     )
 }
 

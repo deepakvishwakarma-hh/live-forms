@@ -1,16 +1,15 @@
-import micro from './micro.module.scss'
 import useAuth from '../hooks/useAuth'
+import { Button } from '@chakra-ui/react'
+
 
 const HireDeveloperButton = () => {
-
     const Auth = useAuth()
-
     const onClick = (e: any) => {
         e.stopPropagation()
         Auth.loginOnHomePage()
     }
 
-    return <button onClick={onClick} className={micro.hiredeveloperbutton}>Get started</button>
+    return <Button bg="black" color={'white'} _hover={{ opacity: .9 }} onClick={onClick}>Get started</Button>
 }
 
 export default HireDeveloperButton

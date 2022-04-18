@@ -26,6 +26,7 @@ const useAuth = () => {
             autheticateWithGoogle()
         }
         else {
+            alert("You are already logged in")
             Router.push('/dashboard')
         }
     }
