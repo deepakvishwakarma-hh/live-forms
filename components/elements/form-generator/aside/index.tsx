@@ -28,11 +28,11 @@ const Aside = () => {
 
         <Grid gridTemplate={" 80px auto  auto/ 100%"} bg="white" >
 
-            <Flex bg="black" alignItems={'center'} justifyContent="center">
+            <Flex alignItems={'center'} justifyContent="center">
                 <svg width="80" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="100" height="50" fill="transparent" />
-                    <rect x="22" y="14" width="56" height="7" rx="3.5" fill="white" />
-                    <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="white" />
+                    <rect x="22" y="14" width="56" height="7" rx="3.5" fill="black" />
+                    <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="black" />
                 </svg>
             </Flex>
 

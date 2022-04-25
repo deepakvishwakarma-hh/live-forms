@@ -36,7 +36,7 @@ const Page = () => {
 
     return (
         <>
-            {isLoading && <Loader />}
+            {isLoading && <Loader fullpage />}
             {res && <Survey Client={res.Client} />}
             {!res && <Fallback />}
         </>

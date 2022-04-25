@@ -1,10 +1,13 @@
+// Everyting Flex 
+
 import { useRouter } from "next/router"
 import { useEffect, useState } from 'react'
 import database from "../../firebase.config";
 import { ref, onValue, } from "firebase/database";
 import { Loader } from "../../components/elements";
 import { Boundry } from "../../components/elements";
-import style from "../../styles/dashboard.module.scss"
+import { Analyser } from "../../components/elements";
+import { Flex, Container, Text } from "@chakra-ui/react";
 
 export default function Index() {
 
@@ -26,32 +29,32 @@ export default function Index() {
 
     }, [id])
 
+    const { title } = res && res?.Client.__header; // need to OPTs
 
-    const map = res?.Database?.map((value: any, index: number) => {
 
-        const Keys = Object.keys(value);
-
-        const Child = Keys?.map((key: any, index: number) => {
-
-            return (
-                <div key={index} className={style.child}>
-                    <h5> &quot; {key} &quot; : </h5>
-                    <p>&quot;{value[key]} &quot;</p>
-                </div>
-            )
-        });
-
-        return <div className={style.ele} key={index}>
-            {Child}
-        </div>
-    })
 
     return (
         <Boundry>
-            {isLoading && <Loader />}
-            <div className={style.wrapper}>
-                <div className={style.content}>{map}</div>
-            </div>
+            {isLoading && <Loader fullpage />}
+
+            <Container maxW={'container.lg'} >
+
+                <Flex flexDir={'column'} p={5} >
+
+                    <Flex alignItems={'center'}>
+                        <svg width="70" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100" height="100" fill="transparent" />
+                            <rect x="22" y="14" width="56" height="7" rx="3.5" fill="black" />
+                            <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="black" />
+                        </svg>
+                        <Text fontWeight={500} textTransform={'uppercase'} ml={2} letterSpacing={2}>/ Analyser / {title}</Text>
+                    </Flex>
+                </Flex>
+
+                <Analyser DB={res?.Database} />
+
+            </Container>
+
         </Boundry>
     )
 }

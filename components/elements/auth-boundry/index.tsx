@@ -5,7 +5,7 @@ interface prop {
 }
 import { useLayoutEffect, useState } from 'react'
 
-import Aleart from './aleart';
+import Aleart from './loginError';
 
 const Boundry = ({ children }: prop) => {
 

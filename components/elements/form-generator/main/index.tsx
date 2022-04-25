@@ -1,9 +1,8 @@
 import Transformer from "../../transformer";
 import useGenerate from "../../../hooks/useGenerate";
+import { Grid, Flex, Box, Button, Tooltip, Text } from "@chakra-ui/react";
 import { useAppSelector, useAppDispatch, toggleHeaderBox } from "../../../../state-store";
 
-
-import { Grid, Flex, Box, Button, Tooltip, Text } from "@chakra-ui/react";
 const Main = () => {
     const dispatch = useAppDispatch()
     const gen = useGenerate()

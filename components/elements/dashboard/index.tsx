@@ -1,19 +1,21 @@
 import Main from "./main";
 import Aside from "./aside";
-import style from "./dashboard.module.scss"
+import { Grid } from "@chakra-ui/react";
+import Loader from "../loader";
 
 const Dashboard = ({ arr, data }: any) => {
 
-
-
+    console.log(data)
     return (
-        <div className={style.wrapper}>
-
+        <Grid gridTemplate={'100vh / 100px auto'}>
             <Aside />
+            {/* <Main arr={arr} data={data} />
+            <Loader /> */}
 
-            <Main arr={arr} data={data} />
 
-        </div>
+
+            {(data) ? <Main arr={arr} data={data} /> : <Loader />}
+        </Grid>
     )
 };
 export default Dashboard

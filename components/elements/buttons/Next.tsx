@@ -1,7 +1,7 @@
 interface prop {
     color?: string,
     aspect: number,
-    onClick: any,
+    onClick?: any,
 }
 
 import style from "./style.module.scss";

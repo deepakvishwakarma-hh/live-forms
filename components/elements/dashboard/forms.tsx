@@ -1,36 +1,81 @@
 interface prop { data: any }
 
 import Router from 'next/router'
-import { Remove } from "../buttons"
-import style from "./dashboard.module.scss"
+import { Box, Flex, Text } from '@chakra-ui/react';
+import useDateConvertion from '../../hooks/useDateConvertion';
 
 const Form = ({ data }: prop) => {
 
     const id = data.id;
-    const title = data.Client.__header.title;
+
+    const { title } = data.Client.__header;
+
     const response = data?.Database?.length ?? "0";
-    const onDelete = () => { alert('deleted') }
+
+    const dateConversion = useDateConvertion(data.id);
+
     const onClick = () => { Router.push('/dashboard/' + id) }
 
+    const conditionallyIndicatiorColor = (response == 0) ? "red" : "green";
+
     return (
-        <div
-            className={style.form}
-            onClick={onClick}>
+        <Box
+            p={3}
+            m={2}
+            bg="black"
+            minW="300px"
+            borderRadius={5}
+            onClick={onClick}
+            maxWidth={'300px'} >
 
-            <div className={style.top}>
-            </div>
+            <Flex
+                flexDirection="column"
+                color="white" >
 
-            <div className={style.bottom}>
-                <h3>{title}</h3>
+                <Flex alignItems={'center'} >
 
-                <p>{response} res</p>
-                <Remove
-                    aspect={30}
-                    color="black"
-                    onClick={onDelete}
-                />
-            </div>
-        </div>
+                    <Text
+                        pb={2}
+                        flex={1}
+                        fontSize={15}
+                        letterSpacing={1}
+                        textTransform="uppercase" >{title}</Text>
+
+                    <Box
+                        w={"10px"}
+                        h={"10px"}
+                        alignSelf={'end'}
+                        bg={conditionallyIndicatiorColor}
+                        borderRadius="10px"></Box>
+                </Flex>
+
+                <Flex flex={1} fontSize={12}>
+                    <Flex alignItems={'end'}  >
+                        <Text
+                            color="#E9A6A6"
+                            textTransform={'uppercase'}
+                            letterSpacing={1} > Res : </Text>
+
+                        <Text
+                            ml={1}
+                            color="whiteAlpha.800">  {response} </Text>
+                    </Flex>
+
+                    <Flex alignItems={'end'} ml={2} >
+                        <Text
+                            color="#E9A6A6"
+                            textTransform={'uppercase'}
+                            letterSpacing={1} >Pub : </Text>
+
+                        <Text
+                            ml={1}
+                            fontSize={13}
+                            color="whiteAlpha.800"> {dateConversion}</Text>
+                    </Flex>
+                </Flex>
+
+            </Flex>
+        </Box >
     )
 };
 
