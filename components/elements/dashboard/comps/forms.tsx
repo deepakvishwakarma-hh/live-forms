@@ -2,7 +2,7 @@ interface prop { data: any }
 
 import Router from 'next/router'
 import { Box, Flex, Text } from '@chakra-ui/react';
-import useDateConvertion from '../../hooks/useDateConvertion';
+import useDateConvertion from '../../../hooks/useDateConvertion';
 
 const Form = ({ data }: prop) => {
 

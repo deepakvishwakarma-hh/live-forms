@@ -22,8 +22,6 @@ const Dashboard = ({ Result }: any) => {
         dispatch(setUser())
 
         onValue(ref(database, 'forms/'), (snapshot) => {
-            // testing
-            // console.log('data-fetched')
 
             let res = snapshot.val()
             if (res) {

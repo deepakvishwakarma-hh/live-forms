@@ -1,5 +1,5 @@
-import Main from "./main";
-import Aside from "./aside";
+import Main from "./comps/main";
+import Aside from "./comps/aside";
 import { Grid } from "@chakra-ui/react";
 import Loader from "../loader";
 
