@@ -7,7 +7,8 @@ import { ref, onValue, } from "firebase/database";
 import { Loader } from "../../components/elements";
 import { Boundry } from "../../components/elements";
 import { Analyser } from "../../components/elements";
-import { Flex, Container, Text } from "@chakra-ui/react";
+import { Flex, Container, Text, Button } from "@chakra-ui/react";
+import Router from "next/router";
 
 export default function Index() {
 
@@ -15,6 +16,7 @@ export default function Index() {
     const id = router.query.id;
     const [res, setRes] = useState<any>(false);
     const [isLoading, setLoading] = useState<boolean>(true)
+    const onVisit = () => { Router.push(`/survey/${id}`) }
 
     useEffect(() => {
         onValue(ref(database, 'forms/' + id), (snapshot) => {
@@ -37,7 +39,7 @@ export default function Index() {
 
             <Container maxW={'container.lg'} >
 
-                <Flex flexDir={'column'} p={5} >
+                <Flex p={5} alignItems="center">
 
                     <Flex alignItems={'center'}>
                         <svg width="70" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,6 +49,13 @@ export default function Index() {
                         </svg>
                         <Text fontWeight={500} textTransform={'uppercase'} ml={2} letterSpacing={2}>/ Analyser / {title}</Text>
                     </Flex>
+
+                    <Button onClick={onVisit} _hover={{ opacity: .8 }} ml="auto" bg="#0070FE" color="white" fontWeight={500} fontSize={12} px={10}>
+                        <Text mr={2}>Visit Survey Page</Text>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                            <path fillRule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg></Button>
+
                 </Flex>
 
                 <Analyser DB={res?.Database} />

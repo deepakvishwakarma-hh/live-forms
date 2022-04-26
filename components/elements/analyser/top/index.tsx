@@ -76,7 +76,7 @@ const Top = ({ DB }: prop) => {
             </Button>
             <Button
                 {...buttonStyleProperties}
-                onClick={onRestoreDatabase}  >
+                onClick={onRestoreDatabase}>
 
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
@@ -102,6 +102,7 @@ const Top = ({ DB }: prop) => {
                 </Text>
 
             </Button>
+
 
         </Flex>
     )

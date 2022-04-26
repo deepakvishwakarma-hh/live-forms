@@ -52,7 +52,7 @@ const useGenerate = () => {
 
                     setTimeout(() => {
                         dispatch(alerts({ type: 'formCreated', payload: false }))
-                        Router.push('/forms/' + schema.id)
+                        Router.push('/survey/' + schema.id)
                     }, 4000)
 
                 })
