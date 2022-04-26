@@ -1,5 +1,4 @@
 interface prop { data: any }
-
 import Router from 'next/router'
 import { Box, Flex, Text } from '@chakra-ui/react';
 import useDateConvertion from '../../../hooks/useDateConvertion';
@@ -32,24 +31,26 @@ const Form = ({ data }: prop) => {
                 flexDirection="column"
                 color="white" >
 
-                <Flex alignItems={'center'} >
+                <Box
+                    w={"10px"}
+                    h={"10px"}
+                    alignSelf={'end'}
+                    bg={conditionallyIndicatiorColor}
+                    borderRadius="10px"></Box>
+
+                <Flex alignItems={'center'} py={10} >
 
                     <Text
                         pb={2}
                         flex={1}
                         fontSize={15}
                         letterSpacing={1}
-                        textTransform="uppercase" >{title}</Text>
+                        textAlign="center"
+                        textTransform="capitalize" >{title}</Text>
 
-                    <Box
-                        w={"10px"}
-                        h={"10px"}
-                        alignSelf={'end'}
-                        bg={conditionallyIndicatiorColor}
-                        borderRadius="10px"></Box>
                 </Flex>
 
-                <Flex flex={1} fontSize={12}>
+                <Flex flex={1} fontSize={12} alignItems={'center'} justifyContent="center">
                     <Flex alignItems={'end'}  >
                         <Text
                             color="#E9A6A6"

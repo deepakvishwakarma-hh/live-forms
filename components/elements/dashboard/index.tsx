@@ -5,7 +5,6 @@ import Loader from "../loader";
 
 const Dashboard = ({ arr, data }: any) => {
 
-
     return (
         <Grid gridTemplate={'100vh / 100px auto'}>
             <Aside />
