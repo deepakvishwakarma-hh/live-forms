@@ -3,7 +3,7 @@
 interface prop {
     children: any;
 }
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Aleart from './loginError';
 
@@ -11,18 +11,19 @@ const Boundry = ({ children }: prop) => {
 
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
-    useLayoutEffect(() => {
+    useEffect(() => {
 
         if (!localStorage.getItem('token')) {
             setIsLoggedIn(false)
         } else {
             setIsLoggedIn(true)
         }
-    })
+    }, [])
 
     if (isLoggedIn) {
         return <> {children} </>
     }
+
     return <Aleart />
 }
 
