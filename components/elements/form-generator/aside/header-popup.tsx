@@ -51,11 +51,11 @@ const Header = () => {
 
             < Flex minW={500} maxW={500} p={10} flexDir={'column'} bg="white" >
 
-                <Text color='black' fontWeight={700} py={2}>Title</Text>
+                <Text color='black' fontWeight={600} textTransform="uppercase" py={1} >Title</Text>
                 <Text color={'grey'} fontSize={13}> Title of The Survey page.</Text>
                 <Input
-                    mt={5}
-                    bg="none"
+                    mt={3}
+                    bg="gray.100"
                     size={'xs'}
                     mb={2}
                     overflow="hidden"
@@ -63,12 +63,12 @@ const Header = () => {
                     {...inputProperties}>
                 </Input>
 
-                <Text color='black' fontWeight={700} py={2}>Paragraph</Text>
+                <Text color='black' fontWeight={600} textTransform="uppercase" py={1} >Paragraph</Text>
                 <Text color={'grey'} fontSize={13}> Short paragraph about your survey and company.</Text>
 
                 <Textarea
-                    mt={5}
-                    bg="none"
+                    mt={3}
+                    bg="gray.100"
                     overflow="hidden"
                     borderRadius={2}
                     size={'xs'}
