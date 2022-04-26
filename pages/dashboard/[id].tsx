@@ -31,8 +31,6 @@ export default function Index() {
 
     const { title } = res && res?.Client.__header; // need to OPTs
 
-
-
     return (
         <Boundry>
             {isLoading && <Loader fullpage />}
