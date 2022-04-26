@@ -2,13 +2,23 @@ import Form from "./forms";
 import Image from "next/image";
 import Router from "next/router";
 import { Grid, Flex, Button, Center, Text, Box } from "@chakra-ui/react";
-
+import { motion } from 'framer-motion'
 const Main = ({ arr, data }: any) => {
+
+
     const maps = arr.map((item: string, index: number) => <Form data={data[item]} key={index} />)
     const isDataNotFound = data == 'data-not-found';
 
+
+    const MotionGrid = motion(Grid)
+
+    const wrapperAnimation = {
+        initial: { opacity: 0 },
+        animate: { opacity: 1, transition: { duration: 1 } }
+    }
+
     return (
-        <Grid gridTemplate={" auto / 100%"} >
+        <MotionGrid {...wrapperAnimation} gridTemplate={" auto / 100%"}>
             {!isDataNotFound &&
                 <Flex flexDir={'column'} bg="#00000015">
 
@@ -50,7 +60,7 @@ const Main = ({ arr, data }: any) => {
                         <Button onClick={() => { Router.push('/editor') }}>Create New Survey</Button>
                     </Flex>
                 </Center>}
-        </Grid>
+        </MotionGrid>
     )
 }
 export default Main;
@@ -58,4 +68,4 @@ export default Main;
 
 
 
-
+// 11 th line grid template is unusual 
