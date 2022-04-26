@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { Grid, Flex, Button } from "@chakra-ui/react";
+import { Grid, Flex } from "@chakra-ui/react";
 import useDashboard from "../../../hooks/useDashboard";
 
 const Aside = () => {
-
     const dashboard = useDashboard();
 
     const onLogoutHandler = () => {
@@ -38,6 +37,5 @@ const Aside = () => {
         </Grid>
     )
 }
-
 
 export default Aside;
