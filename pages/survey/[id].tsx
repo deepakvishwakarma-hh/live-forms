@@ -34,10 +34,12 @@ const Page = () => {
             })
     }, [id])
 
+    console.log(res)
+
     return (
         <>
             {isLoading && <Loader fullpage />}
-            {res && <Survey Client={res.Client} />}
+            {res && <Survey Client={res.Client} Creator={res.Creator} />}
             {!res && <Fallback />}
         </>
     )
