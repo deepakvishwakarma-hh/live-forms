@@ -6,9 +6,9 @@ import Fallback from "../../components/elements/survey/fallback";
 
 export default function SurveyPage({ data }: any) {
 
-    if (!data) {
-        return <Fallback />
-    }
+    // if (!data) {
+    //     return <Fallback />
+    // }
 
     const { Client, Creator, } = data;
     const pageTitle = Client.__header.title;
