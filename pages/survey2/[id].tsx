@@ -1,14 +1,9 @@
 import Head from 'next/head';
 import database from "../../firebase.config"
+import { ref, onValue } from "firebase/database";
 import { Survey } from "../../components/elements";
-import { ref, get, onValue } from "firebase/database";
-import Fallback from "../../components/elements/survey/fallback";
 
 export default function SurveyPage({ data }: any) {
-
-    // if (!data) {
-    //     return <Fallback />
-    // }
 
     const { Client, Creator, } = data;
     const pageTitle = Client.__header.title;
@@ -27,12 +22,19 @@ export default function SurveyPage({ data }: any) {
 
 export async function getServerSideProps(context: any) {
 
-    const id = context.query.id;
     let res: any = false;
+    const id = context.query.id;
     const starCountRef = ref(database, 'forms/' + id);
     onValue(starCountRef, (snapshot) => {
         res = snapshot.val()
     })
+
+    if (!res) {
+        return {
+            notFound: true
+        }
+    }
+
     return {
         props: {
             data: res
