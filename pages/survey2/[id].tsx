@@ -25,8 +25,8 @@ export async function getServerSideProps(context: any) {
     let res: any = false;
     const id = context.query.id;
     const starCountRef = ref(database, 'forms/' + id);
-    onValue(starCountRef, (snapshot) => {
-        res = snapshot.val()
+    onValue(starCountRef, async (snapshot) => {
+        res = await snapshot.val()
     })
 
     if (!res) {
