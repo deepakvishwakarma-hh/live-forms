@@ -1,11 +1,19 @@
-import style from "./survey.module.scss";
-
+import { Center, Text } from "@chakra-ui/react"
 
 const SurveyFallback = () => {
     return (
-        <div className={style.fallback}>
-            <h1> 😑 </h1>
-        </div>
+        <Center
+            pos="fixed"
+            top={0}
+            left={0}
+            width={'100%'}
+            height={'100%'}
+            flexDir="column"
+            bg="black">
+
+            <Text color="white" fontSize={20}>I&apos;m uselesss</Text>
+            <Text color="grey" fontSize={15}>The data is not found, should I do it again? </Text>
+        </Center>
     )
 }
 export default SurveyFallback
