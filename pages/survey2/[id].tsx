@@ -5,7 +5,6 @@ import { Survey } from "../../components/elements";
 
 export default function SurveyPage({ data }: any) {
 
-
     return (
         <>
             <div>{
@@ -16,14 +15,18 @@ export default function SurveyPage({ data }: any) {
 
 export async function getServerSideProps(context: any) {
 
-    let res: any = false;
+    let res: any = 'default';
     const id = context.query.id;
     const starCountRef = ref(database, 'forms/' + id);
-    onValue(starCountRef, async (snapshot) => {
-        res = await snapshot.val()
+    onValue(starCountRef, (snapshot) => {
+        res = snapshot.val()
     })
 
-
+    if (res == null) {
+        return {
+            notfound: true
+        }
+    }
 
     return {
         props: {
