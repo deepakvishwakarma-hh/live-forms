@@ -5,17 +5,11 @@ import { Survey } from "../../components/elements";
 
 export default function SurveyPage({ data }: any) {
 
-    const { Client, Creator, } = data;
-    const pageTitle = Client.__header.title;
-    const pageDiscription = Client.__header.discription;
 
     return (
         <>
-            <Head>
-                <title>{pageTitle} ~ by liveforms</title>
-                <meta name="description" content={pageDiscription} />
-            </Head>
-            <Survey Client={Client} Creator={Creator} />
+            <div>{
+                JSON.stringify(data)}</div>
         </>
     )
 }
@@ -29,11 +23,7 @@ export async function getServerSideProps(context: any) {
         res = await snapshot.val()
     })
 
-    if (!res) {
-        return {
-            notFound: true
-        }
-    }
+
 
     return {
         props: {
