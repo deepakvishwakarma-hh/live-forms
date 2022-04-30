@@ -1,49 +1,71 @@
-import style from "./style.module.scss";
-
-import { useRouter } from "next/router"
 interface prop {
     value: any,
 }
 
+import { Flex, Text, Input, Textarea, Select } from "@chakra-ui/react";
+
 const Constructor = ({ value }: prop) => {
-
-    const router = useRouter()
-
-    const path = router.pathname
-
-    const isLive = (path == '/forms/[id]');
-
 
     const { action, name, placeholder, options, paragraph } = value;
 
-    const properties = { name, placeholder, required: true }
+    const elementProperties = {
+        wrapper: {
+            my: "4",
+            py: '5',
+            px: "5",
+            bg: 'white',
+            maxW: "360px",
+            minW: "360px",
+            borderRadius: "10",
+            flexDirection: "column",
+            boxShadow: '0px 0px 10px rgba(0,0,0,0.1)',
+        },
+        title: {
+            py: '1',
+            fontSize: '17',
+            fontWeight: '400',
+            textTransform: 'capitalize',
+        },
+        paragraph: {
+            py: "2",
+            color: 'gray.500',
+            fontSize: "14",
+        },
+        input: {
+            name,
+            size: 'sm',
+            required: true,
+            bg: 'gray.100',
+            borderRadius: '6',
+        }
+    }
+
 
     if (action == 'input') {
-        return (
-            <div className={isLive ? style.preview__input : style.input} >
-                <h3>{name}</h3>
-                <p>{paragraph}</p>
-                <input type="text" {...properties} />
-            </div>)
+        return <Flex {...elementProperties.wrapper as any}>
+            <Text {...elementProperties.title as any}>{name}</Text>
+            <Text {...elementProperties.paragraph as any}>{paragraph}</Text>
+            <Input placeholder={placeholder}  {...elementProperties.input as any} />
+        </Flex>
     }
     else if (action == 'textarea') {
-        return (
-            <div className={isLive ? style.preview__textarea : style.textarea} >
-                <h3>{name}</h3>
-                <p>{paragraph}</p>
-                <textarea  {...properties}  ></textarea>
-            </div >)
+        return <Flex {...elementProperties.wrapper as any}>
+            <Text {...elementProperties.title as any}>{name}</Text>
+            <Text {...elementProperties.paragraph as any}>{paragraph}</Text>
+            <Textarea placeholder={placeholder}  {...elementProperties.input as any} />
+        </Flex>
     }
     else {
         const optMaps = options?.map((value: string, index2: number) => {
             return <option key={index2}>{value}</option>
         })
-        return (
-            <div className={isLive ? style.preview__select : style.select} >
-                <h3>{name}</h3>
-                <p>{paragraph}</p>
-                <select  {...properties} >{optMaps}</select>
-            </div >)
+        return <Flex {...elementProperties.wrapper as any}>
+            <Text {...elementProperties.title as any}>{name}</Text>
+            <Text {...elementProperties.paragraph as any}>{paragraph}</Text>
+            <Select  {...elementProperties.input as any} > {optMaps} </Select>
+        </Flex>
     }
 }
 export default Constructor
+
+            // const isLive = (path == '/forms/[id]');
