@@ -14,7 +14,7 @@ const Constructor = ({ value }: prop) => {
             py: '5',
             px: "5",
             bg: 'white',
-            maxW: ["300px", "360px", "360px", "360px"],
+            maxW: ["100%", "360px", "360px", "360px"],
             minW: ["300px", "360px", "360px", "360px"],
             borderRadius: "10",
             flexDirection: "column",
