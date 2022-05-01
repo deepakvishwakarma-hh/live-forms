@@ -7,6 +7,7 @@ import Constructor from "./constructor"
 import style from "./style.module.scss";
 import useGenerate from "../../hooks/useGenerate"
 import { useAppSelector } from "../../../state-store"
+import { Box, Button } from '@chakra-ui/react'
 
 interface prop {
     children: any,
@@ -62,13 +63,13 @@ const Transformer = ({ children, live }: prop) => {
     }
 
     return (
-        <div {...parentProperties}>
+        <Box {...parentProperties}>
             {!live && <Header  {...headerCompProperties} />}
             <form onSubmit={onSubmit}>
                 {map}
-                {live ? <button className={style.submit__button} type="submit">post</button> : null}
+                {live ? <Button w="100%" type="submit" textTransform={'uppercase'} bg="#338DFE" color="white" my={5}>post</Button> : null}
             </form>
-        </div>
+        </Box>
     )
 }
 export default Transformer
