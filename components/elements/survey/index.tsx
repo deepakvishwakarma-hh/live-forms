@@ -25,7 +25,7 @@ const Survey = ({ Client, Creator }: prop) => {
             </Flex>
 
             <Flex justifyContent={'center'} borderRadius={5} pt={5}>
-                < Transformer live>{Client}</Transformer>
+                <Transformer live>{Client}</Transformer>
             </Flex>
 
             {/* <Flex ml="auto" flexDir={'column'} bg="whatsapp.200" p={5} pos="fixed" bottom={'2rem'} right={'2rem'}>
@@ -33,8 +33,6 @@ const Survey = ({ Client, Creator }: prop) => {
                 <Text fontWeight={500} fontSize={12} color="purple">{displayName}</Text>
                 <Text fontWeight={500} fontSize={12} color="purple">{email}</Text>  
             </Flex> */}
-
-
 
         </Container >
 
