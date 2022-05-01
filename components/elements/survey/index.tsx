@@ -6,23 +6,23 @@ interface prop {
         email: string,
     }
 }
+import Router from "next/router";
 import { Client } from "../../typos";
 import { Transformer } from "../index";
+import PreSurveyAleart from "./pre-survey-aleart";
 import { Heading, Flex, Text, Center } from "@chakra-ui/react"
-import Router from "next/router";
 
 const Survey = ({ Client, Creator }: prop) => {
 
-    const { displayName, email } = Creator
     const { title, subtitle } = Client.__header;
     const onLogoClickHandler = () => { Router.push('/') }
 
     return (
-
         <Flex
             h="100vh"
             px={[5, 10, 15, 20]}
             flexDir={["column", "column", "row", "row"]}>
+
             <Center
                 flex={1}
                 pr={10}
@@ -30,8 +30,6 @@ const Survey = ({ Client, Creator }: prop) => {
                 pl={[3, 3, 5, 10]}
                 alignItems={'start'}
                 flexDir="column">
-
-
 
                 <Flex alignItems={'center'} >
 

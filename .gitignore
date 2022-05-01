@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/components/elements/survey/pre-survey-aleart.tsx
 /.pnp
 .pnp.js
 /.env
