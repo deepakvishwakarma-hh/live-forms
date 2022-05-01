@@ -16,4 +16,10 @@ const theme = extendTheme({
     breakpoints,
 })
 
+
+const textResponsiveSizes = {
+    sm: [".8rem", ".8rem", ".9rem", "1rem"]
+}
+export { textResponsiveSizes }
+
 export default theme

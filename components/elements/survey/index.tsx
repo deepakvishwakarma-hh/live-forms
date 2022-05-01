@@ -9,6 +9,7 @@ interface prop {
 import Router from "next/router";
 import { Client } from "../../typos";
 import { Transformer } from "../index";
+import { textResponsiveSizes } from "../../../styles/style";
 import { Heading, Flex, Text, Center } from "@chakra-ui/react"
 
 const Survey = ({ Client, Creator }: prop) => {
@@ -32,7 +33,7 @@ const Survey = ({ Client, Creator }: prop) => {
 
                 <Flex alignItems={'center'} >
 
-                    <Text maxW={'800px'} fontSize={15} color="black" mr={2}>Powered by</Text>
+                    <Text maxW={'800px'} fontSize={textResponsiveSizes.sm} color="black" mr={2}>Powered by</Text>
 
                     <Flex cursor={'pointer'} onClick={onLogoClickHandler} border="2px whitesmoke solid" borderRadius={10} pr={3} alignItems={'center'} bg="whitesmoke">
                         <svg width="80" height="30" viewBox="0 0 100 50" >
@@ -45,7 +46,7 @@ const Survey = ({ Client, Creator }: prop) => {
                 </Flex>
 
                 <Heading maxW={'500px'} py={5} fontWeight={700} fontSize={35} as="h1">{title} </Heading>
-                <Text maxW={'800px'} fontSize={15} color="grey">{subtitle}</Text>
+                <Text maxW={'800px'} fontSize={textResponsiveSizes.sm} color="grey">{subtitle}</Text>
 
             </Center >
 
