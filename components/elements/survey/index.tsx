@@ -9,7 +9,6 @@ interface prop {
 import Router from "next/router";
 import { Client } from "../../typos";
 import { Transformer } from "../index";
-import PreSurveyAleart from "./pre-survey-aleart";
 import { Heading, Flex, Text, Center } from "@chakra-ui/react"
 
 const Survey = ({ Client, Creator }: prop) => {
