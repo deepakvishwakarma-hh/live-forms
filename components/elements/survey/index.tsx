@@ -27,6 +27,7 @@ const Survey = ({ Client, Creator }: prop) => {
                 pl={10}
                 flex={1}
                 pr={10}
+                pt={[5, 5, 0, 0]}
                 alignItems={'start'}
                 flexDir="column">
 
