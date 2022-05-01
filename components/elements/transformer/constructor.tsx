@@ -21,9 +21,9 @@ const Constructor = ({ value }: prop) => {
             boxShadow: '0px 0px 10px rgba(0,0,0,0.1)',
         },
         title: {
-            py: '1',
+            py: '0',
             fontSize: '17',
-            fontWeight: '400',
+            fontWeight: '600',
             textTransform: 'capitalize',
         },
         paragraph: {
@@ -68,4 +68,4 @@ const Constructor = ({ value }: prop) => {
 }
 export default Constructor
 
-            // const isLive = (path == '/forms/[id]');
+            // const isLive = (path == '/forms/[id]');x
