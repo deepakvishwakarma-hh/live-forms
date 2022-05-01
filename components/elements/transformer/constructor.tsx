@@ -1,7 +1,7 @@
 interface prop {
     value: any,
 }
-
+import { textResponsiveSizes } from "../../../styles/style";
 import { Flex, Text, Input, Textarea, Select } from "@chakra-ui/react";
 
 const Constructor = ({ value }: prop) => {
@@ -28,8 +28,8 @@ const Constructor = ({ value }: prop) => {
         },
         paragraph: {
             py: "2",
-            color: 'gray.500',
-            fontSize: "14",
+            color: 'gray    ',
+            fontSize: textResponsiveSizes.sm,
         },
         input: {
             name,
