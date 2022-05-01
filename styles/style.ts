@@ -18,7 +18,8 @@ const theme = extendTheme({
 
 
 const textResponsiveSizes = {
-    sm: [".8rem", ".8rem", ".9rem", "1rem"]
+    sm: [".8rem", ".8rem", ".9rem", "1rem"],
+    lg: ["1.8rem", "1.8rem", "1.9rem", "2.1rem"]
 }
 export { textResponsiveSizes }
 

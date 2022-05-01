@@ -45,7 +45,7 @@ const Survey = ({ Client, Creator }: prop) => {
                     </Flex>
                 </Flex>
 
-                <Heading maxW={'500px'} py={5} fontWeight={700} fontSize={35} as="h1">{title} </Heading>
+                <Heading maxW={'500px'} py={5} fontWeight={700} fontSize={textResponsiveSizes.lg} as="h1">{title} </Heading>
                 <Text maxW={'800px'} fontSize={textResponsiveSizes.sm} color="grey">{subtitle}</Text>
 
             </Center >
