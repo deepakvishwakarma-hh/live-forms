@@ -24,10 +24,10 @@ const Survey = ({ Client, Creator }: prop) => {
             px={[5, 10, 15, 20]}
             flexDir={["column", "column", "row", "row"]}>
             <Center
-                pl={10}
                 flex={1}
                 pr={10}
                 pt={[5, 5, 0, 0]}
+                pl={[3, 3, 5, 10]}
                 alignItems={'start'}
                 flexDir="column">
 
