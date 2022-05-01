@@ -4,10 +4,9 @@ import Header from "./header"
 import { useState } from "react";
 import { useRouter } from "next/router"
 import Constructor from "./constructor"
-import style from "./style.module.scss";
+import { Box, Button } from '@chakra-ui/react'
 import useGenerate from "../../hooks/useGenerate"
 import { useAppSelector } from "../../../state-store"
-import { Box, Button } from '@chakra-ui/react'
 
 interface prop {
     children: any,
@@ -43,7 +42,6 @@ const Transformer = ({ children, live }: prop) => {
     const parentProperties = {
 
         // change according to the editor | live
-        className: `${style.form} ${!live && style.special}`,
 
         // change handler
         onChange: (e: any) => {

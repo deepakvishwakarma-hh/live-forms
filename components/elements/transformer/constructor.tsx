@@ -1,6 +1,7 @@
 interface prop {
     value: any,
 }
+
 import { textResponsiveSizes } from "../../../styles/style";
 import { Flex, Text, Input, Textarea, Select } from "@chakra-ui/react";
 
