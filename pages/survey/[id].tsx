@@ -1,55 +1,40 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react'
 import database from "../../firebase.config"
 import { Survey } from "../../components/elements";
-import { Loader } from "../../components/elements";
 import { ref, get, child } from "firebase/database";
-// imported under relatview
-import Fallback from "../../components/elements/survey/fallback";
 
-const Page = () => {
+export default function SurveyPage({ data }: any) {
 
-    const router = useRouter();
-    const id = router.query.id;
-    const [res, setRes] = useState<any>(false);
-    const [isLoading, setLoading] = useState<boolean>(true)
-
-    useEffect(() => {
-        // Database Reference
-        const Reference = ref(database);
-        // Find Survey on DB
-        get(child(Reference, 'forms/' + id))
-            .then((snapshot) => {
-                let storedData = snapshot.val();
-                //store if Finded
-                if (storedData) {
-                    setRes(storedData);
-                    setLoading(false)
-                } else {
-                    setLoading(false)
-                }
-            }).catch((error) => {
-                console.log(error);
-            })
-    }, [id])
-
-    const pageTitle = res ? res.Client.__header.title : 'loading...'
-    const pageDiscription = res ? res.Client.__header.discription : 'loading...'
+    const { Client, Creator } = data;
+    const payload = { Client, Creator }
+    const { title, subtitle } = Client.__header;
 
     return (
         <>
             <Head>
-                <title>{pageTitle} ~ by liveforms</title>
-                <meta name="description" content={pageDiscription} />
+                <title>{title} ~ liveforms</title>
+                <meta name="description" content={subtitle} />
             </Head>
-            {isLoading && <Loader fullpage />}
-            {res && <Survey Client={res.Client} Creator={res.Creator} />}
-            {!res && <Fallback />}
+            <Survey {...payload} />
         </>
     )
 }
 
-export default Page
+export async function getServerSideProps(context: any) {
+    const id = context.query.id;
+    const Reference = ref(database);
+    const snapshot = await get(child(Reference, 'forms/' + id));
+    const data = await snapshot.val();
 
+    if (data == null) {
+        return {
+            notFound: true
+        }
+    }
 
+    return {
+        props: {
+            data
+        }
+    }
+}
