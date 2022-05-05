@@ -28,39 +28,22 @@ const Element = ({ data, index }: prop) => {
     //  splicing big name and joining ...
     const splicedName = data.name[8] ? data?.name?.slice(0, 8) + '...' : data.name;
 
+    const conditionalBackgroundColor = isNameError ? '#ff000017' : (isExpanded) ? "#FEFCBF" : 'gray.50';
+
     return (
-        <Box
-            pl={5}
-            py={1}
+        <Box pl={5} py={1} fontSize={'.8rem'} margin={'.5rem 0'} bg={conditionalBackgroundColor}>
 
-            fontSize={'.8rem'}
-            margin={'.5rem 0'}
-
-            bg={isNameError ? '#ff000017' : 'gray.50'}
-
-
-        >
-
-            <Flex
-                padding={'.25rem'}
-                onClick={onClick}
-                justifyContent="space-between">
+            <Flex padding={'.25rem'} onClick={onClick} justifyContent="space-between">
 
                 <Marker action={data.action}></Marker>
                 <Text>{splicedName}</Text>
 
                 <Flex>
                     <Flex mx={'1rem'} onClick={onDelete}>
-                        <Delete
-                            aspect={30}
-                            color="red"
+                        <Delete aspect={30} color="red"
                         />
                     </Flex>
-                    <Image
-                        src={imageSrcConditonally}
-                        width={10}
-                        height={10}
-                        alt="noen" />
+                    <Image src={imageSrcConditonally} width={10} height={10} alt="noen" />
                 </Flex>
             </Flex>
 
