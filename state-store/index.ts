@@ -32,8 +32,8 @@ interface initialState {
         formsArray: string[],
     },
     alearts: {
-        [key: string]: boolean,
-        formCreated: boolean,
+        [key: string]: any,
+        formCreated: boolean | string[],
     }
 }
 
@@ -54,7 +54,6 @@ const initialState: initialState = {
                 subtitle: 'default',
             },
             __custom: [
-
             ]
         }
     },
@@ -137,6 +136,7 @@ const slice = createSlice({
 
             const value = action.payload.payload;
             const key = action.payload.type;
+
             state.alearts[key] = value;
         },
         toggleHeaderBox: (state, action) => {

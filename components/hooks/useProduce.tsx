@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken'
-import Router from 'next/router';
 import * as Redux from "../../state-store"
 import database from "../../firebase.config"
 import * as firebaseDB from "firebase/database"
@@ -7,7 +6,6 @@ import * as firebaseDB from "firebase/database"
 const useProduce = () => {
     const dispatch = Redux.useAppDispatch();
     const meta = Redux.useAppSelector(store => store.__generator.__meta);
-
     // decoded ~ with json web token
     const user = jwt.decode(localStorage.getItem('token') as string);
 
@@ -48,39 +46,29 @@ const useProduce = () => {
 
         // for re-cheaking code
 
-        if (isMetaEmpty) { console.log('Please add Input Box') }
-        else {
-            if (isNameAttributeEmpty) { console.log('Cheak Name Attribute is Empty') }
-            else {
-                if (isDuplicateNameAttributePresence) { console.log(' Duplicate Name Attribute found') }
-                else {
-                    if (isTitleDefault) { console.log('Please set Title') }
-                    else {
-                        if (isSubTitleDefault) { console.log('Please set subTitle') }
-                    }
-                }
-            }
+        const OBSTACLE: string[] = []
+
+        if (isMetaEmpty) {
+            OBSTACLE.push('Form is empty!')
         }
+        if (isNameAttributeEmpty) {
+            OBSTACLE.push('Cheak your name attributes!')
+        }
+        if (isDuplicateNameAttributePresence) {
+            OBSTACLE.push('Cheak your duplicate name attributes!')
+        }
+        if (isTitleDefault) {
+            OBSTACLE.push('Form title is empty!')
+        }
+        if (isSubTitleDefault) {
+            OBSTACLE.push('Form sub title is empty!')
+        }
+
+
+        dispatch(Redux.alerts({ type: 'formCreated', payload: OBSTACLE }))
 
         return isNameAttributeEmpty || isMetaEmpty || isDuplicateNameAttributePresence || isTitleDefault || isSubTitleDefault
     }
-
-    const postProductionModel = () => {
-
-        alert('produced')
-
-        dispatch(Redux.alerts({ type: 'formCreated', payload: true }))
-
-        setTimeout(() => {
-
-            dispatch(Redux.alerts({ type: 'formCreated', payload: false }))
-
-            Router.push('/survey/' + schema.id)
-
-        }, 4000)
-
-    }
-
 
     const Produce = () => {
 
@@ -88,14 +76,10 @@ const useProduce = () => {
 
         const { ref, set } = firebaseDB
 
-
         if (!isObstcle) {
-
             const targetRef = ref(database, 'forms/' + schema.id);
             const save = set(targetRef, schema);
-            save.then(postProductionModel)
             save.catch(err => alert(err))
-
         }
     }
 

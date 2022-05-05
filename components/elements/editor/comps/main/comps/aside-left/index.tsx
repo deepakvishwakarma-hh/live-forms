@@ -3,7 +3,7 @@ import ActionButton from "./comps/ActionButton"
 import Popup from "../../../popups/action-popup"
 import HeaderPopup from "../../../popups/header-popup"
 import * as Redux from "../../../../../../../state-store";
-
+import ProdcutionObstacle from "../../../alerts/production-obstacle";
 
 import { AnimatePresence } from "framer-motion";
 const AsideLeft = () => {
@@ -12,6 +12,7 @@ const AsideLeft = () => {
     const action = Redux.useAppSelector(store => store.__generator.__action)
     const headerBox = Redux.useAppSelector(store => store.__generator.__headerBox)
     const popupConditionallyShow = (action !== undefined) ? true : false;
+    const isProductionObstacle = Redux.useAppSelector(store => store.alearts.formCreated)
 
     return (
         <Chakra.Grid gridTemplate={"100px auto / 100%"}  >
@@ -33,6 +34,8 @@ const AsideLeft = () => {
             <AnimatePresence>
                 {headerBox && <HeaderPopup />}
             </AnimatePresence>
+
+            {isProductionObstacle && <ProdcutionObstacle />}
 
         </Chakra.Grid >
     )
