@@ -26,18 +26,23 @@ const Element = ({ data, index }: prop) => {
     const isNameError = (data.name == '');
 
     //  splicing big name and joining ...
-    const splicedName = data.name[5] ? data?.name?.slice(0, 5) + '...' : data.name;
+    const splicedName = data.name[8] ? data?.name?.slice(0, 8) + '...' : data.name;
 
     return (
         <Box
-            border={'1px solid black'}
-            padding={'0 1rem'}
+            pl={5}
+            py={1}
+
             fontSize={'.8rem'}
             margin={'.5rem 0'}
-            style={{ background: isNameError ? '#ff000017' : 'white' }}>
+
+            bg={isNameError ? '#ff000017' : 'gray.50'}
+
+
+        >
 
             <Flex
-                padding={'.5rem'}
+                padding={'.25rem'}
                 onClick={onClick}
                 justifyContent="space-between">
 

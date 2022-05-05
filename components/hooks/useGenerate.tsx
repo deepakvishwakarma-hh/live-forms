@@ -56,7 +56,10 @@ const useGenerate = () => {
                     }, 4000)
 
                 })
-                .catch((err: string) => { console.log(err) })
+                .catch((err: string) => {
+                    alert('something went wrong... see browser console')
+                    console.log(err);
+                })
         }
 
     }

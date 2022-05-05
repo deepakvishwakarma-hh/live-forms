@@ -24,17 +24,17 @@ const Editor = ({ index }: prop) => {
     useEffect(() => { dispatch(editFromMeta({ index, object: state })) })
 
     return (
-        <Flex flexDir={'column'} pb={5} >
-            <Text color={'black'} fontWeight={600}>Name</Text>
+        <Flex flexDir={'column'} pb={2} pr={5}>
+            {/* <Text color={'black'} fontWeight={600}>Name</Text> */}
             <Input
-                my={2}
+                my={1}
                 name="name"
                 size={'xs'}
                 type="text"
                 placeholder="name"
                 onChange={onChange}
                 value={state.name} />
-            <Text color={'black'} fontWeight={600}>Paragraph</Text>
+            {/* <Text color={'black'} fontWeight={600}>Paragraph</Text> */}
             <Input
                 my={2}
                 size={'xs'}
@@ -43,7 +43,7 @@ const Editor = ({ index }: prop) => {
                 name="paragraph"
                 placeholder="paragraph"
                 value={state.paragraph} />
-            <Text color={'black'} fontWeight={600}>Placeholder</Text>
+            {/* <Text color={'black'} fontWeight={600}>Placeholder</Text>    */}
             <Input
                 my={2}
                 size={'xs'}

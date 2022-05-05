@@ -62,7 +62,7 @@ const Transformer = ({ children, live }: prop) => {
 
     return (
         <Box {...parentProperties}>
-            {!live && <Header  {...headerCompProperties} />}
+            {/* {!live && <Header  {...headerCompProperties} />} */}
             <form onSubmit={onSubmit}>
                 {map}
                 {live ? <Button w="100%" type="submit" textTransform={'uppercase'} bg="#338DFE" color="white" my={5}>post</Button> : null}

@@ -1,11 +1,11 @@
-
 import Head from "next/head";
 import { useEffect } from "react";
-import * as Elements from "../../components/elements"
+import { Editor } from "../../components/elements";
 import useSave from "../../components/hooks/useSave";
 import Security from "../../components/elements/auth-boundry";
 
-const _Generator = () => {
+const Index = () => {
+
     const save = useSave();
     useEffect(() => {
         save.saveSteps();
@@ -14,10 +14,12 @@ const _Generator = () => {
     return (
         <Security>
             <Head>
+                <title>Liveforms - Editor</title>
                 <meta name="viewport" content="width" />
+                <meta name="description" content="free form generator by liveforms" />
             </Head>
-            <Elements.FormGenerator />
+            <Editor />
         </Security>
     )
 };
-export default _Generator
+export default Index
