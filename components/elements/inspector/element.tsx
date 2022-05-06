@@ -11,9 +11,9 @@ import { Box, Flex, Text } from "@chakra-ui/react"
 import { useAppDispatch, deleteFromMeta } from "../../../state-store"
 
 const Element = ({ data, index }: prop) => {
+
     const dispatch = useAppDispatch()
     const [isExpanded, setExpended] = useState<boolean>(false);
-
     const onClick = () => { setExpended(!isExpanded) }
 
     const onDelete = (e: any) => {
@@ -28,10 +28,11 @@ const Element = ({ data, index }: prop) => {
     //  splicing big name and joining ...
     const splicedName = data.name[8] ? data?.name?.slice(0, 8) + '...' : data.name;
 
-    const conditionalBackgroundColor = isNameError ? '#ff000017' : (isExpanded) ? "#FEFCBF" : 'gray.50';
+    const conditionalBackgroundColor = isNameError ? '#ff000017' : 'gray.50';
+
 
     return (
-        <Box pl={5} py={1} fontSize={'.8rem'} margin={'.5rem 0'} bg={conditionalBackgroundColor}>
+        <Box boxShadow={'md'} borderRadius={5} pl={5} py={1} fontSize={'.8rem'} margin={'.5rem 0'} bg={conditionalBackgroundColor}>
 
             <Flex padding={'.25rem'} onClick={onClick} justifyContent="space-between">
 
@@ -48,9 +49,7 @@ const Element = ({ data, index }: prop) => {
             </Flex>
 
             {isExpanded && <Box>
-
                 <Editor index={index} />
-
             </Box>}
         </Box>
     )

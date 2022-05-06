@@ -9,8 +9,8 @@ const Inspector = () => {
         key={Index} index={Index} data={Ele} />)
 
     return (
-        <Grid bg='white'>
-            <Box maxH={'calc(100vh - 200px)'} overflowY="scroll" css={{
+        <Grid >
+            <Box maxH={'calc(100vh - 100px)'} overflowY="scroll" px={5} css={{
 
                 '&::-webkit-scrollbar': {
                     width: '2px',

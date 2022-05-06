@@ -3,20 +3,19 @@ import * as Redux from "../../../../../state-store"
 import { CloseButton } from "@chakra-ui/close-button"
 
 const ProdcutionObstacle = () => {
+
     const dispatch = Redux.useAppDispatch()
     const isTrue: any = Redux.useAppSelector(store => store.alearts.formCreated)
-    console.log(isTrue)
+    const isThereAnyObstacle = isTrue.length !== 0;
+
     const onCloseHandler = () => {
         dispatch(Redux.alerts({ type: 'formCreated', payload: false }))
     }
 
-    const isThereAnyObstacle = isTrue.length !== 0;
-
     return (
         <Chakra.Center p={3} position="fixed" top={0} left={0} bg={'blackAlpha.500'} width={'100%'} height={'100%'} zIndex={9999}>
 
-
-            < Chakra.Flex minW={400} maxW={400} p={5} flexDir={'column'} bg="white" >
+            <Chakra.Flex minW={400} maxW={400} p={5} flexDir={'column'} bg="white" borderRadius={10}>
 
                 {isThereAnyObstacle && <>
                     <Chakra.Flex flexDir={'column'}>
@@ -38,7 +37,6 @@ const ProdcutionObstacle = () => {
                     <Chakra.Flex flexDir={'column'} bg="green.50" p={5}>
                         <Chakra.Text fontSize={'.9rem'} fontWeight={500} color="green" fontFamily="monospace !important">✓  No Obstacle Detected  </Chakra.Text>
                         <Chakra.Text fontSize={'.9rem'} fontWeight={500} color="green" fontFamily="monospace !important">✓  Deployed, see in dashboard  </Chakra.Text>
-
                     </Chakra.Flex>
 
                 </>}

@@ -42,7 +42,7 @@ const Component = () => {
     }
 
     return (
-        <Chakra.Flex minW={500} maxW={500} p={10} flexDir={'column'} bg="white" >
+        <Chakra.Flex minW={500} maxW={500} p={10} flexDir={'column'} bg="white" borderRadius={10} >
 
             <Chakra.Text color='black' fontWeight={600} textTransform="capitalize" py={1} >Title</Chakra.Text>
             <Chakra.Text color={'grey'} fontSize={13}> Title of The Survey page.</Chakra.Text>

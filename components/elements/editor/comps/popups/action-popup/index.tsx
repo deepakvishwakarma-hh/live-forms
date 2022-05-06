@@ -7,17 +7,18 @@ import * as Redux from "../../../../../../state-store";
 const Popup = () => {
 
     const dispatch = Redux.useAppDispatch()
-    // function 
+
+    // user-defined-funtions
     const onPush = () => { dispatch(Redux.pushMeta()) }
     const onClose = () => { dispatch(Redux.setAction(undefined)) }
     const onKeyUp = (event: any) => {
 
-        // push and hide
+        // push and hide on enter key
         if (event.keyCode === 13) {
             onPush()
             onClose()
         }
-        // hide the popup
+        // hide the popup on ESC key
         if (event.keyCode === 27) {
             onClose()
         }
@@ -40,15 +41,15 @@ const Component = () => {
     const dispatch = Redux.useAppDispatch()
     const action = Redux.useAppSelector(store => store.__generator.__action)
 
-    const placeHolderNameOnChngeHandler = (e: any) => {
+    const placeholderChangeHandler = (e: any) => {
         dispatch(Redux.setPopupPlaceholder(e.target.value))
     }
 
-    const inputNameOnChngeHandler = (e: any) => {
+    const nameChangeHandler = (e: any) => {
         dispatch(Redux.setPopupName(e.target.value))
     }
 
-    const inputParagraphOnChngeHandler = (e: any) => {
+    const paragraphChangeHandler = (e: any) => {
         dispatch(Redux.setPopupParagraph(e.target.value))
     }
 
@@ -60,27 +61,26 @@ const Component = () => {
 
     const onPush = () => { dispatch(Redux.pushMeta()) }
 
-
     return (
 
-        <Chakra.Box minW={500} maxW={500} bg="white" p={10} >
+        <Chakra.Box minW={500} maxW={500} bg="white" p={10} borderRadius={10} >
 
             <label>
                 <Chakra.Text color='black' fontWeight={700} py={2}>Name</Chakra.Text>
                 <Chakra.Text color={'grey'} fontSize={13}> This is Identification of data.</Chakra.Text>
-                <Chakra.Input onChange={inputNameOnChngeHandler} mt={2} placeholder='your element name' size="sm"></Chakra.Input>
+                <Chakra.Input onChange={nameChangeHandler} mt={2} placeholder='your element name' size="sm"></Chakra.Input>
             </label>
 
             <label >
                 <Chakra.Text color='black' fontWeight={700} py={2}>Paragraph</Chakra.Text>
                 <Chakra.Text color={'grey'} fontSize={13}> Informative text about input.</Chakra.Text>
-                <Chakra.Input onChange={inputParagraphOnChngeHandler} mt={2} placeholder='your element paragraph' size="sm"></Chakra.Input>
+                <Chakra.Input onChange={paragraphChangeHandler} mt={2} placeholder='your element paragraph' size="sm"></Chakra.Input>
             </label>
 
             <label >
                 <Chakra.Text color='black' fontWeight={700} py={2}>Placeholder</Chakra.Text>
                 <Chakra.Text color={'grey'} fontSize={13}>Tells the user what to do in the input..</Chakra.Text>
-                <Chakra.Input onChange={placeHolderNameOnChngeHandler} mt={2} placeholder='your element placeholder' size="sm"></Chakra.Input>
+                <Chakra.Input onChange={placeholderChangeHandler} mt={2} placeholder='your element placeholder' size="sm"></Chakra.Input>
             </label>
 
             {dropBoxOptConditionallyShow && <DropboxOpt />}

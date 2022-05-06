@@ -1,11 +1,11 @@
 import * as Chakra from "@chakra-ui/react"
 import ActionButton from "./comps/ActionButton"
+import { AnimatePresence } from "framer-motion";
 import Popup from "../../../popups/action-popup"
 import HeaderPopup from "../../../popups/header-popup"
 import * as Redux from "../../../../../../../state-store";
 import ProdcutionObstacle from "../../../alerts/production-obstacle";
 
-import { AnimatePresence } from "framer-motion";
 const AsideLeft = () => {
 
     const buttonArr = ['input', 'textarea', 'dropdown']
@@ -13,18 +13,25 @@ const AsideLeft = () => {
     const headerBox = Redux.useAppSelector(store => store.__generator.__headerBox)
     const popupConditionallyShow = (action !== undefined) ? true : false;
     const isProductionObstacle = Redux.useAppSelector(store => store.alearts.formCreated)
+    const actionButtonMaps = buttonArr.map((item: string, index: number) => <ActionButton key={index} text={item} />)
 
     return (
-        <Chakra.Grid gridTemplate={"100px auto / 100%"}  >
+        <Chakra.Grid gridTemplate={"100px auto / 100%"} px={5} bg="#EFEFEF" >
 
-            <Chakra.Flex alignItems={'center'} pl={5} fontSize={".9rem"}>
-                <Chakra.Text flex={1} fontWeight={500}>Action Bar</Chakra.Text>
-                <Chakra.Box mr={1} flex={.1} bg="gray.200" width={'100%'} h={'5px'} borderRadius={'5px'}></Chakra.Box>
-                <Chakra.Box flex={1} bg="gray.500" width={'10%'} h={'2px'}></Chakra.Box>
+            <Chakra.Flex alignItems={'center'} ml={-3} fontSize={".9rem"}>
+
+                <svg width="80" height="50" viewBox="0 0 100 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="100" height="50" fill="transparent " />
+                    <rect x="22" y="14" width="56" height="7" rx="3.5" fill="black" />
+                    <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="black" />
+                </svg>
+
+                <Chakra.Text fontSize={17} fontWeight={500} textTransform="uppercase" letterSpacing={1}>Liveforms</Chakra.Text>
+
             </Chakra.Flex>
 
             <Chakra.Flex flexDir={'column'} >
-                {buttonArr.map((item, index) => <ActionButton key={index} text={item} />)}
+                {actionButtonMaps}
             </Chakra.Flex>
 
             <AnimatePresence>
