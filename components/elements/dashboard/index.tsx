@@ -1,17 +1,16 @@
 import Main from "./comps/main";
+import Loader from "../loader";
 import Aside from "./comps/aside";
 import { Grid } from "@chakra-ui/react";
-import Loader from "../loader";
 
 const Dashboard = ({ arr, data }: any) => {
 
+    const conditinallyRenderElement = (data) ? <Main arr={arr} data={data} /> : <Loader />
 
     return (
-        <Grid gridTemplate={'100vh / 100px auto'}>
+        <Grid gridTemplate={'100vh / 200px auto'}>
             <Aside />
-            {(data) ?
-                <Main arr={arr} data={data} />
-                : <Loader />}
+            {conditinallyRenderElement}
         </Grid>
     )
 };
