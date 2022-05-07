@@ -4,11 +4,17 @@ import {
     useAppDispatch,
 } from "../../state-store";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import database from "../../firebase.config";
 import { ref, onValue } from "firebase/database";
 import { Boundry } from "../../components/elements";
-import * as Element from "../../components/elements";
+
+// performance optimization testing...
+const DynamicImportedMain = dynamic(
+    () => import('../../components/elements/dashboard'),
+    { loading: () => <p>.</p> }
+)
 
 const Dashboard = () => {
 
@@ -41,8 +47,9 @@ const Dashboard = () => {
             <Head>
                 <title>Liveforms ~ Dashboard</title>
                 <meta name="viewport" content="width" />
+                <meta name="description" content="Liveforms Dashboard" />
             </Head>
-            <Element.Dashboard {...dashboardPayload} />
+            <DynamicImportedMain {...dashboardPayload} />
         </Boundry>
     )
 }
