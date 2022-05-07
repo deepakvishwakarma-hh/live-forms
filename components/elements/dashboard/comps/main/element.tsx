@@ -46,7 +46,7 @@ const Form = ({ data }: prop) => {
             <Chakra.Center minW="250px" flexDir={'row'} bg="white" boxShadow={'md'} mr={5} borderRadius={10}  >
 
                 <Chakra.Text fontSize={20} px={2}>{response}</Chakra.Text>
-                <Chakra.Text pt={2} fontSize={13} textTransform="capitalize" textAlign={'center'} color={'gray'} letterSpacing={'.5px'}>Res</Chakra.Text>
+                <Chakra.Text pt={2} fontSize={13} textTransform="capitalize" fontWeight={500} textAlign={'center'} color={'black'} letterSpacing={'.5px'}>Response</Chakra.Text>
 
             </Chakra.Center>
 
@@ -74,7 +74,7 @@ const Form = ({ data }: prop) => {
 
 
                 <Chakra.Flex my={2} >
-                    <Chakra.Button onClick={onAnalyseHandler} bg="white" p={3} fontWeight={400} size="xs" mx={1} isDisabled={(response == 0)} >
+                    <Chakra.Button name="analyser-button" onClick={onAnalyseHandler} bg="white" p={3} fontWeight={400} size="xs" mx={1} isDisabled={(response == 0)} >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 11.887a.5.5 0 0 0 .07-.704l-4.5-5.5a.5.5 0 0 0-.74-.037L7.06 8.233 3.404 3.206a.5.5 0 0 0-.808.588l4 5.5a.5.5 0 0 0 .758.06l2.609-2.61 4.15 5.073a.5.5 0 0 0 .704.07Z" />
                         </svg>
@@ -82,14 +82,14 @@ const Form = ({ data }: prop) => {
 
                     <RWebShare
                         data={webShareApiPayload}>
-                        <Chakra.Button bg="white" p={3} fontWeight={400} size="xs" mx={1}>
+                        <Chakra.Button name="webshare-button" bg="white" p={3} fontWeight={400} size="xs" mx={1}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                                 <path d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
                             </svg>
                         </Chakra.Button>
                     </RWebShare>
 
-                    <Chakra.Button onClick={onOpenInNewTabHandler} bg="white" p={3} fontWeight={400} size="xs" mx={1} >
+                    <Chakra.Button name="openinnewtab-button" onClick={onOpenInNewTabHandler} bg="white" p={3} fontWeight={400} size="xs" mx={1} >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                             <path fillRule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.854 8.803a.5.5 0 1 1-.708-.707L9.243 6H6.475a.5.5 0 1 1 0-1h3.975a.5.5 0 0 1 .5.5v3.975a.5.5 0 1 1-1 0V6.707l-4.096 4.096z" />
                         </svg>
