@@ -4,8 +4,7 @@ const useDashboard = () => {
 
     const logout = () => {
         localStorage.removeItem('token');
-        Router.replace(Router.asPath)
-
+        Router.reload()
     }
 
     return { logout }

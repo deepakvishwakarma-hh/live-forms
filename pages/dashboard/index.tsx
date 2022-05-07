@@ -1,26 +1,24 @@
-// 01
-
+import {
+    setUser,
+    useAppSelector,
+    useAppDispatch,
+} from "../../state-store";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import database from "../../firebase.config";
 import { ref, onValue } from "firebase/database";
 import { Boundry } from "../../components/elements";
 import * as Element from "../../components/elements";
-import {
-    setUser,
-    useAppSelector,
-    useAppDispatch,
-} from "../../state-store";
 
-const Dashboard = ({ Result }: any) => {
-
-    const [response, setResponse] = useState<any>(false)
+const Dashboard = () => {
 
     const dispatch = useAppDispatch();
+    const [response, setResponse] = useState<any>(false)
 
     useEffect(() => {
+        // extract user and store in state
         dispatch(setUser())
-
+        // get all survey
         onValue(ref(database, 'forms/'), (snapshot) => {
 
             let res = snapshot.val()
@@ -34,17 +32,17 @@ const Dashboard = ({ Result }: any) => {
     }, [dispatch])
 
     const Keys = Object.keys(response);
-
     const user = useAppSelector(state => state.user);
-
-    const arr = Keys.filter((key: string) => (response[key]?.Creator?.email == user?.email))
+    const userCreatedSurveyIds = Keys.filter((key: string) => (response[key]?.Creator?.email == user?.email))
+    const dashboardPayload = { userCreatedSurveyIds, response }
 
     return (
         <Boundry>
             <Head>
+                <title>Liveforms ~ Dashboard</title>
                 <meta name="viewport" content="width" />
             </Head>
-            <Element.Dashboard arr={arr} data={response} />
+            <Element.Dashboard {...dashboardPayload} />
         </Boundry>
     )
 }
@@ -52,16 +50,3 @@ const Dashboard = ({ Result }: any) => {
 
 export default Dashboard
 
-export const getServerSideProps = async () => {
-
-    let Result = 'im not fetched'
-    onValue(ref(database, 'forms/'), (snapshot) => {
-        Result = snapshot.val()
-    });
-
-    return {
-        props: {
-            Result
-        }
-    }
-}

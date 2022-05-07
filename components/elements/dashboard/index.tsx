@@ -1,16 +1,20 @@
-import Main from "./comps/main";
-import Loader from "../loader";
+import Main from "./comps/main"
 import Aside from "./comps/aside";
 import { Grid } from "@chakra-ui/react";
 
-const Dashboard = ({ arr, data }: any) => {
+export interface prop {
+    userCreatedSurveyIds: string[],
+    response: any
+}
 
-    const conditinallyRenderElement = (data) ? <Main arr={arr} data={data} /> : <Loader />
+const Dashboard = ({ userCreatedSurveyIds, response }: prop) => {
+
+    const mainPayload = { userCreatedSurveyIds, response }
 
     return (
-        <Grid gridTemplate={'100vh / 200px auto'}>
+        <Grid gridTemplate={'100vh / 100px auto'}>
             <Aside />
-            {conditinallyRenderElement}
+            <Main {...mainPayload} />
         </Grid>
     )
 };
