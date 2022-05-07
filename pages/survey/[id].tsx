@@ -21,6 +21,14 @@ export default function SurveyPage({ data }: any) {
 }
 
 export async function getServerSideProps(context: any) {
+
+    const { res } = context;
+    // store as cache;
+    res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=10, stale-while-revalidate=59'
+    )
+
     const id = context.query.id;
     const Reference = ref(database);
     const snapshot = await get(child(Reference, 'forms/' + id));
