@@ -12,7 +12,6 @@ const Boundry = ({ children }: prop) => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
     useEffect(() => {
-
         if (!localStorage.getItem('token')) {
             setIsLoggedIn(false)
         } else {
@@ -20,11 +19,11 @@ const Boundry = ({ children }: prop) => {
         }
     }, [])
 
-    if (isLoggedIn) {
-        return <> {children} </>
+    if (!isLoggedIn) {
+        return <Aleart />
     }
 
-    return <Aleart />
+    return <> {children} </>
 }
 
 
