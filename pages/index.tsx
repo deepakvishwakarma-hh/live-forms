@@ -1,13 +1,11 @@
+import Head from "next/head"
 import { Container } from "@chakra-ui/react"
 import * as Elements from "../components/elements"
-import Head from "next/head"
-import { useEffect } from "react"
+
 const Home = () => {
 
 
-
   return (
-
     <>
       <Head>
         <title>Liveforms</title>
