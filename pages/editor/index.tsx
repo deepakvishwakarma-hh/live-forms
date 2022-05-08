@@ -1,14 +1,15 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { Editor } from "../../components/elements";
-import useSave from "../../components/hooks/useSave";
+import useSave from "../../components/hooks/useAutoSave";
 import Security from "../../components/elements/auth-boundry";
 
 const Index = () => {
 
-    const save = useSave();
+    const autoSave = useSave();
+
     useEffect(() => {
-        save.saveSteps();
+        autoSave.saveSteps();
     })
 
     return (
