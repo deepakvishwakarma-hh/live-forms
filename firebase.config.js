@@ -4,14 +4,14 @@ import { getDatabase } from "firebase/database";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_ENV_VARIABLE_APIKEY,
-    authDomain: process.env.NEXT_PUBLIC_ENV_VARIABLE_AUTHDOMAIN,
-    databaseURL: process.env.NEXT_PUBLIC_ENV_VARIABLE_DBURL,
-    projectId: process.env.NEXT_PUBLIC_ENV_VARIABLE_PROJECTID,
-    storageBucket: process.env.NEXT_PUBLIC_ENV_VARIABLE_STORAGEBUCKET,
-    messagingSenderId: process.env.NEXT_PUBLIC_ENV_VARIABLE_MSID,
-    appId: process.env.NEXT_PUBLIC_ENV_VARIABLE_APPID,
-    measurementId: process.env.NEXT_PUBLIC_ENV_VARIABLE_MEASUREID
+    apiKey: "AIzaSyCbOyT93zlsmstUTxMkCB-cgMX2a1TYgps",
+    authDomain: "hire-4b874.firebaseapp.com",
+    databaseURL: "https://hire-4b874-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "hire-4b874",
+    storageBucket: "hire-4b874.appspot.com",
+    messagingSenderId: "920405175348",
+    appId: "1:920405175348:web:fd56e118e98ebc9a58ae61",
+    measurementId: "G-MP0G21YM2Y"
 };
 
 
