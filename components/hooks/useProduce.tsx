@@ -4,6 +4,9 @@ import database from "../../firebase.config"
 import * as firebaseDB from "firebase/database"
 
 const useProduce = () => {
+
+    const isInDevelopmentMode = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
+
     const dispatch = Redux.useAppDispatch();
     const meta = Redux.useAppSelector(store => store.__generator.__meta);
     // decoded ~ with json web token
@@ -19,9 +22,10 @@ const useProduce = () => {
     // finding obstacle ;
     const preProductionModel = () => {
 
+        // all name attribute in Meta;
         const everyNameAttributeUsedInMeta: string[] = []
 
-        //storing names in arr
+        //storing names in arr;
         schema.Client.__custom.map((value) => {
             everyNameAttributeUsedInMeta.push(value.name)
         })
@@ -38,36 +42,37 @@ const useProduce = () => {
             return settedArr.length !== everyNameAttributeUsedInMeta.length;
         }
 
-        const isNameAttributeEmpty: boolean = filterEmptyNameAttributes()
-        const isMetaEmpty: boolean = schema.Client.__custom.length == 0;
-        const isDuplicateNameAttributePresence: boolean = findDuplicateNameAttribute()
-        const isTitleDefault: boolean = schema.Client.__header.title == "default"
-        const isSubTitleDefault: boolean = schema.Client.__header.subtitle == "default"
+        // Cheaking is any name-attribute is inluded in database
+        const findDotInNameAttribute = () => {
+            let isDotPresent: boolean = false;
+            schema.Client.__custom.map((value) => {
+                if (value.name.includes('.')) {
+                    isDotPresent = true
+                }
+            })
+            return isDotPresent
+        }
+
+        const isDotInNameAttribute = findDotInNameAttribute()
+        const isMetaEmpty = schema.Client.__custom.length == 0;
+        const isNameAttributeEmpty = filterEmptyNameAttributes()
+        const isTitleDefault = schema.Client.__header.title == "default"
+        const isDuplicateNameAttributePresence = findDuplicateNameAttribute()
+        const isSubTitleDefault = schema.Client.__header.subtitle == "default"
 
         // for re-cheaking code
-
         const OBSTACLE: string[] = []
-
-        if (isMetaEmpty) {
-            OBSTACLE.push('Form is empty!')
-        }
-        if (isNameAttributeEmpty) {
-            OBSTACLE.push('Cheak your name attributes!')
-        }
-        if (isDuplicateNameAttributePresence) {
-            OBSTACLE.push('Cheak your duplicate name attributes!')
-        }
-        if (isTitleDefault) {
-            OBSTACLE.push('Form title is empty!')
-        }
-        if (isSubTitleDefault) {
-            OBSTACLE.push('Form sub title is empty!')
-        }
-
-
+        // conditionally pushing obstacles
+        isMetaEmpty && OBSTACLE.push('Form is empty!')
+        isTitleDefault && OBSTACLE.push('Form title is empty!')
+        isSubTitleDefault && OBSTACLE.push('Form sub title is empty!')
+        isNameAttributeEmpty && OBSTACLE.push('Cheak your name attributes!')
+        isDuplicateNameAttributePresence && OBSTACLE.push('Cheak your duplicate name attributes!')
+        isDotInNameAttribute && OBSTACLE.push('Cheak your name attributes, Remove " . " (Dot) from name attributes!')
+        //store obstacles
         dispatch(Redux.alerts({ type: 'formCreated', payload: OBSTACLE }))
 
-        return isNameAttributeEmpty || isMetaEmpty || isDuplicateNameAttributePresence || isTitleDefault || isSubTitleDefault
+        return isNameAttributeEmpty || isMetaEmpty || isDuplicateNameAttributePresence || isTitleDefault || isSubTitleDefault || isDotInNameAttribute
     }
 
     const Produce = () => {
@@ -77,6 +82,9 @@ const useProduce = () => {
         const { ref, set } = firebaseDB
 
         if (!isObstcle) {
+
+            isInDevelopmentMode && alert('form deployed')
+
             const targetRef = ref(database, 'forms/' + schema.id);
             const save = set(targetRef, schema);
             save.catch(err => alert(err))
