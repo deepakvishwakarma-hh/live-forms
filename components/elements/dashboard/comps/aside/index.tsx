@@ -5,7 +5,8 @@ import { useAppSelector } from "../../../../../state-store";
 const Aside = () => {
 
     const dashboard = useDashboard();
-    const { displayName } = useAppSelector(store => store.user)
+
+    const displayName = useAppSelector(store => store?.user?.displayName)
 
     return (
         <Chakra.Grid gridTemplate={'100px auto  / auto'} bg="#EFEFEF" >
