@@ -10,20 +10,13 @@ const Top = () => {
 
     const { title } = Redux.useAppSelector(store => store.__generator.__meta.__header);
 
-
     const onProduceButtonHandler = () => { experimenatal.Produce() };
-
 
     const dispatch = Redux.useAppDispatch()
     const currHeaderBoxCondition = Redux.useAppSelector(store => store.__generator.__headerBox);
 
     //  functions 
     const onTitleClickHandler = () => { dispatch(Redux.toggleHeaderBox(!currHeaderBoxCondition)) }
-
-    const onAspectClickHandler = () => {
-        if (document !== undefined) { }
-        document.documentElement.requestFullscreen().catch((e: any) => { console.log(e) })
-    }
 
     const onResetClickHandler = () => {
         if (localStorage !== undefined) {
@@ -75,13 +68,6 @@ const Top = () => {
                             <Chakra.Text {...buttonTextStyle as any}>Title Sub-title</Chakra.Text>
                         </Chakra.Center>
 
-                        <Chakra.Center  {...buttonStyle as any} onClick={onAspectClickHandler}  >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16">
-                                <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z" />
-                                <path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0v-3zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0v3z" />
-                            </svg>
-                            <Chakra.Text {...buttonTextStyle as any}>Aspect Fill</Chakra.Text>
-                        </Chakra.Center>
 
                         <Chakra.Center  {...buttonStyle as any} onClick={onResetClickHandler} >
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="white" viewBox="0 0 16 16">
