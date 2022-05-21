@@ -50,8 +50,8 @@ const initialState: initialState = {
         },
         __meta: {
             __header: {
-                title: 'default',
-                subtitle: 'default',
+                title: 'untitled',
+                subtitle: 'untitled',
             },
             __custom: [
             ]

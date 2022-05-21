@@ -6,6 +6,7 @@
 /.pnp
 .pnp.js
 /.env
+/path.txt
 
 # testing
 /coverage

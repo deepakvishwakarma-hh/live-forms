@@ -56,9 +56,9 @@ const useProduce = () => {
         const isDotInNameAttribute = findDotInNameAttribute()
         const isMetaEmpty = schema.Client.__custom.length == 0;
         const isNameAttributeEmpty = filterEmptyNameAttributes()
-        const isTitleDefault = schema.Client.__header.title == "default"
+        const isTitleDefault = schema.Client.__header.title == "untitled"
         const isDuplicateNameAttributePresence = findDuplicateNameAttribute()
-        const isSubTitleDefault = schema.Client.__header.subtitle == "default"
+        const isSubTitleDefault = schema.Client.__header.subtitle == "untitled"
 
         // for re-cheaking code
         const OBSTACLE: string[] = []

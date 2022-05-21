@@ -8,7 +8,7 @@ const Top = () => {
 
     const experimenatal = useProduce()
 
-    const { title } = Redux.useAppSelector(store => store.__generator.__meta.__header);
+    const { title, subtitle } = Redux.useAppSelector(store => store.__generator.__meta.__header);
 
     const onProduceButtonHandler = () => { experimenatal.Produce() };
 
@@ -43,17 +43,16 @@ const Top = () => {
     }
 
 
-
     return (
 
         <Chakra.Grid gridTemplate={'100% / auto'} bg="gray.500">
 
 
-            <Chakra.Grid bg="#EFEFEF" gridTemplate={"100% / auto auto"} >
+            <Chakra.Grid bg="#EFEFEF" gridTemplate={"100% / auto auto"}  >
 
-                <Chakra.Flex px={5} alignItems={'center'}>
+                <Chakra.Flex px={5} alignItems={'center'} onClick={onTitleClickHandler} overflow="auto">
 
-                    <Chakra.Text fontSize={'1rem'} ml={5} color="black">{title}</Chakra.Text>
+                    <Chakra.Text fontSize={'1rem'} ml={5} color="black" borderBottom={'1px gray solid'}>{title} <sup style={{ color: 'blue' }}>Title</sup></Chakra.Text>
 
                 </Chakra.Flex>
 
