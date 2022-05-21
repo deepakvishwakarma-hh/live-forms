@@ -1,8 +1,7 @@
+import jwt from 'jsonwebtoken';
 import { configureStore } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
-
-import jwt from 'jsonwebtoken';
 
 interface initialState {
     __generator: {
@@ -68,14 +67,12 @@ const initialState: initialState = {
     alearts: { // by default they are false;
         formCreated: false,
     }
-
 }
 
 const slice = createSlice({
     name: 'counter',
     initialState,
     reducers: {
-
         setAction: (state, action) => {
             state.__generator.__action = action.payload;
         },
@@ -87,9 +84,11 @@ const slice = createSlice({
         setPopupParagraph: (state, action) => {
             state.__generator.__popup.paragraph = action.payload;
         },
+
         pushPopupOptions: (state, action) => {
             state.__generator.__popup.options.push(action.payload)
         },
+
         removePopupOption: (state, action) => {
             // Exclude payload : filter
             const filteredArr = state.__generator.__popup.options.filter((item: string) => item !== action.payload);
