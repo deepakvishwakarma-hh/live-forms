@@ -66,21 +66,21 @@ const Component = () => {
         <Chakra.Box minW={500} maxW={500} bg="white" p={10} borderRadius={10} >
 
             <label>
-                <Chakra.Text color='black' fontWeight={700} py={2}>Name</Chakra.Text>
-                <Chakra.Text color={'grey'} fontSize={13}> This is Identification of data.</Chakra.Text>
-                <Chakra.Input onChange={nameChangeHandler} mt={2} placeholder='your element name' size="sm"></Chakra.Input>
+                <Chakra.Text display="inline" color='black' fontWeight={500} py={2}>Name</Chakra.Text>
+                <Chakra.Text display="inline" color={'blue'} fontSize={13}> →  Identification of data.</Chakra.Text>
+                <Chakra.Input _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} onChange={nameChangeHandler} my={2} placeholder='Element name' size="xs" ></Chakra.Input>
             </label>
 
             <label >
-                <Chakra.Text color='black' fontWeight={700} py={2}>Paragraph</Chakra.Text>
-                <Chakra.Text color={'grey'} fontSize={13}> Informative text about input.</Chakra.Text>
-                <Chakra.Input onChange={paragraphChangeHandler} mt={2} placeholder='your element paragraph' size="sm"></Chakra.Input>
+                <Chakra.Text display="inline" color='black' fontWeight={500} py={2}>Paragraph</Chakra.Text>
+                <Chakra.Text display="inline" color={'blue'} fontSize={13}> → Informative text about input.</Chakra.Text>
+                <Chakra.Input _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} onChange={paragraphChangeHandler} my={2} placeholder="Element paragraph" size="xs"></Chakra.Input>
             </label>
 
             <label >
-                <Chakra.Text color='black' fontWeight={700} py={2}>Placeholder</Chakra.Text>
-                <Chakra.Text color={'grey'} fontSize={13}>Tells the user what to do in the input..</Chakra.Text>
-                <Chakra.Input onChange={placeholderChangeHandler} mt={2} placeholder='your element placeholder' size="sm"></Chakra.Input>
+                <Chakra.Text display="inline" color='black' fontWeight={500} py={2}>Placeholder</Chakra.Text>
+                <Chakra.Text display="inline" color={'blue'} fontSize={13}> →Tells the user what to do in the input..</Chakra.Text>
+                <Chakra.Input _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} onChange={placeholderChangeHandler} my={2} placeholder='Element placeholder' size="xs"></Chakra.Input>
             </label>
 
             {dropBoxOptConditionallyShow && <DropboxOpt />}
@@ -99,7 +99,7 @@ const Component = () => {
                     </svg>
                 </Chakra.Button>
             </Chakra.Flex>
-        </Chakra.Box>
+        </Chakra.Box >
 
 
     )

@@ -22,14 +22,16 @@ const DropboxOpt = () => {
 
     const optMapper = opt?.map((option: string, index: number) => <Option value={option} index={index} key={index} />) // Options mapper
 
-    const optionUiList = (opt?.length !== 0) ? <Flex mt={5} flexWrap="wrap" > {optMapper} </Flex> : <p>No options...</p> // if opt is empty, show this text
+    const optionUiList = (opt?.length !== 0) ? <Flex mt={5} flexWrap="wrap" > {optMapper} </Flex> : <Flex>...</Flex> // if opt is empty, show this text
 
     return (
         <Box>
+            <Text display="inline" color='black' fontWeight={500} py={2}>Options</Text>
+            <Text display="inline" color={'blue'} fontSize={13}> →User can select</Text>
             {optionUiList}
             <Flex mt={3} >
-                <Input mx={2} flex={2} value={input} onChange={onChangeHandler} placeholder="type options" type="text" />
-                <Button onClick={onPushHandler} mx={2} flex={1}>
+                <Input size={'xs'} _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} mx={2} flex={2} value={input} onChange={onChangeHandler} placeholder="type options" type="text" />
+                <Button size="xs" onClick={onPushHandler} mx={2} flex={1}>
                     <Add aspect={30} color="blue" />
                 </Button>
             </Flex>
@@ -55,10 +57,10 @@ const Option = ({ value, index }: prop) => {
         dispatch(Redux.removePopupOption(optToBeRemoved))
     }
     return (
-        <Flex m={2} borderRadius={5} my={1} alignItems={'center'} justifyContent='space-between' border="1px black solid" overflow={'hidden'}>
+        <Flex m={2} h="30px" borderRadius={5} my={1} alignItems={'center'} justifyContent='space-between' border="1px gray solid" overflow={'hidden'}>
             <Text px={2} fontSize={13}> {value}</Text>
-            <Button borderRadius={0} onClick={onRemove}>
-                <Delete aspect={40} color='red' />
+            <Button borderRadius={0} bg="none" onClick={onRemove}>
+                <Delete aspect={30} color='red' />
             </Button>
         </Flex>
     )
