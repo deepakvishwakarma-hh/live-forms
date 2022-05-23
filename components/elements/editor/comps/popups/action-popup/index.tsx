@@ -77,11 +77,11 @@ const Component = () => {
                 <Chakra.Input _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} onChange={paragraphChangeHandler} my={2} placeholder="Element paragraph" size="xs"></Chakra.Input>
             </label>
 
-            <label >
+            {!dropBoxOptConditionallyShow && <label >
                 <Chakra.Text display="inline" color='black' fontWeight={500} py={2}>Placeholder</Chakra.Text>
                 <Chakra.Text display="inline" color={'blue'} fontSize={13}> →Tells the user what to do in the input..</Chakra.Text>
                 <Chakra.Input _focus={{ transition: 'all .5s', borderColor: "blue", bg: 'blue.50' }} onChange={placeholderChangeHandler} my={2} placeholder='Element placeholder' size="xs"></Chakra.Input>
-            </label>
+            </label>}
 
             {dropBoxOptConditionallyShow && <DropboxOpt />}
 
