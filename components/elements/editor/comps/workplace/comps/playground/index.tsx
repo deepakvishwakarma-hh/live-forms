@@ -8,10 +8,7 @@ const Playground = () => {
 
     return (
         <Chakra.Grid h="100%" bg="#EFEFEF" gridTemplate={"100px auto / 100%"} >
-
             <Top />
-
-
             <Chakra.Flex overflowY={'scroll'} bg="#D7D7D7" borderRadius={' 2rem 2rem 0rem 0rem'} border="2px white solid" maxH="calc(100vh - 100px)" justifyContent='center' css={{
                 '&::-webkit-scrollbar': {
                     width: '4px',
