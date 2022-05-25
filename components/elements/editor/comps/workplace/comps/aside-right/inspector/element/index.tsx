@@ -6,10 +6,9 @@ import Marker from "./marker"
 import Editor from "./editor"
 import Image from "next/image"
 import { useState } from "react"
-import { Delete } from "../buttons"
+import { Delete } from "../../../../../../../buttons"
 import { Box, Flex, Text } from "@chakra-ui/react"
-import { useAppDispatch, deleteFromMeta } from "../../../state-store"
-
+import { deleteFromMeta, useAppDispatch } from "../../../../../../../../../state-store"
 const Element = ({ data, index }: prop) => {
 
     const dispatch = useAppDispatch()

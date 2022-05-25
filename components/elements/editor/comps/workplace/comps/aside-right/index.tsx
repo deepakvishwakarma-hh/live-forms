@@ -1,5 +1,5 @@
 import * as Chakra from "@chakra-ui/react"
-import Inspector from "../../../../../inspector"
+import Inspector from "./inspector"
 
 const AsideRight = () => {
 

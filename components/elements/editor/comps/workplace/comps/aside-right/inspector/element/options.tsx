@@ -3,10 +3,10 @@ interface prop {
     update: any
 }
 
-import { Delete, Add } from "../buttons"
+import { Delete, Add } from "../../../../../../../buttons"
 import { useState } from "react"
 
-import { Box, Text, Button, Flex, Input } from "@chakra-ui/react"
+import { Box, Text, Flex, Input } from "@chakra-ui/react"
 
 const Options = ({ data, update }: prop) => {
 

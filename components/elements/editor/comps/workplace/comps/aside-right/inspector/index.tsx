@@ -1,7 +1,6 @@
 import Element from "./element";
 import { Grid, Box } from "@chakra-ui/react";
-import { useAppSelector } from "../../../state-store";
-
+import { useAppSelector } from "../../../../../../../../state-store";
 const Inspector = () => {
 
     const inputBlocks = useAppSelector(store => store.__generator.__meta.__custom)
