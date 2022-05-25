@@ -5,41 +5,28 @@ import * as Redux from "../../../../../../../state-store"
 import useProduce from "../../../../../../hooks/useProduce";
 
 const Top = () => {
-    const customArrLength = Redux.useAppSelector(store => store.__generator.__meta.__custom).length
     const produce = useProduce()
     const dispatch = Redux.useAppDispatch()
     const onProduceButtonHandler = () => { produce.Produce() };
     const { title } = Redux.useAppSelector(store => store.__generator.__meta.__header);
+    const customArrLength = Redux.useAppSelector(store => store.__generator.__meta.__custom).length
     const currHeaderBoxCondition = Redux.useAppSelector(store => store.__generator.__headerBox);
-
-    //  functions 
     const onTitleClickHandler = () => { dispatch(Redux.toggleHeaderBox(!currHeaderBoxCondition)) }
-
     const onResetClickHandler = () => {
         if (localStorage !== undefined) {
             localStorage.removeItem('editor')
             Router.reload()
         }
     }
-
     const isTimeToDisebledResetButton = customArrLength == 0
-
     const tooltipStyle = {
-        hasArrow: true,
-        bg: "white",
-        color: 'black',
-        fontWeight: 500,
-        fontSize: 12,
-        letterSpacing: 1,
-        p: '.4rem 1rem',
-        borderRadius: 5,
+        hasArrow: true, bg: "white", color: 'black', fontWeight: 500, fontSize: 12, letterSpacing: 1, p: '.4rem 1rem', borderRadius: 5,
     }
     return (
-
         <Chakra.Grid gridTemplate={'100% / auto'} bg="gray.500">
             <Chakra.Grid bg="#EFEFEF" gridTemplate={"100% / auto auto"}  >
-                <Chakra.Flex px={5} alignItems={'center'} onClick={onTitleClickHandler} overflow="auto">
-                    <Chakra.Text fontSize={'1rem'} ml={5} color="black" borderBottom={'1px gray solid'}>{title} <sup style={{ color: 'blue' }}>Title</sup></Chakra.Text>
+                <Chakra.Flex px={5} alignItems={'center'} overflow="auto">
+                    <Chakra.Text fontSize={'1rem'} ml={5} color="black" borderBottom={'1px gray solid'}>{title}</Chakra.Text>
                 </Chakra.Flex>
                 <Chakra.Flex px={2} justifyContent={"end"} alignItems="center"  >
                     <Chakra.Flex >
@@ -66,7 +53,6 @@ const Top = () => {
                 </Chakra.Flex>
             </Chakra.Grid >
         </Chakra.Grid>
-
     )
 }
 export default Top 
