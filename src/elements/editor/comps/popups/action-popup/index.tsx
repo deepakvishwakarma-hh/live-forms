@@ -40,7 +40,7 @@ export default React.memo(Popup)
 const Component = () => {
 
     const dispatch = Redux.useAppDispatch()
-    const action = Redux.useAppSelector(store => store.__generator.__action)
+    const action = Redux.useAppSelector(store => store.__generator.action)
 
     const placeholderChangeHandler = (e: any) => {
         dispatch(Redux.setPopupPlaceholder(e.target.value))

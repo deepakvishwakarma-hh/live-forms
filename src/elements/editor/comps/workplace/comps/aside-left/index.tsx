@@ -9,7 +9,7 @@ import ProductionObstacleAleart from "../../../alerts/production-obstacle";
 const AsideLeft = () => {
 
     const buttonArr = ['input', 'textarea', 'dropdown'];
-    const action = Redux.useAppSelector(store => store.__generator.__action)
+    const action = Redux.useAppSelector(store => store.__generator.action)
     const headerBox = Redux.useAppSelector(store => store.__generator.__headerBox)
     const popupConditionallyShow = (action !== undefined) ? true : false;
     const isProductionObstacle = Redux.useAppSelector(store => store.alearts.formCreated)

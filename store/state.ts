@@ -1,6 +1,6 @@
 export default interface initialState {
     __generator: {
-        __action: "input" | 'dropdown' | "textarea" | undefined;
+        action: "input" | 'dropdown' | "textarea" | undefined;
         __headerBox: boolean;
         __popup: {
             name: string,
@@ -31,4 +31,4 @@ export default interface initialState {
     }
 }
 
-// const a: generator['__action'] = undefined
+// const a: generator['action'] = undefined

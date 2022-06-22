@@ -6,7 +6,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
 const initialState: initial = {
     __generator: {
-        __action: undefined,
+        action: undefined,
         __headerBox: false,
         __popup: {
             name: '',
@@ -43,7 +43,7 @@ const slice = createSlice({
     reducers: {
         // generator's action reducer
         setAction: (state, action) => {
-            state.__generator.__action = action.payload;
+            state.__generator.action = action.payload;
         },
 
         // popup's name reducer
@@ -69,11 +69,11 @@ const slice = createSlice({
         },
         pushMeta: (state) => {
             const _Constructor = {
-                action: state.__generator.__action,
+                action: state.__generator.action,
                 name: state.__generator.__popup.name,
                 paragraph: state.__generator.__popup.paragraph,
                 placeholder: state.__generator.__popup.placeholder,
-                options: (state.__generator.__action === 'dropdown') ? state.__generator.__popup.options : false,
+                options: (state.__generator.action === 'dropdown') ? state.__generator.__popup.options : false,
             };
             state.__generator.__meta.__custom.push(_Constructor);
         },
