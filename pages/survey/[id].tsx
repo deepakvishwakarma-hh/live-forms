@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import database from "../../firebase.config"
-import { Survey } from "../../src/elements";
+import { Survey } from "../../src/comps";
 import { ref, get, child } from "firebase/database";
 
 export default function SurveyPage({ data }: any) {

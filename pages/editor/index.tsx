@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import useSave from "../../src/hooks/useAutoSave";
-import { Boundry as Security, Editor } from "../../src/elements"
+import { Boundry as Security, Editor } from "../../src/comps"
 
 const Index = () => {
     const autoSave = useSave();
