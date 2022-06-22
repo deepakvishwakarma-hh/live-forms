@@ -8,11 +8,11 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import database from "../../firebase.config";
 import { ref, onValue } from "firebase/database";
-import { Boundry } from "../../components/elements";
+import { Boundry } from "../../src/elements";
 
 // performance optimization testing...
 const DynamicImportedMain = dynamic(
-    () => import('../../components/elements/dashboard'),
+    () => import('../../src/elements/dashboard'),
     { loading: () => <p>.</p> }
 )
 

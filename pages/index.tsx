@@ -1,10 +1,7 @@
 import Head from "next/head"
 import { Container } from "@chakra-ui/react"
-import * as Elements from "../components/elements"
-
+import * as Elements from "../src/elements"
 const Home = () => {
-
-
   return (
     <>
       <Head>

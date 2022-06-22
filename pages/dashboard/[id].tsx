@@ -1,14 +1,10 @@
-// Everyting Flex 
-
+import Router from "next/router";
 import { useRouter } from "next/router"
 import { useEffect, useState } from 'react'
 import database from "../../firebase.config";
 import { ref, onValue, } from "firebase/database";
-import { Loader } from "../../components/elements";
-import { Boundry } from "../../components/elements";
-import { Analyser } from "../../components/elements";
+import { Loader, Boundry, Analyser } from "../../src/elements";
 import { Flex, Container, Text, Button } from "@chakra-ui/react";
-import Router from "next/router";
 
 export default function Index() {
 

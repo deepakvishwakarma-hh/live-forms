@@ -1,13 +1,10 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import { Editor } from "../../components/elements";
-import useSave from "../../components/hooks/useAutoSave";
-import Security from "../../components/elements/auth-boundry";
+import useSave from "../../src/hooks/useAutoSave";
+import { Boundry as Security, Editor } from "../../src/elements"
 
 const Index = () => {
-
     const autoSave = useSave();
-
     useEffect(() => {
         autoSave.saveSteps();
     })
