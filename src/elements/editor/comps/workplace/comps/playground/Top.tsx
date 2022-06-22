@@ -10,7 +10,7 @@ const Top = () => {
     const onProduceButtonHandler = () => { produce.Produce() };
     const { title } = Redux.useAppSelector(store => store.__generator.__meta.__header);
     const customArrLength = Redux.useAppSelector(store => store.__generator.__meta.__custom).length
-    const currHeaderBoxCondition = Redux.useAppSelector(store => store.__generator.__headerBox);
+    const currHeaderBoxCondition = Redux.useAppSelector(store => store.__generator.headerBox);
     const onTitleClickHandler = () => { dispatch(Redux.toggleHeaderBox(!currHeaderBoxCondition)) }
     const onResetClickHandler = () => {
         if (localStorage !== undefined) {

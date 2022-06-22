@@ -7,7 +7,7 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 const initialState: initial = {
     __generator: {
         action: undefined,
-        __headerBox: false,
+        headerBox: false,
         __popup: {
             name: '',
             paragraph: '',
@@ -108,7 +108,7 @@ const slice = createSlice({
             state.alearts[key] = value;
         },
         toggleHeaderBox: (state, action) => {
-            state.__generator.__headerBox = action.payload;
+            state.__generator.headerBox = action.payload;
         }
     }
 });

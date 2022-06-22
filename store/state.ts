@@ -1,7 +1,7 @@
 export default interface initialState {
     __generator: {
         action: "input" | 'dropdown' | "textarea" | undefined;
-        __headerBox: boolean;
+        headerBox: boolean;
         __popup: {
             name: string,
             paragraph: string,

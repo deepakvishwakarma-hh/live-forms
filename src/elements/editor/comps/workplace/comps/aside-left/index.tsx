@@ -10,7 +10,7 @@ const AsideLeft = () => {
 
     const buttonArr = ['input', 'textarea', 'dropdown'];
     const action = Redux.useAppSelector(store => store.__generator.action)
-    const headerBox = Redux.useAppSelector(store => store.__generator.__headerBox)
+    const headerBox = Redux.useAppSelector(store => store.__generator.headerBox)
     const popupConditionallyShow = (action !== undefined) ? true : false;
     const isProductionObstacle = Redux.useAppSelector(store => store.alearts.formCreated)
     const actionButtonMaps = buttonArr.map((item: string, index: number) => <ActionButton key={index} text={item} />)
