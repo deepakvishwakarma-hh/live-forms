@@ -1,6 +1,6 @@
 import * as Chakra from "@chakra-ui/react"
 import Transformer from "../../../../../transformer"
-import { useAppSelector } from "../../../../../../../state-store"
+import { useAppSelector } from "../../../../../../../store"
 import Top from "./Top"
 
 const Playground = () => {

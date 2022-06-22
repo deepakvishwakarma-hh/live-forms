@@ -8,7 +8,7 @@ import { useRouter } from "next/router"
 import Constructor from "./constructor"
 import { Box, Button } from '@chakra-ui/react'
 import useGenerate from "../../hooks/useGenerate"
-import { useAppSelector } from "../../../state-store"
+import { useAppSelector } from "../../../store"
 
 const Transformer = ({ children, live }: prop) => {
     const gen = useGenerate()

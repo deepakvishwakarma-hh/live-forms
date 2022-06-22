@@ -1,4 +1,4 @@
-import { useAppSelector, fetchWithAutoSave, useAppDispatch } from "../../state-store"
+import { useAppSelector, fetchWithAutoSave, useAppDispatch } from "../../store"
 
 const useSave = () => {
 

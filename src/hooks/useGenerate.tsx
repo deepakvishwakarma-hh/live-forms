@@ -2,7 +2,7 @@
 import jwt from 'jsonwebtoken'
 import Router from 'next/router';
 import database from "../../firebase.config";
-import { useAppSelector, useAppDispatch, alerts } from "../../state-store";
+import { useAppSelector, useAppDispatch, alerts } from "../../store";
 import { ref, set, onValue, update, get, child } from "firebase/database";
 
 const useGenerate = () => {

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import * as Redux from "../../state-store"
+import * as Redux from "../../store"
 import database from "../../firebase.config"
 import * as firebaseDB from "firebase/database"
 

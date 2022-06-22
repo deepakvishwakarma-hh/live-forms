@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { motion } from 'framer-motion'
 import * as Chakra from "@chakra-ui/react"
-import * as Redux from "../../../../../../../../state-store"
+import * as Redux from "../../../../../../../../store"
 
 const ActionButton = ({ text }: { text: string }) => {
 

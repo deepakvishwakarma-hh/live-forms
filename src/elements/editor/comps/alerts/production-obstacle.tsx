@@ -1,5 +1,5 @@
 import * as Chakra from "@chakra-ui/react"
-import * as Redux from "../../../../../state-store"
+import * as Redux from "../../../../../store"
 import { CloseButton } from "@chakra-ui/close-button"
 
 const ProdcutionObstacle = () => {

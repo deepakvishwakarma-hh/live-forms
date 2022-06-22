@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import Router from "next/router";
 import * as Chakra from "@chakra-ui/react"
-import * as Redux from "../../../../../../../state-store"
+import * as Redux from "../../../../../../../store"
 import useProduce from "../../../../../../hooks/useProduce";
 
 const Top = () => {

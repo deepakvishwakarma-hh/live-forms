@@ -8,7 +8,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { Delete } from "../../../../../../../buttons"
 import { Box, Flex, Text } from "@chakra-ui/react"
-import { deleteFromMeta, useAppDispatch } from "../../../../../../../../../state-store"
+import { deleteFromMeta, useAppDispatch } from "../../../../../../../../../store"
 const Element = ({ data, index }: prop) => {
 
     const dispatch = useAppDispatch()

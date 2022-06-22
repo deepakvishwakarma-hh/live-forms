@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Add, Delete } from '../../../../../buttons';
-import * as Redux from "../../../../../../../state-store"
+import * as Redux from "../../../../../../../store"
 import { Flex, Box, Input, Button, Text } from "@chakra-ui/react";
 
 const DropboxOpt = () => {

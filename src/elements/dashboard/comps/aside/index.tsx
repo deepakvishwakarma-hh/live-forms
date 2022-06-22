@@ -1,6 +1,6 @@
 import * as Chakra from "@chakra-ui/react";
 import useDashboard from "../../../../hooks/useDashboard";
-import { useAppSelector } from "../../../../../state-store";
+import { useAppSelector } from "../../../../../store";
 
 const Aside = () => {
 

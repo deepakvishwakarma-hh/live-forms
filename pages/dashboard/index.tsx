@@ -2,7 +2,7 @@ import {
     setUser,
     useAppSelector,
     useAppDispatch,
-} from "../../state-store";
+} from "../../store";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";

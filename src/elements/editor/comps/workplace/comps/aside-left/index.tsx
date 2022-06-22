@@ -3,7 +3,7 @@ import ActionButton from "./comps/ActionButton"
 import { AnimatePresence } from "framer-motion";
 import Popup from "../../../popups/action-popup"
 import HeaderPopup from "../../../popups/header-popup"
-import * as Redux from "../../../../../../../state-store";
+import * as Redux from "../../../../../../../store";
 import ProductionObstacleAleart from "../../../alerts/production-obstacle";
 
 const AsideLeft = () => {

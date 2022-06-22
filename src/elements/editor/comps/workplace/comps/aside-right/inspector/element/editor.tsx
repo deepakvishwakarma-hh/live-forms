@@ -6,7 +6,7 @@ import {
     editFromMeta,
     useAppDispatch,
     useAppSelector
-} from "../../../../../../../../../state-store"
+} from "../../../../../../../../../store"
 import Options from "./options"
 import { useState, useEffect } from "react"
 import { Input, Flex, Text } from "@chakra-ui/react"

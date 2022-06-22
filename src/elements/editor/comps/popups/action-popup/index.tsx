@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import * as Chakra from "@chakra-ui/react"
 import DropboxOpt from "./popup-dropdown";
-import * as Redux from "../../../../../../state-store";
+import * as Redux from "../../../../../../store";
 
 
 const Popup = () => {
