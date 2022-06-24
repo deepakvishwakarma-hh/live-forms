@@ -26,12 +26,10 @@ const Index = () => <Box>
         </Flex>
     </Flex>
     <Center h="500px">
-        <Flex flexDir={'column'} justifyContent={'center'}>
+        <Flex maxW="700px" flexDir={'column'} justifyContent={'center'}>
             <Text textAlign={'center'} fontSize={13} color="gray">Open source web tool for everyone </Text>
             <Text textAlign={'center'} my={8} fontSize={40} fontWeight={1000}> Powerfull &  Free Tool for <br /> Develop , Deploy , Analyse <Text display="inline">Forms</Text>.</Text>
-
-            <Text maxWidth="600px" w="600px" textAlign={'center'} fontSize={13} color="gray">The platform enables users to manage and analyse their form and form-database with greater transparency in a permissionless environment with a simplified and straightforward interface. Free for all  makes it possible for everyday people to survey in a familiar environment but with decentralization at its core.</Text>
-
+            <Text textAlign={'center'} fontSize={13} color="gray">The platform enables users to manage and analyse their form and form-database with greater transparency in a permissionless environment with a simplified and straightforward interface. Free for all  makes it possible for everyday people to survey in a familiar environment but with decentralization at its core.</Text>
             <Flex justifyContent={'center'} mt={5}>
                 <Button onClick={LaunchApp} px={10} mr={1} fontSize={13} borderRadius={20} bg="black" color="white" fontWeight={500} border={'2px transparent solid'} _hover={fillVarientHover}>Launch app →</Button>
                 <Button onClick={contribute} fontSize={13} ml={1} px={10} borderRadius={20} bg="white" color="black" border={'2px black solid'} fontWeight={500} _hover={outlineVarientHover} >Contribute</Button>
