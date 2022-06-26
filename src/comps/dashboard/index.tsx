@@ -12,7 +12,7 @@ const Dashboard = ({ userCreatedSurveyIds, response }: prop) => {
     const mainPayload = { userCreatedSurveyIds, response }
 
     return (
-        <Grid gridTemplate={'100vh / 100px auto'}>
+        <Grid gridTemplate={'100vh / 250px auto'}>
             <Aside />
             <Main {...mainPayload} />
         </Grid>

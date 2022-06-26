@@ -6,8 +6,8 @@ import { googleAuth, provider } from "../../firebase.config"
 const useAuth = () => {
 
     const localisation = (data: any) => {
-        const { displayName, email } = data.user;
-        const payload = JSON.stringify({ displayName, email })
+        const { displayName, email, photoURL } = data.user;
+        const payload = JSON.stringify({ displayName, email, photoURL })
         const enc = jwt.sign(payload, 'lorme');
         localStorage.setItem("token", enc)
     }
@@ -29,7 +29,6 @@ const useAuth = () => {
             Router.push('/dashboard')
         }
     }
-
 
     return { googleAuth: autheticateWithGoogle, loginOnHomePage }
 }

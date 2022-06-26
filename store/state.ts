@@ -21,6 +21,7 @@ export default interface initialState {
     user: {
         displayName: string | undefined;
         email: string | undefined;
+        photoURL: string | undefined;
     },
     dashboard: {
         formsArray: string[],

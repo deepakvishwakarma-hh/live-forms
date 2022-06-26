@@ -27,7 +27,8 @@ const initialState: initial = {
     T: false,// True if Meta option delete by editor -FF
     user: {
         displayName: undefined,
-        email: undefined
+        email: undefined,
+        photoURL: undefined,
     },
     dashboard: {
         formsArray: [],
