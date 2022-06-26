@@ -27,7 +27,7 @@ const Home = () => <>
         <rect x="22" y="14" width="56" height="7" rx="3.5" fill="black" />
         <rect x="22.5" y="25.5" width="55" height="6" rx="3" fill="transparent" stroke="black" />
       </svg>
-      <Flex display={['none', 'flex']}>
+      <Flex >
         <Button onClick={LaunchApp} px={[5, 10]} fontSize={13} borderRadius={20} bg="black" color="white" fontWeight={500} border='2px transparent solid' _hover={fillVarientHover}>Launch app →</Button>
       </Flex>
     </Flex>
