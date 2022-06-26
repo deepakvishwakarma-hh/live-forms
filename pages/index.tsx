@@ -1,10 +1,8 @@
 import Head from "next/head"
 import Image from "next/image"
 import Router from "next/router"
-import HireDeveloperButton from "../src/micros/HireDeveloperButton"
 import { useWindowScrollPositions } from "../src/hooks/useWindowPositions"
 import { Container, Flex, Text, Box, Heading, Center, Button } from "@chakra-ui/react"
-
 const fillVarientHover = { border: '2px black solid', bg: "white", color: "black", transition: ' all 1s', }
 const outlineVarientHover = { border: '2px transparent solid', bg: "black", color: "white", transition: ' all 1s', }
 
@@ -43,17 +41,6 @@ const Home = () => <>
         </Flex>
       </Flex>
     </Center>
-
-
-
-
-
-
-
-
-
-
-
 
     <Box pt={50} >
       <FeatureSection topic="Realtime Surveys" paragraph="As soon as the survey is completed, you can view responses and generate reports in real-time. The dashboard offers an overview of the survey's performance and enables you to make decisions quickly. Some of the real-time insights you can get from a dashboard report are response distribution, graphs, charts and survey completion rate." url="/realtime.svg" />
