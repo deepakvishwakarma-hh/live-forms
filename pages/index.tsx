@@ -36,7 +36,7 @@ const Home = () => <>
         <Text textAlign={'center'} my={8} fontSize={[30, 40, 40, 40]} fontWeight={1000}> Powerfull &  Free Tool for <wbr /> Develop , Deploy , Analyse  Forms.</Text>
         <Text textAlign={'center'} fontSize={13} color="gray">The platform enables users to manage and analyse their form and form-database with greater transparency in a permissionless environment with a simplified and straightforward interface. Free for all  makes it possible for everyday people to survey in a familiar environment but with decentralization at its core.</Text>
         <Flex flexDir={['column', 'row']} px={[10, 0]} justifyContent={'center'} mt={5}>
-          <Button onClick={LaunchApp} px={10} mr={[0, 1]} mb={[2, 0]} fontSize={13} borderRadius={20} bg="black" color="white" fontWeight={500} border={'2px transparent solid'} _hover={fillVarientHover}>Launch app →</Button>
+          <Button tabIndex={0} onClick={LaunchApp} px={10} mr={[0, 1]} mb={[2, 0]} fontSize={13} borderRadius={20} bg="black" color="white" fontWeight={500} border={'2px transparent solid'} _hover={fillVarientHover}>Launch app →</Button>
           <Button onClick={contribute} fontSize={13} ml={[0, 1]} px={10} borderRadius={20} bg="white" color="black" border={'2px black solid'} fontWeight={500} _hover={outlineVarientHover} >Contribute</Button>
         </Flex>
       </Flex>
