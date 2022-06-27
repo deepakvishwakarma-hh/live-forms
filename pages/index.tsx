@@ -31,7 +31,7 @@ const Home = () => <>
     </Flex>
 
     <Center h="500px">
-      <Flex p={[2, 0]} maxW={["400px", "600px", "700px", "700px"]} flexDir={'column'} justifyContent={'center'}>
+      <Flex p={[2, 0]} mt={10} maxW={["400px", "600px", "700px", "700px"]} flexDir={'column'} justifyContent={'center'}>
         <Text textAlign={'center'} fontSize={13} color="gray">Open source web tool for everyone </Text>
         <Text textAlign={'center'} my={8} fontSize={[30, 40, 40, 40]} fontWeight={1000}> Powerfull &  Free Tool for <wbr /> Develop , Deploy , Analyse  Forms.</Text>
         <Text textAlign={'center'} fontSize={13} color="gray">The platform enables users to manage and analyse their form and form-database with greater transparency in a permissionless environment with a simplified and straightforward interface. Free for all  makes it possible for everyday people to survey in a familiar environment but with decentralization at its core.</Text>
@@ -67,7 +67,7 @@ const Home = () => <>
 export default Home
 
 const FeatureSection = ({ topic, paragraph, url }: any) =>
-  <Flex flexDir={['column', 'column', 'row', 'row']} alignItems={'center'} my={10} h={'20rem'}>
+  <Flex flexDir={['column', 'column', 'row', 'row']} alignItems={'center'} my={['5rem', '3rem']} h={'20rem'}>
     <Center flex={1} display={['none', 'none', 'block', 'block']}>
       <Image width={300} height={300} alt="img" src={url} />
     </Center>
