@@ -19,7 +19,7 @@ const Aside = () => {
                     <Chakra.Text p={2} fontWeight={400} fontSize={13} color="gray">
                         Liveforms Editor, Survey designer
                     </Chakra.Text>
-                    <Chakra.Button bg="#2CBFED" color="white" py={4} w="90%" mb={2} size="xs" > → </Chakra.Button>
+                    <Chakra.Button bg="#2CBFED" color="white" py={4} w="90%" mb={2} size="xs" > Create Survey → </Chakra.Button>
                 </Chakra.Center>
 
                 <Chakra.Center onClick={() => Router.push('https://github.com/deepakvishwakarma-hh/live-forms')} overflow={'hidden'} flexDir={'column'} mb={5} boxShadow="md" bg="white" w="100%" borderRadius={5}>
@@ -28,7 +28,7 @@ const Aside = () => {
                     <Chakra.Text p={2} fontWeight={400} fontSize={13} color="gray">
                         Liveforms Open-source, Github redirect
                     </Chakra.Text>
-                    <Chakra.Button bg="#FD9B00" color="white" py={4} w="90%" mb={2} size="xs" > → </Chakra.Button>
+                    <Chakra.Button bg="#FD9B00" color="white" py={4} w="90%" mb={2} size="xs" >Contribute → </Chakra.Button>
                 </Chakra.Center>
 
             </Chakra.Flex >
